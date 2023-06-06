@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D17976E2A2F5382008A9205 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D17976D2A2F5382008A9205 /* AppDelegate.swift */; };
 		5D1797702A2F5382008A9205 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D17976F2A2F5382008A9205 /* SceneDelegate.swift */; };
-		5D1797722A2F5382008A9205 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797712A2F5382008A9205 /* ViewController.swift */; };
+		5D1797722A2F5382008A9205 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797712A2F5382008A9205 /* SplashViewController.swift */; };
 		5D1797752A2F5382008A9205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D1797732A2F5382008A9205 /* Main.storyboard */; };
 		5D1797782A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797762A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld */; };
 		5D17977A2A2F5382008A9205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D1797792A2F5382008A9205 /* Assets.xcassets */; };
@@ -19,6 +19,10 @@
 		5D1797942A2F5383008A9205 /* NoyanC_HW4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797932A2F5383008A9205 /* NoyanC_HW4UITestsLaunchTests.swift */; };
 		5D1B5E1B2A2F5626001ED2B3 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1B5E1A2A2F5626001ED2B3 /* Extensions */; };
 		5D1B5E1D2A2F562C001ED2B3 /* SongAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1B5E1C2A2F562C001ED2B3 /* SongAPI */; };
+		5D3ACED62A2F5AA0006779B8 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ACED52A2F5AA0006779B8 /* SplashInteractor.swift */; };
+		5D3ACED82A2F5AA9006779B8 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ACED72A2F5AA9006779B8 /* SplashPresenter.swift */; };
+		5D3ACEDA2A2F5AC4006779B8 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ACED92A2F5AC4006779B8 /* SplashRouter.swift */; };
+		5D3ACEDD2A2F5C31006779B8 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 5D3ACEDC2A2F5C31006779B8 /* Reachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +46,7 @@
 		5D17976A2A2F5382008A9205 /* NoyanC_HW4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoyanC_HW4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D17976D2A2F5382008A9205 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D17976F2A2F5382008A9205 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5D1797712A2F5382008A9205 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5D1797712A2F5382008A9205 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		5D1797742A2F5382008A9205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D1797772A2F5382008A9205 /* NoyanC_HW4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoyanC_HW4.xcdatamodel; sourceTree = "<group>"; };
 		5D1797792A2F5382008A9205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +59,10 @@
 		5D1797932A2F5383008A9205 /* NoyanC_HW4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoyanC_HW4UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5D1B5E172A2F5483001ED2B3 /* SongAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SongAPI; sourceTree = "<group>"; };
 		5D1B5E182A2F55E7001ED2B3 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Extensions; sourceTree = "<group>"; };
+		5D3ACED52A2F5AA0006779B8 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
+		5D3ACED72A2F5AA9006779B8 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		5D3ACED92A2F5AC4006779B8 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
+		5D3ACEDB2A2F5B9D006779B8 /* Reachability */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Reachability; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D1B5E1D2A2F562C001ED2B3 /* SongAPI in Frameworks */,
+				5D3ACEDD2A2F5C31006779B8 /* Reachability in Frameworks */,
 				5D1B5E1B2A2F5626001ED2B3 /* Extensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +96,7 @@
 		5D1797612A2F5382008A9205 = {
 			isa = PBXGroup;
 			children = (
+				5D3ACEDB2A2F5B9D006779B8 /* Reachability */,
 				5D1B5E182A2F55E7001ED2B3 /* Extensions */,
 				5D1B5E172A2F5483001ED2B3 /* SongAPI */,
 				5D17976C2A2F5382008A9205 /* NoyanC_HW4 */,
@@ -110,12 +120,10 @@
 		5D17976C2A2F5382008A9205 /* NoyanC_HW4 */ = {
 			isa = PBXGroup;
 			children = (
-				5D17976D2A2F5382008A9205 /* AppDelegate.swift */,
-				5D17976F2A2F5382008A9205 /* SceneDelegate.swift */,
-				5D1797712A2F5382008A9205 /* ViewController.swift */,
+				5D3ACECF2A2F5815006779B8 /* App */,
+				5D3ACED02A2F5821006779B8 /* Resources */,
+				5D3ACED12A2F5830006779B8 /* Module */,
 				5D1797732A2F5382008A9205 /* Main.storyboard */,
-				5D1797792A2F5382008A9205 /* Assets.xcassets */,
-				5D17977B2A2F5382008A9205 /* LaunchScreen.storyboard */,
 				5D17977E2A2F5382008A9205 /* Info.plist */,
 				5D1797762A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld */,
 			);
@@ -146,6 +154,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D3ACECF2A2F5815006779B8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5D17976D2A2F5382008A9205 /* AppDelegate.swift */,
+				5D17976F2A2F5382008A9205 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5D3ACED02A2F5821006779B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D1797792A2F5382008A9205 /* Assets.xcassets */,
+				5D17977B2A2F5382008A9205 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5D3ACED12A2F5830006779B8 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				5D3ACED22A2F5839006779B8 /* Splash */,
+				5D3ACED32A2F584E006779B8 /* Home */,
+				5D3ACED42A2F5854006779B8 /* Search */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		5D3ACED22A2F5839006779B8 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				5D1797712A2F5382008A9205 /* SplashViewController.swift */,
+				5D3ACED52A2F5AA0006779B8 /* SplashInteractor.swift */,
+				5D3ACED72A2F5AA9006779B8 /* SplashPresenter.swift */,
+				5D3ACED92A2F5AC4006779B8 /* SplashRouter.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		5D3ACED32A2F584E006779B8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5D3ACED42A2F5854006779B8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,6 +226,7 @@
 			packageProductDependencies = (
 				5D1B5E1A2A2F5626001ED2B3 /* Extensions */,
 				5D1B5E1C2A2F562C001ED2B3 /* SongAPI */,
+				5D3ACEDC2A2F5C31006779B8 /* Reachability */,
 			);
 			productName = NoyanC_HW4;
 			productReference = 5D17976A2A2F5382008A9205 /* NoyanC_HW4.app */;
@@ -281,10 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D1797722A2F5382008A9205 /* ViewController.swift in Sources */,
+				5D1797722A2F5382008A9205 /* SplashViewController.swift in Sources */,
 				5D1797782A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld in Sources */,
+				5D3ACEDA2A2F5AC4006779B8 /* SplashRouter.swift in Sources */,
+				5D3ACED62A2F5AA0006779B8 /* SplashInteractor.swift in Sources */,
 				5D17976E2A2F5382008A9205 /* AppDelegate.swift in Sources */,
 				5D1797702A2F5382008A9205 /* SceneDelegate.swift in Sources */,
+				5D3ACED82A2F5AA9006779B8 /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +700,10 @@
 		5D1B5E1C2A2F562C001ED2B3 /* SongAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SongAPI;
+		};
+		5D3ACEDC2A2F5C31006779B8 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */
 
