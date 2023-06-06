@@ -17,6 +17,8 @@
 		5D1797882A2F5383008A9205 /* NoyanC_HW4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797872A2F5383008A9205 /* NoyanC_HW4Tests.swift */; };
 		5D1797922A2F5383008A9205 /* NoyanC_HW4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797912A2F5383008A9205 /* NoyanC_HW4UITests.swift */; };
 		5D1797942A2F5383008A9205 /* NoyanC_HW4UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797932A2F5383008A9205 /* NoyanC_HW4UITestsLaunchTests.swift */; };
+		5D1B5E1B2A2F5626001ED2B3 /* Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1B5E1A2A2F5626001ED2B3 /* Extensions */; };
+		5D1B5E1D2A2F562C001ED2B3 /* SongAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1B5E1C2A2F562C001ED2B3 /* SongAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		5D1797912A2F5383008A9205 /* NoyanC_HW4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoyanC_HW4UITests.swift; sourceTree = "<group>"; };
 		5D1797932A2F5383008A9205 /* NoyanC_HW4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoyanC_HW4UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5D1B5E172A2F5483001ED2B3 /* SongAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SongAPI; sourceTree = "<group>"; };
+		5D1B5E182A2F55E7001ED2B3 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D1B5E1D2A2F562C001ED2B3 /* SongAPI in Frameworks */,
+				5D1B5E1B2A2F5626001ED2B3 /* Extensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,11 +87,13 @@
 		5D1797612A2F5382008A9205 = {
 			isa = PBXGroup;
 			children = (
+				5D1B5E182A2F55E7001ED2B3 /* Extensions */,
 				5D1B5E172A2F5483001ED2B3 /* SongAPI */,
 				5D17976C2A2F5382008A9205 /* NoyanC_HW4 */,
 				5D1797862A2F5383008A9205 /* NoyanC_HW4Tests */,
 				5D1797902A2F5383008A9205 /* NoyanC_HW4UITests */,
 				5D17976B2A2F5382008A9205 /* Products */,
+				5D1B5E192A2F5626001ED2B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +139,13 @@
 			path = NoyanC_HW4UITests;
 			sourceTree = "<group>";
 		};
+		5D1B5E192A2F5626001ED2B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +162,10 @@
 			dependencies = (
 			);
 			name = NoyanC_HW4;
+			packageProductDependencies = (
+				5D1B5E1A2A2F5626001ED2B3 /* Extensions */,
+				5D1B5E1C2A2F562C001ED2B3 /* SongAPI */,
+			);
 			productName = NoyanC_HW4;
 			productReference = 5D17976A2A2F5382008A9205 /* NoyanC_HW4.app */;
 			productType = "com.apple.product-type.application";
@@ -608,6 +626,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D1B5E1A2A2F5626001ED2B3 /* Extensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Extensions;
+		};
+		5D1B5E1C2A2F562C001ED2B3 /* SongAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SongAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5D1797762A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld */ = {
