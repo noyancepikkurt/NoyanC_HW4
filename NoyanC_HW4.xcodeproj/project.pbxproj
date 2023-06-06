@@ -51,6 +51,7 @@
 		5D17978D2A2F5383008A9205 /* NoyanC_HW4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoyanC_HW4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1797912A2F5383008A9205 /* NoyanC_HW4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoyanC_HW4UITests.swift; sourceTree = "<group>"; };
 		5D1797932A2F5383008A9205 /* NoyanC_HW4UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoyanC_HW4UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5D1B5E172A2F5483001ED2B3 /* SongAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SongAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,7 @@
 		5D1797612A2F5382008A9205 = {
 			isa = PBXGroup;
 			children = (
+				5D1B5E172A2F5483001ED2B3 /* SongAPI */,
 				5D17976C2A2F5382008A9205 /* NoyanC_HW4 */,
 				5D1797862A2F5383008A9205 /* NoyanC_HW4Tests */,
 				5D1797902A2F5383008A9205 /* NoyanC_HW4UITests */,
