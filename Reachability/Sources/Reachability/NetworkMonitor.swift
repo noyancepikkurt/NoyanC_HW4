@@ -9,15 +9,15 @@ import Foundation
 import Network
 
 @available(iOS 12.0, *)
-final class NetworkMonitor {
-    static let shared = NetworkMonitor()
+public class NetworkMonitor {
+    public static let shared = NetworkMonitor()
     
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
-    public private(set) var isConnected: Bool = false
-    public private(set) var connectionType: ConnectionType = .unknown
+    public var isConnected: Bool = false
+    public var connectionType: ConnectionType = .unknown
     
-    enum ConnectionType {
+    public enum ConnectionType {
         case wifi
         case cellular
         case ethernet

@@ -6,11 +6,29 @@
 //
 
 import Foundation
+import Reachability
+import Extensions
 
-protocol SplashInteractor {
-    
+
+protocol SplashInteractorProtocol {
+    func checkInternetConnection()
 }
 
-protocol SplashInteractorOutput {
-    
+protocol SplashInteractorOutputProtocol {
+    func internetConnection(status: Bool)
 }
+
+final class SplashInteractor {
+    var output: SplashInteractorOutputProtocol?
+}
+
+extension SplashInteractor: SplashInteractorProtocol {
+    
+    func checkInternetConnection() {
+        let internetStatus = NetworkMonitor.shared.isConnected
+        self.output?.internetConnection(status: internetStatus)
+    }
+   
+}
+
+

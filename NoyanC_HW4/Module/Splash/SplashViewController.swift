@@ -6,16 +6,30 @@
 //
 
 import UIKit
+import Extensions
 
-protocol SplashViewControllerProtocol {
-    
+protocol SplashViewControllerProtocol: AnyObject {
+    func noInternetConnection()
 }
 
 final class SplashViewController: UIViewController {
 
+    var presenter: SplashPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presenter.viewDidAppear()
     }
 }
+
+extension SplashViewController: SplashViewControllerProtocol {
+    
+    func noInternetConnection() {
+        UIAlertController.alertMessage(title: "Test", message: "Error", vc: self)
+    }
+}
+
 

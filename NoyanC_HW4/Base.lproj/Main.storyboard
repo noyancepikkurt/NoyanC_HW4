@@ -8,23 +8,138 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Splash View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewController" id="BYZ-38-t0r" customClass="SplashViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZD2-0V-BOf">
+                                <rect key="frame" x="175.66666666666666" y="415.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZD2-0V-BOf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZdH-SC-Jdq"/>
+                            <constraint firstItem="ZD2-0V-BOf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pSn-99-kwm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="4"/>
+            <point key="canvasLocation" x="137" y="23"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="4UA-TA-WZW">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="XJ8-41-wvm" customClass="SearchViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gAW-6s-dFL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mju-2L-5qc" customClass="CustomTextField" customModule="NoyanC_HW4" customModuleProvider="target">
+                                <rect key="frame" x="16" y="102" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="w5S-Bg-q8P">
+                                <rect key="frame" x="16" y="159" width="361" height="596"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3be-W9-2FE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mju-2L-5qc" firstAttribute="leading" secondItem="gAW-6s-dFL" secondAttribute="leadingMargin" id="5n2-3B-7eM"/>
+                            <constraint firstItem="mju-2L-5qc" firstAttribute="leading" secondItem="w5S-Bg-q8P" secondAttribute="leading" id="NDg-FC-AtP"/>
+                            <constraint firstItem="mju-2L-5qc" firstAttribute="trailing" secondItem="gAW-6s-dFL" secondAttribute="trailingMargin" id="OCN-FT-LQT"/>
+                            <constraint firstItem="3be-W9-2FE" firstAttribute="bottom" secondItem="w5S-Bg-q8P" secondAttribute="bottom" constant="14" id="OQm-S1-2nM"/>
+                            <constraint firstItem="mju-2L-5qc" firstAttribute="top" secondItem="3be-W9-2FE" secondAttribute="top" constant="43" id="PGN-fQ-IY8"/>
+                            <constraint firstItem="w5S-Bg-q8P" firstAttribute="top" secondItem="mju-2L-5qc" secondAttribute="bottom" constant="23" id="oIh-bW-t9p"/>
+                            <constraint firstItem="mju-2L-5qc" firstAttribute="trailing" secondItem="w5S-Bg-q8P" secondAttribute="trailing" id="x9V-ys-6lc"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="e2o-lm-MxQ"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="mju-2L-5qc" id="HFG-9o-2lb"/>
+                        <outlet property="tableView" destination="w5S-Bg-q8P" id="Apa-MG-F8o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlP-zI-glq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864.885496183206" y="383.80281690140845"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="mXS-ib-Qi5">
+            <objects>
+                <viewController id="1Ux-Wa-FO6" customClass="DetailViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dLq-hG-LDu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="let-6P-UqN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CoL-oR-V4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2818" y="-357"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="QgP-fR-VCc">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Zmx-IT-oIL" customClass="HomeViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h2M-Ca-Adz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dG-xe-7x8">
+                                <rect key="frame" x="175" y="368" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QeV-H9-pXx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" selected="YES"/>
+                        </accessibility>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="music.note.house" catalog="system" id="FQm-IW-O3T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odA-VG-VHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="-357"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="nQq-yV-sH5">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" id="FYr-Oo-8Sp" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DRv-dD-Bcw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Zmx-IT-oIL" kind="relationship" relationship="viewControllers" id="sJh-zt-S2r"/>
+                        <segue destination="XJ8-41-wvm" kind="relationship" relationship="viewControllers" id="fSH-6q-UNF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jk8-4N-56r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="23"/>
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="music.note.house" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
