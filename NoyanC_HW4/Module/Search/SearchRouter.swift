@@ -21,13 +21,12 @@ final class SearchRouter {
     weak var viewController: SearchViewController?
     
     static func createModule() -> SearchViewController {
-        let view = SearchViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let view = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         let interactor = SearchInteractor()
         let router = SearchRouter()
         let presenter = SearchPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
-        presenter.viewDidLoad() // presenter'ın viewDidLoad() fonksiyonunu çağırın
-        view.presenter = presenter // presenter'ı view'e atayın
         interactor.output = presenter
         router.viewController = view
         return view
@@ -39,10 +38,9 @@ extension SearchRouter: SearchRouterProtocol {
     func navigate(_ route: SearchRoutes) {
         switch route {
         case .detail(let source):
-            
-            //            let detailVC = DetailRouter.createModule()
-            //            detailVC.source = source
-            viewController?.navigationController?.pushViewController(DetailViewController(), animated: true)
+            let detailVC = DetailRouter.createModule()
+            detailVC.source = source
+            viewController?.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
 }

@@ -78,17 +78,79 @@
         <!--Detail View Controller-->
         <scene sceneID="mXS-ib-Qi5">
             <objects>
-                <viewController id="1Ux-Wa-FO6" customClass="DetailViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="1Ux-Wa-FO6" customClass="DetailViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dLq-hG-LDu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="GIj-uW-oLL">
+                                <rect key="frame" x="71" y="109" width="251" height="650.66666666666663"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V1h-Ov-66Y">
+                                        <rect key="frame" x="0.6666666666666714" y="0.0" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="2mr-SQ-hpH"/>
+                                            <constraint firstAttribute="width" constant="250" id="oH1-6g-TIJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="Dvr-sW-Wao">
+                                        <rect key="frame" x="67.333333333333343" y="285" width="116.33333333333334" height="365.66666666666674"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsX-ko-1bk">
+                                                <rect key="frame" x="0.0" y="0.0" width="116.33333333333333" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="şarkıcı ismi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqj-WQ-9vj">
+                                                <rect key="frame" x="0.0" y="86.333333333333314" width="116.33333333333333" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tür" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEi-NQ-K8h">
+                                                <rect key="frame" x="0.0" y="172.66666666666663" width="116.33333333333333" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEs-qZ-tPt">
+                                                <rect key="frame" x="0.0" y="259" width="116.33333333333333" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="collection price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBx-kk-wF5">
+                                                <rect key="frame" x="0.0" y="345.33333333333337" width="116.33333333333333" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="let-6P-UqN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GIj-uW-oLL" firstAttribute="leading" secondItem="let-6P-UqN" secondAttribute="leading" constant="71" id="4xo-Wg-g0z"/>
+                            <constraint firstItem="GIj-uW-oLL" firstAttribute="centerX" secondItem="dLq-hG-LDu" secondAttribute="centerX" id="GeK-FF-7B1"/>
+                            <constraint firstItem="GIj-uW-oLL" firstAttribute="top" secondItem="let-6P-UqN" secondAttribute="top" constant="50" id="gm3-uo-AA8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailArtistNameLabel" destination="Zqj-WQ-9vj" id="lhI-nu-TmV"/>
+                        <outlet property="detailCollectionPriceLabel" destination="DBx-kk-wF5" id="1IZ-G6-fhZ"/>
+                        <outlet property="detailImageView" destination="V1h-Ov-66Y" id="c3N-EM-Bs3"/>
+                        <outlet property="detailKindLabel" destination="AEi-NQ-K8h" id="uVY-cz-8Yy"/>
+                        <outlet property="detailSongNameLabel" destination="MsX-ko-1bk" id="e0t-fu-vIs"/>
+                        <outlet property="detailTrackPriceLabel" destination="kEs-qZ-tPt" id="Fhz-rK-swp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CoL-oR-V4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2818" y="-357"/>
+            <point key="canvasLocation" x="2787" y="384"/>
         </scene>
         <!--Home-->
         <scene sceneID="QgP-fR-VCc">
@@ -128,8 +190,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Zmx-IT-oIL" kind="relationship" relationship="viewControllers" id="sJh-zt-S2r"/>
-                        <segue destination="XJ8-41-wvm" kind="relationship" relationship="viewControllers" id="fSH-6q-UNF"/>
+                        <segue destination="Zmx-IT-oIL" kind="relationship" relationship="viewControllers" id="GHA-Yw-UxC"/>
+                        <segue destination="XJ8-41-wvm" kind="relationship" relationship="viewControllers" id="zrb-cf-a2g"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jk8-4N-56r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

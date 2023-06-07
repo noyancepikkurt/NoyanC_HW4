@@ -11,28 +11,23 @@ import SongAPI
 typealias SongsSourcesResult = Result<SongModel, Error>
 
 protocol SearchInteractorProtocol: AnyObject {
-    func fetchSongs()
+    func fetchSongs(_ word: String)
 }
 
 protocol SearchInteractorOutputProtocol {
     func fetchSongsOutput(_ result: SongsSourcesResult)
 }
 
-fileprivate var songService: NetworkServiceProtocol?
-
 final class SearchInteractor {
     var output: SearchInteractorOutputProtocol?
 }
 
 extension SearchInteractor: SearchInteractorProtocol {
-    
-    func fetchSongs() {
-        songService?.fetchSong(pathUrl: "https://itunes.apple.com/search?term=tarkan&country=tr&entity=song&attribute=mixTerm", completion: { result in
+    func fetchSongs(_ word: String) {
+        NetworkService.shared.fetchSong(pathUrl: "https://itunes.apple.com/search?term=\(word)&country=tr&entity=song&attribute=mixTerm") { result in
             self.output?.fetchSongsOutput(result)
-        })
+        }
     }
-    
-    
 }
 
 

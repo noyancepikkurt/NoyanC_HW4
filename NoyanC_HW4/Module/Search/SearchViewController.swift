@@ -12,8 +12,6 @@ protocol SearchViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
     func showError(_ message: String)
-    func showLoadingView()
-    func hideLoadingView()
     func setTitle(_ title: String)
 }
 
@@ -22,27 +20,39 @@ final class SearchViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var presenter: SearchPresenterProtocol!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        presenter?.viewDidLoad()
+        searchTextField.delegate = self
     }
-    
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellType: SearchTableViewCell.self, indexPath: indexPath)
+        cell.selectionStyle = .none
         
-//        if let news = presenter.songs(indexPath.row) {
-//            cell.cellPresenter = NewsCellPresenter(view: cell, news: news)
-//        }
-        
+        if let songs = presenter.songs(indexPath.row) {
+            cell.cellPresenter = SearchCellPresenter(view: cell, song: songs)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.numberOfItems()
+        return presenter.numberOfItems()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRowAt(index: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
 }
 
@@ -63,7 +73,7 @@ extension SearchViewController: SearchViewControllerProtocol {
     }
     
     func showError(_ message: String) {
-        //ALERT
+        UIAlertController.alertMessage(title: "Error", message: message, vc: self)
     }
     
     func showLoadingView() {
@@ -77,7 +87,10 @@ extension SearchViewController: SearchViewControllerProtocol {
     func setTitle(_ title: String) {
         self.title = title
     }
-    
-    
 }
 
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        presenter.fetchSongsFilter(with: textField.text!)
+    }
+}

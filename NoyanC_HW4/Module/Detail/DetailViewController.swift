@@ -6,24 +6,60 @@
 //
 
 import UIKit
+import SongAPI
 
-class DetailViewController: UIViewController {
+protocol DetailViewControllerProtocol: AnyObject {
+    func setTitle(_ title: String)
+    func setSongTitle(_ text: String)
+    func setSongArtistName(_ text: String)
+    func setSongAlbumName(_ text: String)
+    func setSongImage(_ image: UIImage)
+    func getSource() -> SongDetail?
+}
+
+final class DetailViewController: UIViewController {
+    @IBOutlet var detailImageView: UIImageView!
+    @IBOutlet var detailArtistNameLabel: UILabel!
+    @IBOutlet var detailSongNameLabel: UILabel!
+    @IBOutlet var detailKindLabel: UILabel!
+    @IBOutlet var detailTrackPriceLabel: UILabel!
+    @IBOutlet var detailCollectionPriceLabel: UILabel!
+    
+    var source: SongDetail?
+    var presenter: DetailPresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+}
+
+extension DetailViewController: DetailViewControllerProtocol {
+    func setTitle(_ title: String) {
+        self.title = title
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setSongTitle(_ text: String) {
+        self.detailSongNameLabel.text = text
     }
-    */
-
+    
+    func setSongArtistName(_ text: String) {
+        self.detailArtistNameLabel.text = text
+    }
+    
+    func setSongAlbumName(_ text: String) {
+        self.detailKindLabel.text = text
+    }
+    
+    func setSongImage(_ image: UIImage) {
+        DispatchQueue.main.async {
+            self.detailImageView.image = image
+        }
+    }
+    
+    func getSource() -> SongDetail? {
+        return source
+    }
+    
+    
 }

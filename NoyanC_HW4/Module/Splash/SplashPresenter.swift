@@ -41,7 +41,7 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
         
         if status {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.router.navigate(.homeScreen)
+                self.router.navigate(.tabBar)
             }
         } else {
             view.noInternetConnection()

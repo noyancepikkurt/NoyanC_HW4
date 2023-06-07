@@ -7,33 +7,113 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6B6CBC8-AFFC-42BF-ADB8-B63B33CC53A0"
-            shouldBeEnabled = "Yes"
+            uuid = "A8BEB1CE-7F31-4992-AB27-21C41CA70DF3"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoyanC_HW4/Module/Search/SearchPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "songs(_:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "fetchSongsOutput(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A8BEB1CE-7F31-4992-AB27-21C41CA70DF3 - 96771f4497e50d2f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoyanC_HW4.SearchPresenter.fetchSongsOutput(Swift.Result&lt;SongAPI.SongModel, Swift.Error&gt;) -&gt; ()"
+                  moduleName = "NoyanC_HW4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/noyancepikkurt/Desktop/TurkcellGY/NoyanC_HW4/NoyanC_HW4/Module/Search/SearchPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "584">
+               </Location>
+               <Location
+                  uuid = "A8BEB1CE-7F31-4992-AB27-21C41CA70DF3 - 96771f4497e50d2f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoyanC_HW4.SearchPresenter.fetchSongsOutput(Swift.Result&lt;SongAPI.SongModel, Swift.Error&gt;) -&gt; ()"
+                  moduleName = "NoyanC_HW4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/noyancepikkurt/Desktop/TurkcellGY/NoyanC_HW4/NoyanC_HW4/Module/Search/SearchPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8C82D41-725C-47C7-B499-F8D1EA6FC1FA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NoyanC_HW4/Module/Search/SearchPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "fetchSongsOutput(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C44FF949-CF41-4774-8D1D-EFDBFA0AE26D"
+            uuid = "149EBBF6-7703-402C-B72E-616F100FA491"
             shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NoyanC_HW4/Module/Search/SearchPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "didSelectRowAt(index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81F6A35E-ECA2-4D34-B29B-A3DFCD881AF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NoyanC_HW4/Module/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C940268-A245-4125-BBE3-1553BC81C466"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoyanC_HW4/Module/Search/SearchRouter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "SearchRouter"
-            landmarkType = "3">
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "navigate(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
