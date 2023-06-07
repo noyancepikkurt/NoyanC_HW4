@@ -11,6 +11,7 @@ final class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customizeTabBarAppearance()
         addTabbarItem()
     }
     
@@ -23,6 +24,12 @@ final class MainViewController: UITabBarController {
         let searchVC = SearchRouter.createModule()
         
         self.viewControllers = [homeNavigationController, searchVC]
+    }
+    
+    private func customizeTabBarAppearance() {
+        self.tabBar.barTintColor = UIColor.blue
+        self.tabBar.tintColor = UIColor.white
+        self.tabBar.unselectedItemTintColor = UIColor.purple
     }
 
 }

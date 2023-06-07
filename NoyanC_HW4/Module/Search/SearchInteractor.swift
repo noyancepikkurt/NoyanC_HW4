@@ -7,6 +7,7 @@
 
 import Foundation
 import SongAPI
+import Extensions
 
 typealias SongsSourcesResult = Result<SongModel, Error>
 
@@ -24,7 +25,9 @@ final class SearchInteractor {
 
 extension SearchInteractor: SearchInteractorProtocol {
     func fetchSongs(_ word: String) {
-        NetworkService.shared.fetchSong(pathUrl: "https://itunes.apple.com/search?term=\(word)&country=tr&entity=song&attribute=mixTerm") { result in
+        let filterWord = word.replacingOccurrences(of: " ", with: "+")
+        let englishWord = filterWord.turkishToEnglishTransformed()
+        NetworkService.shared.fetchSong(pathUrl: "https://itunes.apple.com/search?term=\(englishWord)&country=tr&entity=song&attribute=mixTerm") { result in
             self.output?.fetchSongsOutput(result)
         }
     }

@@ -53,19 +53,20 @@ extension SearchPresenter: SearchPresenterProtocol {
     }
     
     func fetchSongsFilter(with word: String) {
+        view?.showLoadingView()
         interactor.fetchSongs(word)
     }
 }
 
 extension SearchPresenter: SearchInteractorOutputProtocol {
     func fetchSongsOutput(_ result: SongsSourcesResult) {
-        //hide loading
+        view?.hideLoadingView()
         switch result {
         case .success(let response):
             self.songDetail = response.results!
             view?.reloadData()
         case .failure(let error):
-            // view.showerror
+//            view?.showError("There is no")
             print(error.localizedDescription)
         }
     }

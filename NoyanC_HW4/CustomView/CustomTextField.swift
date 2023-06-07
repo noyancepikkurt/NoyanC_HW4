@@ -30,13 +30,23 @@ final class CustomTextField: UITextField {
     }
     
     private func configureView() {
-        self.placeholder = "Search"
+        self.placeholder = "Artist, Songs, Album"
         self.backgroundColor = .white
-        self.layer.borderWidth = 0.5
+        self.attributedPlaceholder = NSAttributedString(string: "Artist, Song, Album", attributes: [
+            .foregroundColor: UIColor.lightGray,
+            .font: UIFont.italicSystemFont(ofSize: 14)
+        ])
+        self.textColor = .black
+        self.font = UIFont.italicSystemFont(ofSize: 16)
+        self.layer.borderWidth = 0.2
         self.layer.borderColor = UIColor.systemGray3.cgColor
         addSubview()
         setupConstraints()
     }
+    
+    func setLightBlackBackgroundColor() {
+           self.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
+       }
     
     private func addSubview() {
         self.addSubview(leftImageView)

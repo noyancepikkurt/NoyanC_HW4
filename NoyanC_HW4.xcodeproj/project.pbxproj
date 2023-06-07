@@ -38,6 +38,8 @@
 		5D67975B2A30A7C4003A6BBB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67975A2A30A7C4003A6BBB /* DetailPresenter.swift */; };
 		5D67975D2A30A7E1003A6BBB /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67975C2A30A7E1003A6BBB /* DetailRouter.swift */; };
 		5D6797642A310A7E003A6BBB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797632A310A7E003A6BBB /* MainViewController.swift */; };
+		5D6797662A312288003A6BBB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797652A312288003A6BBB /* LoadingView.swift */; };
+		5D67976A2A3122BC003A6BBB /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797692A3122BC003A6BBB /* LoadingShowable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		5D67975A2A30A7C4003A6BBB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		5D67975C2A30A7E1003A6BBB /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		5D6797632A310A7E003A6BBB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5D6797652A312288003A6BBB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		5D6797692A3122BC003A6BBB /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +154,9 @@
 		5D17976C2A2F5382008A9205 /* NoyanC_HW4 */ = {
 			isa = PBXGroup;
 			children = (
+				5D6797682A3122AF003A6BBB /* Helper */,
 				5D3ACECF2A2F5815006779B8 /* App */,
+				5D53EDEE2A2FBE3C00BE6649 /* CustomView */,
 				5D3ACED02A2F5821006779B8 /* Resources */,
 				5D3ACED12A2F5830006779B8 /* Module */,
 				5D1797732A2F5382008A9205 /* Main.storyboard */,
@@ -238,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				5D53EDF32A2FC08900BE6649 /* Cell */,
-				5D53EDEE2A2FBE3C00BE6649 /* CustomView */,
 				5D53EDF12A2FBE9F00BE6649 /* SearchViewController.swift */,
 				5D53EDFB2A2FC6E800BE6649 /* SearchInteractor.swift */,
 				5D53EDFD2A2FC6F000BE6649 /* SearchPresenter.swift */,
@@ -251,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				5D53EDEF2A2FBE4800BE6649 /* CustomTextField.swift */,
+				5D6797652A312288003A6BBB /* LoadingView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -274,6 +280,14 @@
 				5D67975C2A30A7E1003A6BBB /* DetailRouter.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		5D6797682A3122AF003A6BBB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5D6797692A3122BC003A6BBB /* LoadingShowable.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +432,7 @@
 				5D1797722A2F5382008A9205 /* SplashViewController.swift in Sources */,
 				5D6797642A310A7E003A6BBB /* MainViewController.swift in Sources */,
 				5D53EDF22A2FBE9F00BE6649 /* SearchViewController.swift in Sources */,
+				5D6797662A312288003A6BBB /* LoadingView.swift in Sources */,
 				5D1797782A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld in Sources */,
 				5D6797592A30A7A5003A6BBB /* DetailInteractor.swift in Sources */,
 				5D53EDFC2A2FC6E800BE6649 /* SearchInteractor.swift in Sources */,
@@ -434,6 +449,7 @@
 				5D17976E2A2F5382008A9205 /* AppDelegate.swift in Sources */,
 				5D0455692A2FA57200500135 /* HomeViewController.swift in Sources */,
 				5D0455672A2FA4A500500135 /* HomeRouter.swift in Sources */,
+				5D67976A2A3122BC003A6BBB /* LoadingShowable.swift in Sources */,
 				5D1797702A2F5382008A9205 /* SceneDelegate.swift in Sources */,
 				5D3ACED82A2F5AA9006779B8 /* SplashPresenter.swift in Sources */,
 			);

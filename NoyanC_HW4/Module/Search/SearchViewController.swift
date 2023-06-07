@@ -12,19 +12,29 @@ protocol SearchViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
     func showError(_ message: String)
+    func showLoadingView()
+    func hideLoadingView()
     func setTitle(_ title: String)
 }
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController, LoadingShowable {
     @IBOutlet var searchTextField: CustomTextField!
     @IBOutlet var tableView: UITableView!
+    private var searchDelayInterval: TimeInterval = 0.7
+    private var searchTimer: Timer?
     
     var presenter: SearchPresenterProtocol!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         searchTextField.delegate = self
+        customizeBackgroundColor()
+    }
+    
+    private func customizeBackgroundColor() {
+        setGradientBackground(topColor: UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0),
+                              bottomColor: UIColor(red: 0.5, green: 0.0, blue: 1.0, alpha: 1.0))
     }
 }
 
@@ -63,12 +73,19 @@ extension SearchViewController: SearchViewControllerProtocol {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(cellType: SearchTableViewCell.self)
+        tableView.isHidden = true
     }
     
     func reloadData() {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.tableView.reloadData()
+            
+            if self.presenter.numberOfItems() > 0 {
+                self.tableView.isHidden = false
+            } else {
+                self.tableView.isHidden = true
+            }
         }
     }
     
@@ -77,11 +94,11 @@ extension SearchViewController: SearchViewControllerProtocol {
     }
     
     func showLoadingView() {
-        //showloading
+        showLoading(in: self.tableView)
     }
     
     func hideLoadingView() {
-        //hideloading
+        hideLoading()
     }
     
     func setTitle(_ title: String) {
@@ -91,6 +108,11 @@ extension SearchViewController: SearchViewControllerProtocol {
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        presenter.fetchSongsFilter(with: textField.text!)
+        searchTimer?.invalidate()
+        
+        searchTimer = Timer.scheduledTimer(withTimeInterval: searchDelayInterval, repeats: false) { [weak self] _ in
+            guard let searchText = textField.text else { return }
+            self?.presenter.fetchSongsFilter(with: searchText)
+        }
     }
 }

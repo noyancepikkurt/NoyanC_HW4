@@ -16,7 +16,7 @@ protocol SearchCellProtocol: AnyObject {
 }
 
 final class SearchTableViewCell: UITableViewCell {
-
+    
     @IBOutlet private var detailImageView: UIImageView!
     @IBOutlet private var songNameLabel: UILabel!
     @IBOutlet private var artistNameLabel: UILabel!
