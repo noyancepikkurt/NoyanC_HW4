@@ -20,7 +20,7 @@ final class SearchRouter {
     
     weak var viewController: SearchViewController?
     
-    static func createModule() -> SearchViewController {
+    static func createModule() -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         let interactor = SearchInteractor()
@@ -29,7 +29,8 @@ final class SearchRouter {
         view.presenter = presenter
         interactor.output = presenter
         router.viewController = view
-        return view
+        let navigationController = UINavigationController(rootViewController: view)
+        return navigationController
     }
 }
 

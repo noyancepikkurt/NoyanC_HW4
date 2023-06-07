@@ -9,7 +9,7 @@ import Foundation
 import SongAPI
 
 
-// Detay sayfasında veri çekilmeyecekse bu protocol tanımlanmayabilir.
+// coredata?
 protocol DetailInteractorProtocol {
     
 }

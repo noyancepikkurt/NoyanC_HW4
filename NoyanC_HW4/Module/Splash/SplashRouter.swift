@@ -39,13 +39,8 @@ extension SplashRouter: SplashRouterProtocol {
         switch route {
         case .tabBar:
             guard let window = UIApplication.shared.windows.first else { return }
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            let searchController = SearchRouter.createModule()
-            tabBarController.setViewControllers([homeVC,searchController], animated: true)
-            window.rootViewController = tabBarController
             window.makeKeyAndVisible()
+            window.rootViewController = MainViewController()
         }
     }
 }

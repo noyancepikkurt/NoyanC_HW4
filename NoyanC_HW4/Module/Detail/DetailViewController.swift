@@ -30,7 +30,7 @@ final class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter.viewDidLoad()
     }
 }
 
@@ -60,6 +60,4 @@ extension DetailViewController: DetailViewControllerProtocol {
     func getSource() -> SongDetail? {
         return source
     }
-    
-    
 }
