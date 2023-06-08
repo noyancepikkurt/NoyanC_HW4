@@ -44,6 +44,7 @@
 		5D67976F2A3152B2003A6BBB /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67976E2A3152B2003A6BBB /* Icons.swift */; };
 		5D6797712A315757003A6BBB /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797702A315757003A6BBB /* AlertMessages.swift */; };
 		5D6797732A315842003A6BBB /* StoryboardIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797722A315842003A6BBB /* StoryboardIdentifiers.swift */; };
+		5D6797762A3159CB003A6BBB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		5D67976E2A3152B2003A6BBB /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		5D6797702A315757003A6BBB /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 		5D6797722A315842003A6BBB /* StoryboardIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiers.swift; sourceTree = "<group>"; };
+		5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,9 +223,10 @@
 			isa = PBXGroup;
 			children = (
 				5D53EE012A2FD0E500BE6649 /* Detail */,
-				5D3ACED22A2F5839006779B8 /* Splash */,
+				5D6797742A3159A5003A6BBB /* Favorites */,
 				5D3ACED32A2F584E006779B8 /* Home */,
 				5D3ACED42A2F5854006779B8 /* Search */,
+				5D3ACED22A2F5839006779B8 /* Splash */,
 				5D6797632A310A7E003A6BBB /* MainViewController.swift */,
 			);
 			path = Module;
@@ -308,6 +311,14 @@
 				5D6797722A315842003A6BBB /* StoryboardIdentifiers.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		5D6797742A3159A5003A6BBB /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +462,7 @@
 			files = (
 				5D1797722A2F5382008A9205 /* SplashViewController.swift in Sources */,
 				5D6797642A310A7E003A6BBB /* MainViewController.swift in Sources */,
+				5D6797762A3159CB003A6BBB /* FavoritesViewController.swift in Sources */,
 				5D53EDF22A2FBE9F00BE6649 /* SearchViewController.swift in Sources */,
 				5D6797662A312288003A6BBB /* LoadingView.swift in Sources */,
 				5D1797782A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld in Sources */,

@@ -23,7 +23,10 @@ final class MainViewController: UITabBarController {
         
         let searchVC = SearchRouter.createModule()
         
-        self.viewControllers = [homeNavigationController, searchVC]
+        let favoritesVC = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.favoritesVC.rawValue) as! FavoritesViewController
+        let favoritesNavigationController = UINavigationController(rootViewController: favoritesVC)
+        
+        self.viewControllers = [homeNavigationController, searchVC, favoritesNavigationController]
     }
     
     private func customizeTabBarAppearance() {

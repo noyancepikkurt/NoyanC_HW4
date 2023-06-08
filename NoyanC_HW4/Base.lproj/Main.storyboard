@@ -79,7 +79,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlP-zI-glq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864.885496183206" y="383.80281690140845"/>
+            <point key="canvasLocation" x="984" y="32"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="9oM-fo-HoC">
+            <objects>
+                <viewController storyboardIdentifier="FavoritesViewController" id="4N9-D0-3aA" customClass="FavoritesViewController" customModule="NoyanC_HW4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sWZ-7a-UjZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAVORITES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46L-Pp-Lev">
+                                <rect key="frame" x="153" y="415.66666666666669" width="87.333333333333314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ppx-6a-Y5E"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="46L-Pp-Lev" firstAttribute="centerY" secondItem="sWZ-7a-UjZ" secondAttribute="centerY" id="UKr-OS-aHy"/>
+                            <constraint firstItem="46L-Pp-Lev" firstAttribute="centerX" secondItem="sWZ-7a-UjZ" secondAttribute="centerX" id="k1F-3A-Jho"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="L6x-i5-fs2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HoS-ig-QOA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="754"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="mXS-ib-Qi5">
@@ -148,7 +176,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="let-6P-UqN"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="D9b-Xf-vZz" firstAttribute="top" secondItem="let-6P-UqN" secondAttribute="top" constant="52" id="QbV-8J-OHG"/>
                             <constraint firstItem="let-6P-UqN" firstAttribute="trailing" secondItem="D9b-Xf-vZz" secondAttribute="trailing" constant="10" id="Y1y-w6-PTk"/>
@@ -166,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CoL-oR-V4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2785.4961832061067" y="383.80281690140845"/>
+            <point key="canvasLocation" x="1926" y="32"/>
         </scene>
         <!--Home-->
         <scene sceneID="QgP-fR-VCc">
@@ -179,12 +207,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dG-xe-7x8">
                                 <rect key="frame" x="172" y="415.66666666666669" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QeV-H9-pXx"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" selected="YES"/>
                         </accessibility>
@@ -197,18 +225,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odA-VG-VHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866" y="-357"/>
+            <point key="canvasLocation" x="984" y="-708"/>
         </scene>
     </scenes>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="music.note.house" catalog="system" width="128" height="104"/>
         <image name="music_splash" width="170.66667175292969" height="170.66667175292969"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
