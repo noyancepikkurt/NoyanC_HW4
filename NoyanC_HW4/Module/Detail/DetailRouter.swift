@@ -19,7 +19,9 @@ final class DetailRouter {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.detailVC.rawValue) as! DetailViewController
         let router = DetailRouter()
-        let presenter = DetailPresenter(view: view, router: router)
+        let interactor = DetailInteractor()
+        let presenter = DetailPresenter(view: view, router: router, interactor: interactor)
+        interactor.output = presenter
         view.presenter = presenter
         router.viewController = view
         return view

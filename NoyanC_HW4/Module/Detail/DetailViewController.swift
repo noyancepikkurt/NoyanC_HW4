@@ -7,9 +7,9 @@
 
 import UIKit
 import SongAPI
+import CoreData
 
 protocol DetailViewControllerProtocol: AnyObject {
-    func setTitle(_ title: String)
     func setSongTitle(_ text: String)
     func setSongArtistName(_ text: String)
     func setSongKindName(_ text: String)
@@ -26,6 +26,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet var detailKindLabel: UILabel!
     @IBOutlet var detailTrackPrice: UILabel!
     @IBOutlet var detailCollectionPrice: UILabel!
+    @IBOutlet var detailAudioButton: UIButton!
+    @IBOutlet var likeImage: UIButton!
     
     var source: SongDetail?
     var presenter: DetailPresenterProtocol!
@@ -35,13 +37,17 @@ final class DetailViewController: UIViewController {
         presenter.viewDidLoad()
         setGradientBackground()
     }
+    
+    @IBAction func detailAudioButtonAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func likeButtonAction(_ sender: Any) {
+        presenter.likeButtonClicked()
+    }
 }
 
 extension DetailViewController: DetailViewControllerProtocol {
-    
-    func setTitle(_ title: String) {
-        self.title = title
-    }
     
     func setSongTitle(_ text: String) {
         self.detailSongNameLabel.text = text

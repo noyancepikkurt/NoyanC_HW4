@@ -18,7 +18,7 @@ enum SearchRoutes {
 
 final class SearchRouter {
     
-    weak var viewController: SearchViewController?
+    private weak var viewController: SearchViewController?
     
     static func createModule() -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

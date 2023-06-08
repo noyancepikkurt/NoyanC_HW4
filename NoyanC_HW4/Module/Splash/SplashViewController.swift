@@ -8,12 +8,13 @@
 import UIKit
 import Extensions
 
+
 protocol SplashViewControllerProtocol: AnyObject {
     func noInternetConnection()
 }
 
 final class SplashViewController: UIViewController {
-
+    
     var presenter: SplashPresenterProtocol!
     
     override func viewDidLoad() {

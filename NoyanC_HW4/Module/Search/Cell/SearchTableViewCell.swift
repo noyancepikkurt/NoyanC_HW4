@@ -28,8 +28,24 @@ final class SearchTableViewCell: UITableViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stopAudio()
+    }
+    
     @IBAction func audioButtonAction(_ sender: Any) {
         cellPresenter.requestForAudio()
+        updateButton()
+    }
+    
+    private func stopAudio() {
+        cellPresenter.isAudioPlaying = false
+        audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
+        AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
+    }
+    
+    
+    private func updateButton() {
         AudioTimerHelper.startProgressAnimation(in: audioButtonImage, duration: 31, delegate: self)
         if cellPresenter.isAudioPlaying {
             audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
@@ -41,6 +57,7 @@ final class SearchTableViewCell: UITableViewCell {
 }
 
 extension SearchTableViewCell: SearchCellProtocol {
+    
     func setImage(_ image: UIImage) {
         DispatchQueue.main.async {
             self.detailImageView.image = image
@@ -63,9 +80,7 @@ extension SearchTableViewCell: SearchCellProtocol {
 extension SearchTableViewCell: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
-            cellPresenter.isAudioPlaying = false
-            audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
-            AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
+            stopAudio()
         }
     }
 }

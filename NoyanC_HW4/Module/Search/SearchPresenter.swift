@@ -36,7 +36,6 @@ extension SearchPresenter: SearchPresenterProtocol {
    
     func viewDidLoad() {
         view?.setupTableView()
-        view?.setTitle("Search")
     }
     
     func numberOfItems() -> Int {

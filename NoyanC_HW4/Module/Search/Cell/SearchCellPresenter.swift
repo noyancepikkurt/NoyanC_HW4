@@ -30,7 +30,7 @@ final class SearchCellPresenter {
 
 extension SearchCellPresenter: SearchCellPresenterProtocol {
     func load() {
-        ImageDownloader.shared.image(songs: song) { data, error in
+        ImageDownload.shared.image(songs: song) { data, error in
             if let data {
                 guard let image = UIImage(data: data) else { return }
                 self.view?.setImage(image)

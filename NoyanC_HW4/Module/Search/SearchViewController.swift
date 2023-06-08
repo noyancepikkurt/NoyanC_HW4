@@ -14,7 +14,6 @@ protocol SearchViewControllerProtocol: AnyObject {
     func showError(_ message: String)
     func showLoadingView()
     func hideLoadingView()
-    func setTitle(_ title: String)
 }
 
 final class SearchViewController: UIViewController, LoadingShowable {
@@ -27,8 +26,9 @@ final class SearchViewController: UIViewController, LoadingShowable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground()
         presenter?.viewDidLoad()
+        setGradientBackground()
+        self.navigationController?.navigationBar.tintColor = .white
         searchTextField.delegate = self
     }
 }
@@ -59,6 +59,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    
+    
 }
 
 extension SearchViewController: SearchViewControllerProtocol {
@@ -93,10 +95,6 @@ extension SearchViewController: SearchViewControllerProtocol {
     
     func hideLoadingView() {
         //        hideLoading()
-    }
-    
-    func setTitle(_ title: String) {
-        self.title = title
     }
 }
 

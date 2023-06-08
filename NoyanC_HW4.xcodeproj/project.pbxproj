@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5D0455672A2FA4A500500135 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0455662A2FA4A500500135 /* HomeRouter.swift */; };
 		5D0455692A2FA57200500135 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0455682A2FA57200500135 /* HomeViewController.swift */; };
+		5D142EAA2A3221AD008EBBA8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EA92A3221AD008EBBA8 /* CoreDataManager.swift */; };
+		5D142EAE2A3223D0008EBBA8 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */; };
+		5D142EAF2A3223D0008EBBA8 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */; };
+		5D142EB12A3249EF008EBBA8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EB02A3249EF008EBBA8 /* FavoritesPresenter.swift */; };
+		5D142EB52A324A01008EBBA8 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EB42A324A01008EBBA8 /* FavoritesRouter.swift */; };
+		5D142EB72A324A1C008EBBA8 /* FavoritesCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EB62A324A1C008EBBA8 /* FavoritesCellPresenter.swift */; };
 		5D17976E2A2F5382008A9205 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D17976D2A2F5382008A9205 /* AppDelegate.swift */; };
 		5D1797702A2F5382008A9205 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D17976F2A2F5382008A9205 /* SceneDelegate.swift */; };
 		5D1797722A2F5382008A9205 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1797712A2F5382008A9205 /* SplashViewController.swift */; };
@@ -45,6 +51,9 @@
 		5D6797712A315757003A6BBB /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797702A315757003A6BBB /* AlertMessages.swift */; };
 		5D6797732A315842003A6BBB /* StoryboardIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797722A315842003A6BBB /* StoryboardIdentifiers.swift */; };
 		5D6797762A3159CB003A6BBB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */; };
+		5DD916D22A3254AA0047B6A7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD916D12A3254AA0047B6A7 /* SDWebImage */; };
+		5DD916D42A3255360047B6A7 /* ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD916D32A3255360047B6A7 /* ImageDownload.swift */; };
+		5DD916D82A325A450047B6A7 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD916D72A325A450047B6A7 /* FavoritesInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +76,12 @@
 /* Begin PBXFileReference section */
 		5D0455662A2FA4A500500135 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		5D0455682A2FA57200500135 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5D142EA92A3221AD008EBBA8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
+		5D142EB02A3249EF008EBBA8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		5D142EB42A324A01008EBBA8 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		5D142EB62A324A1C008EBBA8 /* FavoritesCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCellPresenter.swift; sourceTree = "<group>"; };
 		5D17976A2A2F5382008A9205 /* NoyanC_HW4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoyanC_HW4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D17976D2A2F5382008A9205 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D17976F2A2F5382008A9205 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +122,8 @@
 		5D6797702A315757003A6BBB /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 		5D6797722A315842003A6BBB /* StoryboardIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiers.swift; sourceTree = "<group>"; };
 		5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		5DD916D32A3255360047B6A7 /* ImageDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownload.swift; sourceTree = "<group>"; };
+		5DD916D72A325A450047B6A7 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +133,7 @@
 			files = (
 				5D1B5E1D2A2F562C001ED2B3 /* SongAPI in Frameworks */,
 				5D3ACEDD2A2F5C31006779B8 /* Reachability in Frameworks */,
+				5DD916D22A3254AA0047B6A7 /* SDWebImage in Frameworks */,
 				5D1B5E1B2A2F5626001ED2B3 /* Extensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +155,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D142EAB2A3223C0008EBBA8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */,
+				5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */,
+				5D142EB62A324A1C008EBBA8 /* FavoritesCellPresenter.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5D1797612A2F5382008A9205 = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +327,8 @@
 			children = (
 				5D6797692A3122BC003A6BBB /* LoadingShowable.swift */,
 				5D67976B2A31458C003A6BBB /* AudioTimerHelper.swift */,
+				5D142EA92A3221AD008EBBA8 /* CoreDataManager.swift */,
+				5DD916D32A3255360047B6A7 /* ImageDownload.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -316,7 +346,11 @@
 		5D6797742A3159A5003A6BBB /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				5D142EAB2A3223C0008EBBA8 /* Cell */,
 				5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */,
+				5D142EB02A3249EF008EBBA8 /* FavoritesPresenter.swift */,
+				5D142EB42A324A01008EBBA8 /* FavoritesRouter.swift */,
+				5DD916D72A325A450047B6A7 /* FavoritesInteractor.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -341,6 +375,7 @@
 				5D1B5E1A2A2F5626001ED2B3 /* Extensions */,
 				5D1B5E1C2A2F562C001ED2B3 /* SongAPI */,
 				5D3ACEDC2A2F5C31006779B8 /* Reachability */,
+				5DD916D12A3254AA0047B6A7 /* SDWebImage */,
 			);
 			productName = NoyanC_HW4;
 			productReference = 5D17976A2A2F5382008A9205 /* NoyanC_HW4.app */;
@@ -415,6 +450,7 @@
 			);
 			mainGroup = 5D1797612A2F5382008A9205;
 			packageReferences = (
+				5DD916D02A3254AA0047B6A7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 5D17976B2A2F5382008A9205 /* Products */;
 			projectDirPath = "";
@@ -435,6 +471,7 @@
 				5D17977D2A2F5382008A9205 /* LaunchScreen.storyboard in Resources */,
 				5D17977A2A2F5382008A9205 /* Assets.xcassets in Resources */,
 				5D53EDF72A2FC0A200BE6649 /* SearchTableViewCell.xib in Resources */,
+				5D142EAF2A3223D0008EBBA8 /* FavoritesTableViewCell.xib in Resources */,
 				5D1797752A2F5382008A9205 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +505,8 @@
 				5D1797782A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld in Sources */,
 				5D6797592A30A7A5003A6BBB /* DetailInteractor.swift in Sources */,
 				5D53EDFC2A2FC6E800BE6649 /* SearchInteractor.swift in Sources */,
+				5D142EB52A324A01008EBBA8 /* FavoritesRouter.swift in Sources */,
+				5DD916D42A3255360047B6A7 /* ImageDownload.swift in Sources */,
 				5D67975D2A30A7E1003A6BBB /* DetailRouter.swift in Sources */,
 				5D67976C2A31458C003A6BBB /* AudioTimerHelper.swift in Sources */,
 				5D3ACEDA2A2F5AC4006779B8 /* SplashRouter.swift in Sources */,
@@ -476,8 +515,10 @@
 				5D53EE032A2FD10200BE6649 /* DetailViewController.swift in Sources */,
 				5D6797572A3077E0003A6BBB /* SearchCellPresenter.swift in Sources */,
 				5D67975B2A30A7C4003A6BBB /* DetailPresenter.swift in Sources */,
+				5D142EB72A324A1C008EBBA8 /* FavoritesCellPresenter.swift in Sources */,
 				5D53EDFE2A2FC6F000BE6649 /* SearchPresenter.swift in Sources */,
 				5D53EDF02A2FBE4800BE6649 /* CustomTextField.swift in Sources */,
+				5D142EB12A3249EF008EBBA8 /* FavoritesPresenter.swift in Sources */,
 				5D53EDF62A2FC0A200BE6649 /* SearchTableViewCell.swift in Sources */,
 				5D6797712A315757003A6BBB /* AlertMessages.swift in Sources */,
 				5D17976E2A2F5382008A9205 /* AppDelegate.swift in Sources */,
@@ -485,6 +526,9 @@
 				5D0455672A2FA4A500500135 /* HomeRouter.swift in Sources */,
 				5D6797732A315842003A6BBB /* StoryboardIdentifiers.swift in Sources */,
 				5D67976A2A3122BC003A6BBB /* LoadingShowable.swift in Sources */,
+				5D142EAE2A3223D0008EBBA8 /* FavoritesTableViewCell.swift in Sources */,
+				5DD916D82A325A450047B6A7 /* FavoritesInteractor.swift in Sources */,
+				5D142EAA2A3221AD008EBBA8 /* CoreDataManager.swift in Sources */,
 				5D67976F2A3152B2003A6BBB /* Icons.swift in Sources */,
 				5D1797702A2F5382008A9205 /* SceneDelegate.swift in Sources */,
 				5D3ACED82A2F5AA9006779B8 /* SplashPresenter.swift in Sources */,
@@ -830,6 +874,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		5DD916D02A3254AA0047B6A7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		5D1B5E1A2A2F5626001ED2B3 /* Extensions */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -842,6 +897,11 @@
 		5D3ACEDC2A2F5C31006779B8 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Reachability;
+		};
+		5DD916D12A3254AA0047B6A7 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DD916D02A3254AA0047B6A7 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
