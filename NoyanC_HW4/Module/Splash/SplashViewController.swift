@@ -28,7 +28,9 @@ final class SplashViewController: UIViewController {
 extension SplashViewController: SplashViewControllerProtocol {
     
     func noInternetConnection() {
-        UIAlertController.alertMessage(title: "Test", message: "Error", vc: self)
+        UIAlertController.alertMessage(title: AlertMessages.sorryTitle.rawValue,
+                                       message: AlertMessages.noInternetMessage.rawValue,
+                                       vc: self)
     }
 }
 

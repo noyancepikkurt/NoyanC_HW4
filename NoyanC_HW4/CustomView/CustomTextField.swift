@@ -13,7 +13,7 @@ final class CustomTextField: UITextField {
     
     lazy var leftImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "magnifyingglass")
+        imageView.image = UIImage(systemName: Icons.searchIcon.rawValue)
         imageView.tintColor = .systemGray3
         imageView.contentMode = .scaleAspectFit
         return imageView

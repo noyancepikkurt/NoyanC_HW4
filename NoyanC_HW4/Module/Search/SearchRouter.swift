@@ -22,7 +22,7 @@ final class SearchRouter {
     
     static func createModule() -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.searchVC.rawValue) as! SearchViewController
         let interactor = SearchInteractor()
         let router = SearchRouter()
         let presenter = SearchPresenter(view: view, router: router, interactor: interactor)

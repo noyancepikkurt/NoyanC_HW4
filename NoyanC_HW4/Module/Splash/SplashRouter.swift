@@ -22,7 +22,7 @@ final class SplashRouter {
     
     static func createModule() -> SplashViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "SplashViewController") as! SplashViewController
+        let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.splashVC.rawValue) as! SplashViewController
         let interactor = SplashInteractor()
         let router = SplashRouter()
         let presenter = SplashPresenter(view: view, router: router, interactor: interactor)

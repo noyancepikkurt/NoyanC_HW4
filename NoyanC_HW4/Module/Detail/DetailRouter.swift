@@ -17,7 +17,7 @@ final class DetailRouter {
 
     static func createModule() -> DetailViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.detailVC.rawValue) as! DetailViewController
         let router = DetailRouter()
         let presenter = DetailPresenter(view: view, router: router)
         view.presenter = presenter

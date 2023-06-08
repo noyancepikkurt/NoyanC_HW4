@@ -18,7 +18,7 @@ final class MainViewController: UITabBarController {
     private func addTabbarItem() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let homeVC = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.homeVC.rawValue) as! HomeViewController
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
         
         let searchVC = SearchRouter.createModule()

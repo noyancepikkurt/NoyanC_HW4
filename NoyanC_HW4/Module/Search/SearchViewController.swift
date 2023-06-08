@@ -84,7 +84,7 @@ extension SearchViewController: SearchViewControllerProtocol {
     }
     
     func showError(_ message: String) {
-        UIAlertController.alertMessage(title: "Error", message: message, vc: self)
+        UIAlertController.alertMessage(title: AlertMessages.error.rawValue, message: message, vc: self)
     }
     
     func showLoadingView() {
