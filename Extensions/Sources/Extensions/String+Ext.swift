@@ -12,6 +12,10 @@ extension String {
         let string = NSMutableString(string: self) as CFMutableString
         CFStringTransform(string, nil, kCFStringTransformToLatin, false)
         CFStringTransform(string, nil, kCFStringTransformStripDiacritics, false)
-        return string as String
+        let transformedString = string as String
+        let replacedString = transformedString.replacingOccurrences(of: "ı", with: "i")
+        let filteredString = replacedString.replacingOccurrences(of: " ", with: "+")
+        return filteredString
     }
+
 }

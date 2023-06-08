@@ -25,8 +25,7 @@ final class SearchInteractor {
 
 extension SearchInteractor: SearchInteractorProtocol {
     func fetchSongs(_ word: String) {
-        let filterWord = word.replacingOccurrences(of: " ", with: "+")
-        let englishWord = filterWord.turkishToEnglishTransformed()
+        let englishWord = word.turkishToEnglishTransformed()
         NetworkService.shared.fetchSong(pathUrl: "https://itunes.apple.com/search?term=\(englishWord)&country=tr&entity=song&attribute=mixTerm") { result in
             self.output?.fetchSongsOutput(result)
         }

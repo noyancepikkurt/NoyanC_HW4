@@ -38,7 +38,7 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
     func internetConnection(status: Bool) {
         
         if status {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
                 self.router.navigate(.tabBar)
             }
         } else {

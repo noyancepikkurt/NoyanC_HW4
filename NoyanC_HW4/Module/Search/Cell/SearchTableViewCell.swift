@@ -16,15 +16,26 @@ protocol SearchCellProtocol: AnyObject {
 }
 
 final class SearchTableViewCell: UITableViewCell {
-    
     @IBOutlet private var detailImageView: UIImageView!
     @IBOutlet private var songNameLabel: UILabel!
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private var albumNameLabel: UILabel!
+    @IBOutlet var audioButtonImage: UIButton!
     
     var cellPresenter: SearchCellPresenterProtocol! {
         didSet {
             cellPresenter.load()
+        }
+    }
+    
+    @IBAction func audioButtonAction(_ sender: Any) {
+        cellPresenter.requestForAudio()
+        AudioTimerHelper.startProgressAnimation(in: audioButtonImage, duration: 31, delegate: self)
+        if cellPresenter.isAudioPlaying {
+            audioButtonImage.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
+        } else {
+            audioButtonImage.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         }
     }
 }
@@ -46,5 +57,15 @@ extension SearchTableViewCell: SearchCellProtocol {
     
     func setAlbumName(_ text: String) {
         self.albumNameLabel.text = text
+    }
+}
+
+extension SearchTableViewCell: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+            cellPresenter.isAudioPlaying = false
+            audioButtonImage.setImage(UIImage(systemName: "play.circle"), for: .normal)
+            AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
+        }
     }
 }

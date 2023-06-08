@@ -12,8 +12,10 @@ protocol DetailViewControllerProtocol: AnyObject {
     func setTitle(_ title: String)
     func setSongTitle(_ text: String)
     func setSongArtistName(_ text: String)
-    func setSongAlbumName(_ text: String)
+    func setSongKindName(_ text: String)
     func setSongImage(_ image: UIImage)
+    func setSongTrackPrice(_ text: String)
+    func setSongCollectionPrice(_ text: String)
     func getSource() -> SongDetail?
 }
 
@@ -22,8 +24,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet var detailArtistNameLabel: UILabel!
     @IBOutlet var detailSongNameLabel: UILabel!
     @IBOutlet var detailKindLabel: UILabel!
-    @IBOutlet var detailTrackPriceLabel: UILabel!
-    @IBOutlet var detailCollectionPriceLabel: UILabel!
+    @IBOutlet var detailTrackPrice: UILabel!
+    @IBOutlet var detailCollectionPrice: UILabel!
     
     var source: SongDetail?
     var presenter: DetailPresenterProtocol!
@@ -31,10 +33,12 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        setGradientBackground()
     }
 }
 
 extension DetailViewController: DetailViewControllerProtocol {
+    
     func setTitle(_ title: String) {
         self.title = title
     }
@@ -47,7 +51,7 @@ extension DetailViewController: DetailViewControllerProtocol {
         self.detailArtistNameLabel.text = text
     }
     
-    func setSongAlbumName(_ text: String) {
+    func setSongKindName(_ text: String) {
         self.detailKindLabel.text = text
     }
     
@@ -55,6 +59,14 @@ extension DetailViewController: DetailViewControllerProtocol {
         DispatchQueue.main.async {
             self.detailImageView.image = image
         }
+    }
+    
+    func setSongTrackPrice(_ text: String) {
+        self.detailTrackPrice.text = text
+    }
+    
+    func setSongCollectionPrice(_ text: String) {
+        self.detailCollectionPrice.text = text
     }
     
     func getSource() -> SongDetail? {

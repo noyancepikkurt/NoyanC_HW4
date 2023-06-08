@@ -27,14 +27,9 @@ final class SearchViewController: UIViewController, LoadingShowable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradientBackground()
         presenter?.viewDidLoad()
         searchTextField.delegate = self
-        customizeBackgroundColor()
-    }
-    
-    private func customizeBackgroundColor() {
-        setGradientBackground(topColor: UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0),
-                              bottomColor: UIColor(red: 0.5, green: 0.0, blue: 1.0, alpha: 1.0))
     }
 }
 
@@ -66,7 +61,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
 extension SearchViewController: SearchViewControllerProtocol {
     
     func setupTableView() {
@@ -94,11 +88,11 @@ extension SearchViewController: SearchViewControllerProtocol {
     }
     
     func showLoadingView() {
-        showLoading(in: self.tableView)
+        //        showLoading(in: self.tableView)
     }
     
     func hideLoadingView() {
-        hideLoading()
+        //        hideLoading()
     }
     
     func setTitle(_ title: String) {

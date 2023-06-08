@@ -10,7 +10,6 @@ import SongAPI
 
 protocol DetailPresenterProtocol {
     func viewDidLoad()
-    func tapSeeMore() //
 }
 
 final class DetailPresenter {
@@ -27,10 +26,14 @@ final class DetailPresenter {
 extension DetailPresenter: DetailPresenterProtocol {
     func viewDidLoad() {
         guard let song = view.getSource() else { return }
+        guard let trackPrice = song.trackPrice else { return }
+        guard let collectionPrice = song.collectionPrice else { return }
         view.setTitle("Detail")
         view.setSongTitle(song.trackName ?? "")
         view.setSongArtistName(song.artistName ?? "")
-        view.setSongAlbumName(song.collectionName ?? "")
+        view.setSongKindName(song.primaryGenreName ?? "")
+        view.setSongTrackPrice("Track Price: \(String(describing: trackPrice)) TRY")
+        view.setSongCollectionPrice("Collection Price: \(String(describing: collectionPrice)) TRY")
         
         ImageDownloader.shared.image(songs: song) { data, error in
             guard let data  = data, error == nil else { return }
@@ -39,7 +42,4 @@ extension DetailPresenter: DetailPresenterProtocol {
         }
     }
     
-    func tapSeeMore() {
-        //test
-    }
 }

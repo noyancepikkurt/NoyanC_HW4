@@ -40,6 +40,7 @@
 		5D6797642A310A7E003A6BBB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797632A310A7E003A6BBB /* MainViewController.swift */; };
 		5D6797662A312288003A6BBB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797652A312288003A6BBB /* LoadingView.swift */; };
 		5D67976A2A3122BC003A6BBB /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797692A3122BC003A6BBB /* LoadingShowable.swift */; };
+		5D67976C2A31458C003A6BBB /* AudioTimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D67976B2A31458C003A6BBB /* AudioTimerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		5D6797632A310A7E003A6BBB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5D6797652A312288003A6BBB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		5D6797692A3122BC003A6BBB /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
+		5D67976B2A31458C003A6BBB /* AudioTimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTimerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,9 +156,10 @@
 		5D17976C2A2F5382008A9205 /* NoyanC_HW4 */ = {
 			isa = PBXGroup;
 			children = (
-				5D6797682A3122AF003A6BBB /* Helper */,
 				5D3ACECF2A2F5815006779B8 /* App */,
+				5D67976D2A314D74003A6BBB /* Constants */,
 				5D53EDEE2A2FBE3C00BE6649 /* CustomView */,
+				5D6797682A3122AF003A6BBB /* Helpers */,
 				5D3ACED02A2F5821006779B8 /* Resources */,
 				5D3ACED12A2F5830006779B8 /* Module */,
 				5D1797732A2F5382008A9205 /* Main.storyboard */,
@@ -282,12 +285,20 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		5D6797682A3122AF003A6BBB /* Helper */ = {
+		5D6797682A3122AF003A6BBB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				5D6797692A3122BC003A6BBB /* LoadingShowable.swift */,
+				5D67976B2A31458C003A6BBB /* AudioTimerHelper.swift */,
 			);
-			path = Helper;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5D67976D2A314D74003A6BBB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +448,7 @@
 				5D6797592A30A7A5003A6BBB /* DetailInteractor.swift in Sources */,
 				5D53EDFC2A2FC6E800BE6649 /* SearchInteractor.swift in Sources */,
 				5D67975D2A30A7E1003A6BBB /* DetailRouter.swift in Sources */,
+				5D67976C2A31458C003A6BBB /* AudioTimerHelper.swift in Sources */,
 				5D3ACEDA2A2F5AC4006779B8 /* SplashRouter.swift in Sources */,
 				5D3ACED62A2F5AA0006779B8 /* SplashInteractor.swift in Sources */,
 				5D53EE002A2FC6FA00BE6649 /* SearchRouter.swift in Sources */,

@@ -8,17 +8,10 @@
 import UIKit
 import Extensions
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizeBackgroundColor()
+        setGradientBackground()
     }
-    
-    private func customizeBackgroundColor() {
-        setGradientBackground(topColor: UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0),
-                              bottomColor: UIColor(red: 0.5, green: 0.0, blue: 1.0, alpha: 1.0))
-    }
-    
-    
 }

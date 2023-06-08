@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Alamofire
+import AVFoundation
 
 public protocol NetworkServiceProtocol: AnyObject {
     func fetchSong(pathUrl: String, completion: @escaping (Result<SongModel, Error>) -> Void)
@@ -21,6 +23,24 @@ final public class NetworkService: NetworkServiceProtocol {
                 completion(.success(songModel))
             case .failure(let failure):
                 completion(.failure(failure))
+            }
+        }
+    }
+    
+    public func requestAudio(url: URL, completion: @escaping (AVAudioPlayer) -> Void) {
+        AF.request(url).responseData { response in
+            switch response.result {
+            case.success(let data):
+                DispatchQueue.main.async {
+                    do {
+                        let audio = try AVAudioPlayer(data: data)
+                        completion(audio)
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            case .failure(_):
+                break
             }
         }
     }

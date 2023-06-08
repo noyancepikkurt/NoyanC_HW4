@@ -7,14 +7,19 @@
 
 import UIKit
 import SongAPI
+import AVFoundation
 
 protocol SearchCellPresenterProtocol: AnyObject {
     func load()
+    func requestForAudio()
+    var isAudioPlaying: Bool { get set }
 }
 
 final class SearchCellPresenter {
     weak var view: SearchCellProtocol?
     private let song: SongDetail
+    private var audioPlayer: AVAudioPlayer?
+    var isAudioPlaying: Bool = false
     
     init(view: SearchCellProtocol,
          song: SongDetail) {
@@ -34,5 +39,22 @@ extension SearchCellPresenter: SearchCellPresenterProtocol {
         view?.setSongName(song.trackName ?? "")
         view?.setAlbumName(song.collectionName ?? "")
         view?.setArtistName(song.artistName ?? "")
+    }
+    
+    func requestForAudio() {
+        guard let songAudioURL = song.previewURL else { return }
+        NetworkService.shared.requestAudio(url: URL(string: songAudioURL)!) {[weak self] audioPlay in
+            guard let self else { return }
+            
+            if isAudioPlaying {
+                self.audioPlayer = audioPlay
+                self.audioPlayer?.pause()
+                self.isAudioPlaying = false
+            } else {
+                self.audioPlayer = audioPlay
+                self.audioPlayer?.play()
+                self.isAudioPlaying = true
+            }
+        }
     }
 }
