@@ -8,7 +8,6 @@
 import Foundation
 import CoreData
 
-typealias SongsCoreDataResult = Result<SongEntity, Error>
 
 protocol FavoritesInteractorProtocol: AnyObject {
     func fetchDatas()
@@ -24,7 +23,7 @@ final class FavoritesInteractor {
 
 extension FavoritesInteractor: FavoritesInteractorProtocol {
     func fetchDatas() {
-        CoreDataManager.shared.fetchNew { result in
+        CoreDataManager.shared.fetchSongs { result in
             switch result {
             case .success(let success):
                 self.output?.fetchDatasOutput(success)
@@ -33,6 +32,4 @@ extension FavoritesInteractor: FavoritesInteractorProtocol {
             }
         }
     }
-    
-    
 }

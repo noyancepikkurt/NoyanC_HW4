@@ -21,7 +21,6 @@ final class DetailRouter {
         let router = DetailRouter()
         let interactor = DetailInteractor()
         let presenter = DetailPresenter(view: view, router: router, interactor: interactor)
-        interactor.output = presenter
         view.presenter = presenter
         router.viewController = view
         return view

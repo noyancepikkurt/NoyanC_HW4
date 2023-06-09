@@ -51,7 +51,6 @@
 		5D6797712A315757003A6BBB /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797702A315757003A6BBB /* AlertMessages.swift */; };
 		5D6797732A315842003A6BBB /* StoryboardIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797722A315842003A6BBB /* StoryboardIdentifiers.swift */; };
 		5D6797762A3159CB003A6BBB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */; };
-		5DD916D22A3254AA0047B6A7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5DD916D12A3254AA0047B6A7 /* SDWebImage */; };
 		5DD916D42A3255360047B6A7 /* ImageDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD916D32A3255360047B6A7 /* ImageDownload.swift */; };
 		5DD916D82A325A450047B6A7 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD916D72A325A450047B6A7 /* FavoritesInteractor.swift */; };
 /* End PBXBuildFile section */
@@ -133,7 +132,6 @@
 			files = (
 				5D1B5E1D2A2F562C001ED2B3 /* SongAPI in Frameworks */,
 				5D3ACEDD2A2F5C31006779B8 /* Reachability in Frameworks */,
-				5DD916D22A3254AA0047B6A7 /* SDWebImage in Frameworks */,
 				5D1B5E1B2A2F5626001ED2B3 /* Extensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,9 +346,9 @@
 			children = (
 				5D142EAB2A3223C0008EBBA8 /* Cell */,
 				5D6797752A3159CB003A6BBB /* FavoritesViewController.swift */,
+				5DD916D72A325A450047B6A7 /* FavoritesInteractor.swift */,
 				5D142EB02A3249EF008EBBA8 /* FavoritesPresenter.swift */,
 				5D142EB42A324A01008EBBA8 /* FavoritesRouter.swift */,
-				5DD916D72A325A450047B6A7 /* FavoritesInteractor.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -375,7 +373,6 @@
 				5D1B5E1A2A2F5626001ED2B3 /* Extensions */,
 				5D1B5E1C2A2F562C001ED2B3 /* SongAPI */,
 				5D3ACEDC2A2F5C31006779B8 /* Reachability */,
-				5DD916D12A3254AA0047B6A7 /* SDWebImage */,
 			);
 			productName = NoyanC_HW4;
 			productReference = 5D17976A2A2F5382008A9205 /* NoyanC_HW4.app */;
@@ -450,7 +447,6 @@
 			);
 			mainGroup = 5D1797612A2F5382008A9205;
 			packageReferences = (
-				5DD916D02A3254AA0047B6A7 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 5D17976B2A2F5382008A9205 /* Products */;
 			projectDirPath = "";
@@ -874,17 +870,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		5DD916D02A3254AA0047B6A7 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		5D1B5E1A2A2F5626001ED2B3 /* Extensions */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -897,11 +882,6 @@
 		5D3ACEDC2A2F5C31006779B8 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Reachability;
-		};
-		5DD916D12A3254AA0047B6A7 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DD916D02A3254AA0047B6A7 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

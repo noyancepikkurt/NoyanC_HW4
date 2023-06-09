@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SongAPI
 
 protocol FavoritesPresenterProtocol: AnyObject {
     func viewDidLoad()
@@ -47,7 +48,7 @@ extension FavoritesPresenter: FavoritesPresenterProtocol {
     }
     
     func didSelectRowAt(index: Int) {
-        // -> detail vc
+       // -> detail vs
     }
     
     private func fetchFromCoreData() {

@@ -54,5 +54,7 @@ extension FavoritesViewController: FavoritesViewControllerProtocol {
         }
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // -> detail vc
+    }
 }

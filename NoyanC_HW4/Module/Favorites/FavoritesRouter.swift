@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import CoreData
+import SongAPI
 
-protocol FavoritesRouterProtocol { }
+protocol FavoritesRouterProtocol {
+    func navigate(_ route: FavoriteRoutes)
+}
+
+enum FavoriteRoutes {
+    case detail(source: SongDetail?)
+}
 
 final class FavoritesRouter {
     
@@ -27,4 +35,14 @@ final class FavoritesRouter {
     }
 }
 
-extension FavoritesRouter: FavoritesRouterProtocol { }
+extension FavoritesRouter: FavoritesRouterProtocol {
+ 
+    func navigate(_ route: FavoriteRoutes) {
+        switch route {
+        case .detail(let source):
+            let detailVC = DetailRouter.createModule()
+            detailVC.source = source
+            viewController?.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+}

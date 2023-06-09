@@ -12,28 +12,36 @@ import SongAPI
 final class CoreDataManager {
     static let shared = CoreDataManager()
     
-    func saveNew(model: SongDetail, isFavorite: Bool, completion: @escaping ((Result<Void, Error>)->Void)) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let context = appDelegate.persistentContainer.viewContext
-        let item = SongEntity(context: context)
-        item.trackPrice = model.trackPrice!
-        item.collectionPrice = model.collectionPrice!
-        item.songName = model.trackName
-        item.songKind = model.kind
-        item.artistName = model.artistName
-        item.albumName = model.collectionName
-        item.isFavorite = isFavorite
-        item.artworkUrl = model.artworkUrl100
-        
-        do {
-            try context.save()
-            completion(.success(()))
-        } catch {
-            print(completion(.failure(error)))
+    func isSongDetailFavorite(_ model: SongDetail) -> Bool {
+            // Core Data'da favori olarak işaretlenmiş olan SongEntity'leri al
+            let favorites = fetchFavorites()
+            
+            // Verilen SongDetail modelinin trackName değerine sahip olanı ara
+            let favorite = favorites.first { $0.songName == model.trackName }
+            
+            // Eğer favori varsa true, yoksa false döndür
+            return favorite != nil
         }
-    }
-    
-    func fetchNew(completion: @escaping (Result<[SongEntity], Error>) -> Void) {
+        
+        private func fetchFavorites() -> [SongEntity] {
+            // Favori olarak işaretlenmiş olan SongEntity'leri fetch et
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return []
+            }
+            
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<SongEntity> = SongEntity.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "isFavorite == %@", NSNumber(value: true))
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                return results
+            } catch {
+                print("Fetch error: \(error)")
+                return []
+            }
+        }
+    func fetchSongs(completion: @escaping (Result<[SongEntity], Error>) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         let request: NSFetchRequest<SongEntity>
@@ -48,34 +56,21 @@ final class CoreDataManager {
         }
     }
     
-    func deleteNew(model: SongEntity, completion: @escaping (Result<Void, Error>) -> Void) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    func deleteAllData(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            completion(.failure(NSError(domain: "AppDelegate Not Found", code: 0, userInfo: nil)))
+            return
+        }
         let context = appDelegate.persistentContainer.viewContext
-        context.delete(model)
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "SongEntity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
+            try context.execute(deleteRequest)
             try context.save()
             completion(.success(()))
         } catch {
             completion(.failure(error))
         }
     }
-    
-    func deleteAllData(completion: @escaping (Result<Void, Error>) -> Void) {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                completion(.failure(NSError(domain: "AppDelegate Not Found", code: 0, userInfo: nil)))
-                return
-            }
-            let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "SongEntity")
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-            do {
-                try context.execute(deleteRequest)
-                try context.save()
-                completion(.success(()))
-            } catch {
-                completion(.failure(error))
-            }
-        }
 }

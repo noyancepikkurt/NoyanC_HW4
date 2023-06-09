@@ -70,7 +70,6 @@ public class ImageDownload {
     public func imageCoreData(songs: SongEntity, completion: @escaping (Data?, Error?) -> (Void)) {
         if let image = songs.artworkUrl {
             guard let url = URL(string: image) else { return }
-            print(url)
             download(imageURL: url, completion: completion)
         }
     }

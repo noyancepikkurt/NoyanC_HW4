@@ -8,19 +8,24 @@
 import UIKit
 import SongAPI
 import CoreData
+import AVFoundation
 
 protocol DetailPresenterProtocol {
     func viewDidLoad()
     func likeButtonClicked()
+    func isFavorite() -> Bool
+    func requestForAudio()
+    var isAudioPlaying: Bool { get set }
 }
 
 final class DetailPresenter {
     unowned var view: DetailViewControllerProtocol!
     let router: DetailRouterProtocol!
     var interactor: DetailInteractorProtocol!
-    var coreDataModel = [SongEntity]()
     var songDetail: SongDetail?
-    
+    private var audioPlayer: AVAudioPlayer?
+    var isAudioPlaying: Bool = false
+
     init(view: DetailViewControllerProtocol,
          router: DetailRouterProtocol,
          interactor: DetailInteractorProtocol!) {
@@ -31,10 +36,14 @@ final class DetailPresenter {
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
-    func likeButtonClicked() {
+    func isFavorite() -> Bool {
+        guard let songDetail else { return false }
+        return CoreDataManager.shared.isSongDetailFavorite(songDetail)
+    }
+    
+    func likeButtonClicked(){
         guard let songDetail else { return }
-        interactor.save(songDetail)
-        interactor.fetch()
+        interactor.saveOrDelete(songDetail)
     }
     
     func viewDidLoad() {
@@ -54,20 +63,21 @@ extension DetailPresenter: DetailPresenterProtocol {
             self.view.setSongImage(image)
         }
     }
-}
-
-extension DetailPresenter: DetailInteractorOutputProtocol {
-    func saveCoreData(_ saveResult: SongEntity) {
-        self.coreDataModel.append(saveResult)
-    }
     
-    func fetchCoreData(_ fetchResult: CoreDataResult) {
-        switch fetchResult {
-        case .success(let response):
-            self.coreDataModel = response
-            print("coredata count = \(coreDataModel.count)")
-        case .failure(_):
-            break
+    func requestForAudio() {
+        guard let songAudioURL = songDetail?.previewURL else { return }
+        NetworkService.shared.requestAudio(url: URL(string: songAudioURL)!) {[weak self] audioPlay in
+            guard let self else { return }
+            
+            if isAudioPlaying {
+                self.audioPlayer = audioPlay
+                self.audioPlayer?.pause()
+                self.isAudioPlaying = false
+            } else {
+                self.audioPlayer = audioPlay
+                self.audioPlayer?.play()
+                self.isAudioPlaying = true
+            }
         }
     }
 }

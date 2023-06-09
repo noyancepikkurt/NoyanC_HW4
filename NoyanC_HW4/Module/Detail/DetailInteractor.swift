@@ -5,65 +5,56 @@
 //  Created by Noyan Çepikkurt on 7.06.2023.
 //
 
-import Foundation
+import UIKit
 import SongAPI
 import CoreData
 
-typealias CoreDataResult = Result<[SongEntity], Error>
-
 protocol DetailInteractorProtocol {
-    func save(_ model: SongDetail)
-    func delete(_ model: SongEntity)
-    func fetch()
-}
-
-protocol DetailInteractorOutputProtocol {
-    func saveCoreData(_ saveResult: SongEntity )
-//    func deleteCoreData(_ deleteResult: SongDetail)
-    func fetchCoreData(_ fetchResult: CoreDataResult )
+    func saveOrDelete(_ model: SongDetail)
 }
 
 final class DetailInteractor {
-    var output: DetailInteractorOutputProtocol?
     var coreDataModel: SongEntity?
 }
 
 extension DetailInteractor: DetailInteractorProtocol {
-    func fetch() {
-        CoreDataManager.shared.fetchNew { result in
-            self.output?.fetchCoreData(result)
+    
+    func saveOrDelete(_ model: SongDetail) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<SongEntity> = SongEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "songName == %@", model.trackName ?? "")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            if let songEntity = results.first {
+                context.delete(songEntity)
+                try context.save()
+            } else {
+                guard let songEntity = convertToSongEntity(model: model) else { return }
+                songEntity.isFavorite = true
+                try context.save()
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
-    func save(_ model: SongDetail) {
-        CoreDataManager.shared.saveNew(model: model, isFavorite: true) { result in
-            switch result {
-            case .success(_):
-                CoreDataManager.shared.fetchNew { result in
-                    switch result {
-                    case .success(let models):
-                        for model in models {
-                            self.coreDataModel = model
-                        }
-                    case .failure(_):
-                        break
-                    }
-                    self.output?.saveCoreData(self.coreDataModel!)
-                }
-            case .failure(_):
-                break
-            }
-        }
-    }
-    
-    func delete(_ model: SongEntity) {
-        CoreDataManager.shared.deleteNew(model: model) { result in
-            switch result {
-            case .success(_):
-                print(" \(String(describing: model.artistName))silindi")
-            case .failure(_):
-                break
-            }
-        }
+    private func convertToSongEntity(model: SongDetail) -> SongEntity? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        guard let trackPrice = model.trackPrice else { return SongEntity()}
+        guard let collectionPrice = model.collectionPrice else { return SongEntity()}
+        let context = appDelegate.persistentContainer.viewContext
+        let songEntity = SongEntity(context: context)
+        songEntity.trackPrice = trackPrice
+        songEntity.collectionPrice = collectionPrice
+        songEntity.songName = model.trackName
+        songEntity.songKind = model.kind
+        songEntity.artistName = model.artistName
+        songEntity.albumName = model.collectionName
+        songEntity.isFavorite = true
+        songEntity.artworkUrl = model.artworkUrl100
+        return songEntity
     }
 }

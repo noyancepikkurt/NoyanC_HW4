@@ -35,15 +35,48 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        favoriteButtonForLoad()
         setGradientBackground()
     }
     
     @IBAction func detailAudioButtonAction(_ sender: Any) {
-        
+        presenter.requestForAudio()
+        updateButton()
     }
     
     @IBAction func likeButtonAction(_ sender: Any) {
+        favoriteButtonSetup()
         presenter.likeButtonClicked()
+    }
+    
+    private func favoriteButtonSetup() {
+        let fillImg = UIImage(systemName: "star.fill")
+        let img = UIImage(systemName: "star")
+        let buttonImage = presenter.isFavorite() ? img : fillImg
+        likeImage.setImage(buttonImage, for: .normal)
+    }
+    
+    private func favoriteButtonForLoad() {
+        let fillImg = UIImage(systemName: "star.fill")
+        let img = UIImage(systemName: "star")
+        let buttonImage = presenter.isFavorite() ? fillImg : img
+        likeImage.setImage(buttonImage, for: .normal)
+    }
+    
+    private func updateButton() {
+        AudioTimerHelper.startProgressAnimation(in: detailAudioButton, duration: 31, delegate: self)
+        if presenter.isAudioPlaying {
+            detailAudioButton.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
+            AudioTimerHelper.removeExistingProgressLayers(from: detailAudioButton)
+        } else {
+            detailAudioButton.setImage(UIImage(systemName: Icons.pauseIcon.rawValue), for: .normal)
+        }
+    }
+    
+    private func stopAudio() {
+        presenter.isAudioPlaying = false
+        detailAudioButton.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
+        AudioTimerHelper.removeExistingProgressLayers(from: detailAudioButton)
     }
 }
 
@@ -79,3 +112,12 @@ extension DetailViewController: DetailViewControllerProtocol {
         return source
     }
 }
+
+extension DetailViewController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+            stopAudio()
+        }
+    }
+}
+
