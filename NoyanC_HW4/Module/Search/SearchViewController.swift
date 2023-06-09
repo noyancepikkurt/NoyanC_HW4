@@ -19,7 +19,7 @@ protocol SearchViewControllerProtocol: AnyObject {
 final class SearchViewController: UIViewController, LoadingShowable {
     @IBOutlet var searchTextField: CustomTextField!
     @IBOutlet var tableView: UITableView!
-    private var searchDelayInterval: TimeInterval = 0.7
+    private var searchDelayInterval: TimeInterval = 0.3
     private var searchTimer: Timer?
     
     var presenter: SearchPresenterProtocol!
@@ -63,8 +63,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
-    
-    
 }
 
 extension SearchViewController: SearchViewControllerProtocol {

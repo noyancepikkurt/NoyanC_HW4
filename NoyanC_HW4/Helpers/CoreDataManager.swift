@@ -13,18 +13,12 @@ final class CoreDataManager {
     static let shared = CoreDataManager()
     
     func isSongDetailFavorite(_ model: SongDetail) -> Bool {
-            // Core Data'da favori olarak işaretlenmiş olan SongEntity'leri al
             let favorites = fetchFavorites()
-            
-            // Verilen SongDetail modelinin trackName değerine sahip olanı ara
             let favorite = favorites.first { $0.songName == model.trackName }
-            
-            // Eğer favori varsa true, yoksa false döndür
             return favorite != nil
         }
         
         private func fetchFavorites() -> [SongEntity] {
-            // Favori olarak işaretlenmiş olan SongEntity'leri fetch et
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return []
             }

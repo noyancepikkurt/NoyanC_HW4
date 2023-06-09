@@ -7,7 +7,6 @@
 
 import UIKit
 import SongAPI
-import CoreData
 
 protocol DetailViewControllerProtocol: AnyObject {
     func setSongTitle(_ text: String)

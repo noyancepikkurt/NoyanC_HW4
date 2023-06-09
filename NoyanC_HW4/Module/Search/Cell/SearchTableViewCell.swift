@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SongAPI
 
 protocol SearchCellProtocol: AnyObject {
     func setImage(_ image: UIImage)

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SongAPI
 
 protocol PopularCellProtocol: AnyObject {
     func setImage(_ image: UIImage)

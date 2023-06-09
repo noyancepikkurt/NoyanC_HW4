@@ -39,7 +39,6 @@ extension HomePresenter: HomePresenterProtocol {
     }
     
     func numberOfItems() -> Int {
-        print("deneme\(self.songDetail.count)")
         return self.songDetail.count
     }
     
