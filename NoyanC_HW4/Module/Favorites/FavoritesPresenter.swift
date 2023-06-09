@@ -48,7 +48,7 @@ extension FavoritesPresenter: FavoritesPresenterProtocol {
     }
     
     func didSelectRowAt(index: Int) {
-       // -> detail vs
+       // -> detail vc
     }
     
     private func fetchFromCoreData() {

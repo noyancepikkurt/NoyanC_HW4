@@ -12,6 +12,10 @@
 		5D12C23B2A332C460015AF1B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12C23A2A332C460015AF1B /* HomePresenter.swift */; };
 		5D12C2402A33323D0015AF1B /* FeaturedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12C23E2A33323D0015AF1B /* FeaturedCollectionViewCell.swift */; };
 		5D12C2412A33323D0015AF1B /* FeaturedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D12C23F2A33323D0015AF1B /* FeaturedCollectionViewCell.xib */; };
+		5D12C2442A3344EA0015AF1B /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12C2422A3344EA0015AF1B /* PopularCollectionViewCell.swift */; };
+		5D12C2452A3344EA0015AF1B /* PopularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D12C2432A3344EA0015AF1B /* PopularCollectionViewCell.xib */; };
+		5D12C2472A334EB20015AF1B /* PopularCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12C2462A334EB20015AF1B /* PopularCellPresenter.swift */; };
+		5D12C2492A3351E90015AF1B /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12C2482A3351E90015AF1B /* HomeInteractor.swift */; };
 		5D142EAA2A3221AD008EBBA8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EA92A3221AD008EBBA8 /* CoreDataManager.swift */; };
 		5D142EAE2A3223D0008EBBA8 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */; };
 		5D142EAF2A3223D0008EBBA8 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */; };
@@ -81,6 +85,10 @@
 		5D12C23A2A332C460015AF1B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		5D12C23E2A33323D0015AF1B /* FeaturedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D12C23F2A33323D0015AF1B /* FeaturedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedCollectionViewCell.xib; sourceTree = "<group>"; };
+		5D12C2422A3344EA0015AF1B /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D12C2432A3344EA0015AF1B /* PopularCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewCell.xib; sourceTree = "<group>"; };
+		5D12C2462A334EB20015AF1B /* PopularCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCellPresenter.swift; sourceTree = "<group>"; };
+		5D12C2482A3351E90015AF1B /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		5D142EA92A3221AD008EBBA8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
@@ -171,6 +179,9 @@
 		5D12C2392A332C010015AF1B /* PopularCell */ = {
 			isa = PBXGroup;
 			children = (
+				5D12C2462A334EB20015AF1B /* PopularCellPresenter.swift */,
+				5D12C2422A3344EA0015AF1B /* PopularCollectionViewCell.swift */,
+				5D12C2432A3344EA0015AF1B /* PopularCollectionViewCell.xib */,
 			);
 			path = PopularCell;
 			sourceTree = "<group>";
@@ -297,6 +308,7 @@
 				5D12C2392A332C010015AF1B /* PopularCell */,
 				5D12C2382A332BF10015AF1B /* FeaturedCell */,
 				5D0455682A2FA57200500135 /* HomeViewController.swift */,
+				5D12C2482A3351E90015AF1B /* HomeInteractor.swift */,
 				5D12C23A2A332C460015AF1B /* HomePresenter.swift */,
 				5D0455662A2FA4A500500135 /* HomeRouter.swift */,
 			);
@@ -490,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D17977D2A2F5382008A9205 /* LaunchScreen.storyboard in Resources */,
+				5D12C2452A3344EA0015AF1B /* PopularCollectionViewCell.xib in Resources */,
 				5D17977A2A2F5382008A9205 /* Assets.xcassets in Resources */,
 				5D12C2412A33323D0015AF1B /* FeaturedCollectionViewCell.xib in Resources */,
 				5D53EDF72A2FC0A200BE6649 /* SearchTableViewCell.xib in Resources */,
@@ -522,6 +535,7 @@
 				5D1797722A2F5382008A9205 /* SplashViewController.swift in Sources */,
 				5D6797642A310A7E003A6BBB /* MainViewController.swift in Sources */,
 				5D6797762A3159CB003A6BBB /* FavoritesViewController.swift in Sources */,
+				5D12C2492A3351E90015AF1B /* HomeInteractor.swift in Sources */,
 				5D53EDF22A2FBE9F00BE6649 /* SearchViewController.swift in Sources */,
 				5D6797662A312288003A6BBB /* LoadingView.swift in Sources */,
 				5D1797782A2F5382008A9205 /* NoyanC_HW4.xcdatamodeld in Sources */,
@@ -534,6 +548,7 @@
 				5D67976C2A31458C003A6BBB /* AudioTimerHelper.swift in Sources */,
 				5D3ACEDA2A2F5AC4006779B8 /* SplashRouter.swift in Sources */,
 				5D3ACED62A2F5AA0006779B8 /* SplashInteractor.swift in Sources */,
+				5D12C2472A334EB20015AF1B /* PopularCellPresenter.swift in Sources */,
 				5D53EE002A2FC6FA00BE6649 /* SearchRouter.swift in Sources */,
 				5D12C23B2A332C460015AF1B /* HomePresenter.swift in Sources */,
 				5D53EE032A2FD10200BE6649 /* DetailViewController.swift in Sources */,
@@ -549,6 +564,7 @@
 				5D0455692A2FA57200500135 /* HomeViewController.swift in Sources */,
 				5D0455672A2FA4A500500135 /* HomeRouter.swift in Sources */,
 				5D6797732A315842003A6BBB /* StoryboardIdentifiers.swift in Sources */,
+				5D12C2442A3344EA0015AF1B /* PopularCollectionViewCell.swift in Sources */,
 				5D67976A2A3122BC003A6BBB /* LoadingShowable.swift in Sources */,
 				5D142EAE2A3223D0008EBBA8 /* FavoritesTableViewCell.swift in Sources */,
 				5DD916D82A325A450047B6A7 /* FavoritesInteractor.swift in Sources */,

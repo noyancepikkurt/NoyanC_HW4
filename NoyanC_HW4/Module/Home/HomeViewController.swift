@@ -8,16 +8,25 @@
 import UIKit
 import Extensions
 
-final class HomeViewController: UIViewController {
+protocol HomeViewControllerProtocol: AnyObject {
+    func registerCollectionViews()
+    func reloadData()
+    func showLoadingView()
+    func hideLoadingView()
+}
+
+final class HomeViewController: UIViewController, LoadingShowable {
     @IBOutlet var featuredCollectionView: UICollectionView!
     @IBOutlet var popularCollectionView: UICollectionView!
     private var imageArrayFeaturedCV: [UIImage]?
     
+    var presenter: HomePresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
         imageArrayConfig()
         setupCollectionViews()
-        registerCollectionViews()
         setGradientBackground()
     }
     
@@ -29,10 +38,17 @@ final class HomeViewController: UIViewController {
         let cellWidth = self.featuredCollectionView.frame.size.width - (design.minimumLineSpacing)
         design.itemSize = CGSize(width: cellWidth, height: cellWidth * 0.5)
         featuredCollectionView!.collectionViewLayout = design
-    }
-    
-    private func registerCollectionViews() {
-        featuredCollectionView.register(cellType: FeaturedCollectionViewCell.self)
+        
+        let designPopular: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        designPopular.scrollDirection = .vertical
+        designPopular.minimumLineSpacing = 16
+        designPopular.minimumInteritemSpacing = 4
+        let collectionViewWidth = popularCollectionView.frame.size.width
+        let popularCellWidth = (collectionViewWidth - 20) / 2
+        let cellHeight = popularCollectionView.frame.size.height / 2.1
+        designPopular.itemSize = CGSize(width: popularCellWidth, height: cellHeight)
+        popularCollectionView.collectionViewLayout = designPopular
+        popularCollectionView.contentInsetAdjustmentBehavior = .never
     }
     
     private func imageArrayConfig() {
@@ -48,7 +64,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.setup(imageArrayFeaturedCV[indexPath.item])
             return cell
         } else {
-            return UICollectionViewCell()
+            let cell = collectionView.dequeCell(cellType: PopularCollectionViewCell.self, indexPath: indexPath)
+            if let songs = presenter.songs(indexPath.item) {
+                cell.cellPresenter = PopularCellPresenter(view: cell, songDetail: songs)
+            }
+            return cell
         }
     }
     
@@ -57,7 +77,39 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let imageArrayCount = imageArrayFeaturedCV?.count else { return 0}
             return imageArrayCount
         } else {
-            return 0
+            return presenter.numberOfItems()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didSelectRowAt(index: indexPath.row)
+    }
+    
+    
 }
+
+extension HomeViewController: HomeViewControllerProtocol {
+    
+    func registerCollectionViews() {
+        featuredCollectionView.register(cellType: FeaturedCollectionViewCell.self)
+        popularCollectionView.register(cellType: PopularCollectionViewCell.self )
+    }
+    
+    func reloadData() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.popularCollectionView.reloadData()
+            self.featuredCollectionView.reloadData()
+        }
+    }
+    
+    func showLoadingView() {
+        self.showLoading()
+    }
+    
+    func hideLoadingView() {
+        self.hideLoading()
+    }
+}
+
+

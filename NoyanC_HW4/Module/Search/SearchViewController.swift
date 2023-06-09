@@ -31,6 +31,10 @@ final class SearchViewController: UIViewController, LoadingShowable {
         self.navigationController?.navigationBar.tintColor = .white
         searchTextField.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {

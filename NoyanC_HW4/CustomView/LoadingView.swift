@@ -9,43 +9,34 @@ import UIKit
 
 class LoadingView {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    var tableView: UITableView?
     static let shared = LoadingView()
+    var blurView: UIVisualEffectView = UIVisualEffectView()
 
     private init() {
         configure()
     }
 
     func configure() {
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        blurView.frame = UIWindow(frame: UIScreen.main.bounds).frame
+        activityIndicator.center = blurView.center
         activityIndicator.hidesWhenStopped = true
+        blurView.contentView.addSubview(activityIndicator)
     }
 
-    func startLoading(in tableView: UITableView) {
-        self.tableView = tableView
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = tableView.bounds
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurView.tag = 1234
-        
-        activityIndicator.center = tableView.center
-        blurView.contentView.addSubview(activityIndicator)
-        tableView.addSubview(blurView)
-        
+    func startLoading() {
+        UIApplication.shared.windows.first?.addSubview(blurView)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
     }
 
     func hideLoading() {
         DispatchQueue.main.async {
+            self.blurView.removeFromSuperview()
             self.activityIndicator.stopAnimating()
-            
-            if let tableView = self.tableView,
-               let blurView = tableView.viewWithTag(1234) {
-                blurView.removeFromSuperview()
-            }
-            
-            self.tableView = nil
         }
     }
 }
+
 

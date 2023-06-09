@@ -8,17 +8,19 @@
 import UIKit
 
 protocol LoadingShowable {
-    func showLoading(in tableView: UITableView)
+    func showLoading()
     func hideLoading()
 }
 
 extension LoadingShowable {
-    func showLoading(in tableView: UITableView) {
-        LoadingView.shared.startLoading(in: tableView)
-    }
-
+   
     func hideLoading() {
         LoadingView.shared.hideLoading()
     }
+    
+    func showLoading() {
+        LoadingView.shared.startLoading()
+    }
+    
 }
 

@@ -16,16 +16,14 @@ final class MainViewController: UITabBarController {
     }
     
     private func addTabbarItem() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let homeVC = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.homeVC.rawValue) as! HomeViewController
-        let homeNavigationController = UINavigationController(rootViewController: homeVC)
+        let homeVC = HomeRouter.createModule()
         
         let searchVC = SearchRouter.createModule()
         
         let favoritesVC = FavoritesRouter.createModule()
         
-        self.viewControllers = [homeNavigationController, searchVC, favoritesVC]
+        self.viewControllers = [homeVC, searchVC, favoritesVC]
     }
     
     private func customizeTabBarAppearance() {

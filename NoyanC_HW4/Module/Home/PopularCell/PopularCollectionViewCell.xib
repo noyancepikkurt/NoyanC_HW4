@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PopularCollectionViewCell" customModule="NoyanC_HW4" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="152" height="184"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="152" height="184"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1tb-hP-jrx">
+                        <rect key="frame" x="0.0" y="0.0" width="152" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="140" id="GDa-z8-eHe"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1a6-zV-Pvw">
+                        <rect key="frame" x="4" y="142" width="148" height="33.666666666666657"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="song name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epV-vx-bpu">
+                                <rect key="frame" x="0.0" y="0.0" width="148" height="14.333333333333334"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="artist name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1A3-FD-dO9">
+                                <rect key="frame" x="0.0" y="19.333333333333343" width="148" height="14.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1a6-zV-Pvw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="H1S-wn-enx"/>
+                <constraint firstAttribute="trailing" secondItem="1tb-hP-jrx" secondAttribute="trailing" id="Hkr-8I-K8c"/>
+                <constraint firstItem="1tb-hP-jrx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Kvu-Am-Xed"/>
+                <constraint firstAttribute="trailing" secondItem="1a6-zV-Pvw" secondAttribute="trailing" id="MjJ-rt-SnY"/>
+                <constraint firstItem="1a6-zV-Pvw" firstAttribute="top" secondItem="1tb-hP-jrx" secondAttribute="bottom" constant="2" id="QaW-cg-kXH"/>
+                <constraint firstItem="1tb-hP-jrx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TOP-Oz-26v"/>
+                <constraint firstAttribute="trailing" secondItem="1a6-zV-Pvw" secondAttribute="trailing" id="ziJ-9D-K4t"/>
+            </constraints>
+            <size key="customSize" width="152" height="184"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="artistLabel" destination="1A3-FD-dO9" id="Gaq-Fw-m3V"/>
+                <outlet property="imageView" destination="1tb-hP-jrx" id="H9b-xk-HFt"/>
+                <outlet property="songLabel" destination="epV-vx-bpu" id="4j9-PB-r9m"/>
+            </connections>
+            <point key="canvasLocation" x="178.62595419847327" y="93.661971830985919"/>
+        </collectionViewCell>
+    </objects>
+</document>
