@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5D0455672A2FA4A500500135 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0455662A2FA4A500500135 /* HomeRouter.swift */; };
 		5D0455692A2FA57200500135 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0455682A2FA57200500135 /* HomeViewController.swift */; };
+		5D12C23B2A332C460015AF1B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12C23A2A332C460015AF1B /* HomePresenter.swift */; };
+		5D12C2402A33323D0015AF1B /* FeaturedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D12C23E2A33323D0015AF1B /* FeaturedCollectionViewCell.swift */; };
+		5D12C2412A33323D0015AF1B /* FeaturedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D12C23F2A33323D0015AF1B /* FeaturedCollectionViewCell.xib */; };
 		5D142EAA2A3221AD008EBBA8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EA92A3221AD008EBBA8 /* CoreDataManager.swift */; };
 		5D142EAE2A3223D0008EBBA8 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */; };
 		5D142EAF2A3223D0008EBBA8 /* FavoritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */; };
@@ -75,6 +78,9 @@
 /* Begin PBXFileReference section */
 		5D0455662A2FA4A500500135 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		5D0455682A2FA57200500135 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5D12C23A2A332C460015AF1B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		5D12C23E2A33323D0015AF1B /* FeaturedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewCell.swift; sourceTree = "<group>"; };
+		5D12C23F2A33323D0015AF1B /* FeaturedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedCollectionViewCell.xib; sourceTree = "<group>"; };
 		5D142EA92A3221AD008EBBA8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewCell.xib; sourceTree = "<group>"; };
@@ -153,6 +159,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D12C2382A332BF10015AF1B /* FeaturedCell */ = {
+			isa = PBXGroup;
+			children = (
+				5D12C23E2A33323D0015AF1B /* FeaturedCollectionViewCell.swift */,
+				5D12C23F2A33323D0015AF1B /* FeaturedCollectionViewCell.xib */,
+			);
+			path = FeaturedCell;
+			sourceTree = "<group>";
+		};
+		5D12C2392A332C010015AF1B /* PopularCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopularCell;
+			sourceTree = "<group>";
+		};
 		5D142EAB2A3223C0008EBBA8 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,8 +294,11 @@
 		5D3ACED32A2F584E006779B8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				5D0455662A2FA4A500500135 /* HomeRouter.swift */,
+				5D12C2392A332C010015AF1B /* PopularCell */,
+				5D12C2382A332BF10015AF1B /* FeaturedCell */,
 				5D0455682A2FA57200500135 /* HomeViewController.swift */,
+				5D12C23A2A332C460015AF1B /* HomePresenter.swift */,
+				5D0455662A2FA4A500500135 /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -466,6 +491,7 @@
 			files = (
 				5D17977D2A2F5382008A9205 /* LaunchScreen.storyboard in Resources */,
 				5D17977A2A2F5382008A9205 /* Assets.xcassets in Resources */,
+				5D12C2412A33323D0015AF1B /* FeaturedCollectionViewCell.xib in Resources */,
 				5D53EDF72A2FC0A200BE6649 /* SearchTableViewCell.xib in Resources */,
 				5D142EAF2A3223D0008EBBA8 /* FavoritesTableViewCell.xib in Resources */,
 				5D1797752A2F5382008A9205 /* Main.storyboard in Resources */,
@@ -504,10 +530,12 @@
 				5D142EB52A324A01008EBBA8 /* FavoritesRouter.swift in Sources */,
 				5DD916D42A3255360047B6A7 /* ImageDownload.swift in Sources */,
 				5D67975D2A30A7E1003A6BBB /* DetailRouter.swift in Sources */,
+				5D12C2402A33323D0015AF1B /* FeaturedCollectionViewCell.swift in Sources */,
 				5D67976C2A31458C003A6BBB /* AudioTimerHelper.swift in Sources */,
 				5D3ACEDA2A2F5AC4006779B8 /* SplashRouter.swift in Sources */,
 				5D3ACED62A2F5AA0006779B8 /* SplashInteractor.swift in Sources */,
 				5D53EE002A2FC6FA00BE6649 /* SearchRouter.swift in Sources */,
+				5D12C23B2A332C460015AF1B /* HomePresenter.swift in Sources */,
 				5D53EE032A2FD10200BE6649 /* DetailViewController.swift in Sources */,
 				5D6797572A3077E0003A6BBB /* SearchCellPresenter.swift in Sources */,
 				5D67975B2A30A7C4003A6BBB /* DetailPresenter.swift in Sources */,
