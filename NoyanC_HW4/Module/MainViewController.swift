@@ -29,5 +29,6 @@ final class MainViewController: UITabBarController {
     private func customizeTabBarAppearance() {
         self.tabBar.tintColor = UIColor.white
         self.tabBar.unselectedItemTintColor = UIColor.systemGray
+        self.tabBar.backgroundImage = UIImage()
     }
 }

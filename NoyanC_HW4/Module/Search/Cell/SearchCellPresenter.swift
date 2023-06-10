@@ -18,11 +18,12 @@ protocol SearchCellPresenterProtocol: AnyObject {
 final class SearchCellPresenter {
     weak var view: SearchCellProtocol?
     private let song: SongDetail
+    private var selectedIndex: IndexPath?
     private var audioPlayer: AVAudioPlayer?
     var isAudioPlaying: Bool = false
     
     init(view: SearchCellProtocol,
-         song: SongDetail) {
+         song: SongDetail){
         self.view = view
         self.song = song
     }
@@ -41,19 +42,21 @@ extension SearchCellPresenter: SearchCellPresenterProtocol {
         view?.setArtistName(song.artistName ?? "")
     }
     
-    func requestForAudio() {
+    func requestForAudio()  {
         guard let songAudioURL = song.previewURL else { return }
         NetworkService.shared.requestAudio(url: URL(string: songAudioURL)!) {[weak self] audioPlay in
             guard let self else { return }
+            self.audioPlayer = audioPlay
             
-            if isAudioPlaying {
-                self.audioPlayer = audioPlay
-                self.audioPlayer?.pause()
-                self.isAudioPlaying = false
+            if self.isAudioPlaying {
+                AudioManager.shared.stopMusic { bool in
+                    self.isAudioPlaying = bool
+                }
             } else {
-                self.audioPlayer = audioPlay
-                self.audioPlayer?.play()
-                self.isAudioPlaying = true
+                guard let audioPlayer = self.audioPlayer else { return }
+                AudioManager.shared.playMusic(audioPlayer: audioPlayer) { bool in
+                    self.isAudioPlaying = bool
+                }
             }
         }
     }

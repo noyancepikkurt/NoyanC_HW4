@@ -16,6 +16,7 @@ protocol DetailPresenterProtocol {
     func isFavorite() -> Bool
     func requestForAudio()
     var isAudioPlaying: Bool { get set }
+    func stopAudio()
 }
 
 final class DetailPresenter {
@@ -36,6 +37,10 @@ final class DetailPresenter {
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
+    func stopAudio() {
+        AudioManager.shared.stopMusic()
+    }
+    
     func isFavorite() -> Bool {
         guard let songDetail else { return false }
         return CoreDataManager.shared.isSongDetailFavorite(songDetail)
@@ -68,15 +73,17 @@ extension DetailPresenter: DetailPresenterProtocol {
         guard let songAudioURL = songDetail?.previewURL else { return }
         NetworkService.shared.requestAudio(url: URL(string: songAudioURL)!) {[weak self] audioPlay in
             guard let self else { return }
+            self.audioPlayer = audioPlay
             
             if isAudioPlaying {
-                self.audioPlayer = audioPlay
-                self.audioPlayer?.pause()
-                self.isAudioPlaying = false
+                AudioManager.shared.stopMusic { bool in
+                    self.isAudioPlaying = bool
+                }
             } else {
-                self.audioPlayer = audioPlay
-                self.audioPlayer?.play()
-                self.isAudioPlaying = true
+                guard let audioPlayer = self.audioPlayer else { return }
+                AudioManager.shared.playMusic(audioPlayer: audioPlayer) { bool in
+                    self.isAudioPlaying = true
+                }
             }
         }
     }

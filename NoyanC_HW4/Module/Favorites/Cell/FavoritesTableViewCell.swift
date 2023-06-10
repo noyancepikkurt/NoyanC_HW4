@@ -27,8 +27,8 @@ final class FavoritesTableViewCell: UITableViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        favoritesImageView.image = nil
     }
 }
 

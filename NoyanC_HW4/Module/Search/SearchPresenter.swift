@@ -14,6 +14,7 @@ protocol SearchPresenterProtocol: AnyObject {
     func songs(_ index: Int) -> SongDetail?
     func didSelectRowAt(index: Int)
     func fetchSongsFilter(with word: String)
+    func stopAudio()
 }
 
 final class SearchPresenter {
@@ -33,7 +34,10 @@ final class SearchPresenter {
 }
 
 extension SearchPresenter: SearchPresenterProtocol {
-   
+    func stopAudio() {
+        AudioManager.shared.stopMusic()
+    }
+    
     func viewDidLoad() {
         view?.setupTableView()
     }

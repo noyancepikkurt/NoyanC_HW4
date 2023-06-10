@@ -7,10 +7,10 @@
 
 import UIKit
 
-extension UIAlertController {
-    public static func alertMessage(title: String,
-                                    message: String,
-                                    vc: UIViewController
+public extension UIAlertController {
+    static func alertMessage(title: String,
+                             message: String,
+                             vc: UIViewController
     ) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let alertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
@@ -18,7 +18,7 @@ extension UIAlertController {
         vc.present(alert, animated: true)
     }
     
-    public static func alertActionMessage(title: String, message: String, vc: UIViewController, completion: @escaping((Bool) -> Void)) {
+    static func alertActionMessage(title: String, message: String, vc: UIViewController, completion: @escaping((Bool) -> Void)) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let alertActionCancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { _ in
             completion(false)

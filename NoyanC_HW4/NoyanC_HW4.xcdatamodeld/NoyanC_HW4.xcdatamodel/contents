@@ -8,6 +8,7 @@
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="songKind" optional="YES" attributeType="String"/>
         <attribute name="songName" optional="YES" attributeType="String"/>
+        <attribute name="trackID" optional="YES" attributeType="String"/>
         <attribute name="trackPrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
 </model>

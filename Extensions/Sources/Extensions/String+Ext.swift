@@ -7,8 +7,8 @@
 
 import UIKit
 
-extension String {
-    public func turkishToEnglishTransformed() -> String {
+public extension String {
+    func turkishToEnglishTransformed() -> String {
         let string = NSMutableString(string: self) as CFMutableString
         CFStringTransform(string, nil, kCFStringTransformToLatin, false)
         CFStringTransform(string, nil, kCFStringTransformStripDiacritics, false)
@@ -17,5 +17,5 @@ extension String {
         let filteredString = replacedString.replacingOccurrences(of: " ", with: "+")
         return filteredString
     }
-
+    
 }

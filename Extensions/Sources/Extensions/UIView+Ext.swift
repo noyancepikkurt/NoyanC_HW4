@@ -14,11 +14,9 @@ extension UIView {
             self.layer.cornerRadius = newValue
         }
     }
-    
 }
-
-extension UIViewController {
-    public func setGradientBackground() {
+public extension UIViewController {
+    func setGradientBackground() {
         let topColor = UIColor(red: 0.2, green: 0.0, blue: 0.4, alpha: 1.0)
         let bottomColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         let gradientLayer = CAGradientLayer()

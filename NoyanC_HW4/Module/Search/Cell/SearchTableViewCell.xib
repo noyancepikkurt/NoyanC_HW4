@@ -29,9 +29,6 @@
                         <buttonConfiguration key="configuration" style="plain">
                             <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
                         </buttonConfiguration>
-                        <connections>
-                            <action selector="audioButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eYF-1q-160"/>
-                        </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ae2-xh-lS5">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="116"/>

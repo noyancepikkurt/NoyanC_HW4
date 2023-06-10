@@ -19,7 +19,7 @@ protocol SearchViewControllerProtocol: AnyObject {
 final class SearchViewController: UIViewController, LoadingShowable {
     @IBOutlet var searchTextField: CustomTextField!
     @IBOutlet var tableView: UITableView!
-    private var searchDelayInterval: TimeInterval = 0.3
+    private var searchDelayInterval: TimeInterval = 0.85
     private var searchTimer: Timer?
     
     var presenter: SearchPresenterProtocol!
@@ -35,6 +35,24 @@ final class SearchViewController: UIViewController, LoadingShowable {
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.stopAudio()
+    }
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        guard let cell = sender.superview?.superview as? SearchTableViewCell,
+                let indexPath = tableView.indexPath(for: cell) else { return }
+        cell.audioButtonAction()
+        for visibleCell in tableView.visibleCells {
+            if let visibleIndexPath = tableView.indexPath(for: visibleCell),
+               visibleIndexPath != indexPath,
+               let unselectedCell = tableView.cellForRow(at: visibleIndexPath) as? SearchTableViewCell
+            {
+                unselectedCell.stopAudio()
+            }
+        }
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -45,6 +63,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if let songs = presenter.songs(indexPath.row) {
             cell.cellPresenter = SearchCellPresenter(view: cell, song: songs)
         }
+        
+        cell.audioButtonImage.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return cell
     }
     
@@ -107,6 +127,7 @@ extension SearchViewController: UITextFieldDelegate {
         searchTimer = Timer.scheduledTimer(withTimeInterval: searchDelayInterval, repeats: false) { [weak self] _ in
             guard let searchText = textField.text else { return }
             self?.presenter.fetchSongsFilter(with: searchText)
+            self?.presenter.stopAudio()
         }
     }
 }

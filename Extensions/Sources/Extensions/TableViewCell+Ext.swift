@@ -7,12 +7,12 @@
 
 import UIKit
 
-extension UITableViewCell {
-    public static var identifier: String {
+public extension UITableViewCell {
+    static var identifier: String {
         return String(describing: self)
     }
     
-    public static var nib: UINib {
+    static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
 }

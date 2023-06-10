@@ -18,9 +18,11 @@ protocol HomeViewControllerProtocol: AnyObject {
 final class HomeViewController: UIViewController, LoadingShowable {
     @IBOutlet var featuredCollectionView: UICollectionView!
     @IBOutlet var popularCollectionView: UICollectionView!
+    @IBOutlet var pageControl: UIPageControl!
     private var imageArrayFeaturedCV: [UIImage]?
     
     var presenter: HomePresenterProtocol!
+    var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +35,17 @@ final class HomeViewController: UIViewController, LoadingShowable {
     private func setupCollectionViews() {
         let design: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         design.scrollDirection = .horizontal
-        design.collectionView?.isPagingEnabled = true
-        design.minimumLineSpacing = 10
-        let cellWidth = self.featuredCollectionView.frame.size.width - (design.minimumLineSpacing)
-        design.itemSize = CGSize(width: cellWidth, height: cellWidth * 0.5)
-        featuredCollectionView!.collectionViewLayout = design
+        let cellWidth = self.featuredCollectionView.frame.size.width - 10
+        design.itemSize = CGSize(width: cellWidth, height: self.featuredCollectionView.frame.size.height)
+        featuredCollectionView.isPagingEnabled = true
+        featuredCollectionView.collectionViewLayout = design
         
         let designPopular: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         designPopular.scrollDirection = .vertical
         designPopular.minimumLineSpacing = 16
         designPopular.minimumInteritemSpacing = 4
         let collectionViewWidth = popularCollectionView.frame.size.width
-        let popularCellWidth = (collectionViewWidth - 20) / 2
+        let popularCellWidth = (collectionViewWidth) / 2 - 20
         let cellHeight = popularCollectionView.frame.size.height / 2.1
         designPopular.itemSize = CGSize(width: popularCellWidth, height: cellHeight)
         popularCollectionView.collectionViewLayout = designPopular
@@ -82,7 +83,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.didSelectRowAt(index: indexPath.row)
+        if collectionView == featuredCollectionView {
+            self.navigationController?.pushViewController(AlbumViewController(), animated: true)
+        } else {
+            presenter.didSelectRowAt(index: indexPath.row)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        currentPage = Int(scrollView.contentOffset.x / width)
+        pageControl.currentPage = currentPage
     }
     
     

@@ -14,7 +14,7 @@ final class CoreDataManager {
     
     func isSongDetailFavorite(_ model: SongDetail) -> Bool {
             let favorites = fetchFavorites()
-            let favorite = favorites.first { $0.songName == model.trackName }
+        let favorite = favorites.first { $0.trackID == String(describing: model.trackID) }
             return favorite != nil
         }
         

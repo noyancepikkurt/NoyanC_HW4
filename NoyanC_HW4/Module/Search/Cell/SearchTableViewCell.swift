@@ -29,27 +29,30 @@ final class SearchTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        detailImageView.image = nil
         stopAudio()
     }
     
-    @IBAction func audioButtonAction(_ sender: Any) {
+     func audioButtonAction() {
         cellPresenter.requestForAudio()
         updateButton()
     }
     
-    private func stopAudio() {
-        cellPresenter.isAudioPlaying = false
-        audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
-        AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
+     func stopAudio() {
+        AudioManager.shared.stopMusic { [weak self] bool in
+            guard let self else { return }
+            self.cellPresenter.isAudioPlaying = bool
+            self.audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
+            AudioTimerHelper.removeExistingProgressLayers(from: self.audioButtonImage)
+        }
     }
     
-    
     private func updateButton() {
-        AudioTimerHelper.startProgressAnimation(in: audioButtonImage, duration: 31, delegate: self)
         if cellPresenter.isAudioPlaying {
             audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
             AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
         } else {
+            AudioTimerHelper.startProgressAnimation(in: audioButtonImage, duration: 31, delegate: self)
             audioButtonImage.setImage(UIImage(systemName: Icons.pauseIcon.rawValue), for: .normal)
         }
     }

@@ -24,7 +24,7 @@ extension DetailInteractor: DetailInteractorProtocol {
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<SongEntity> = SongEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "songName == %@", model.trackName ?? "")
+        fetchRequest.predicate = NSPredicate(format: "trackID == %@", String(describing: model.trackID))
         
         do {
             let results = try context.fetch(fetchRequest)
@@ -55,6 +55,7 @@ extension DetailInteractor: DetailInteractorProtocol {
         songEntity.albumName = model.collectionName
         songEntity.isFavorite = true
         songEntity.artworkUrl = model.artworkUrl100
+        songEntity.trackID = String(describing: model.trackID)
         return songEntity
     }
 }

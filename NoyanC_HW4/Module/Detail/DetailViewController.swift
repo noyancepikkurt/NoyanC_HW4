@@ -30,12 +30,17 @@ final class DetailViewController: UIViewController {
     
     var source: SongDetail?
     var presenter: DetailPresenterProtocol!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
         favoriteButtonForLoad()
         setGradientBackground()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter.stopAudio()
+        stopAudio()
     }
     
     @IBAction func detailAudioButtonAction(_ sender: Any) {
@@ -44,8 +49,18 @@ final class DetailViewController: UIViewController {
     }
     
     @IBAction func likeButtonAction(_ sender: Any) {
-        favoriteButtonSetup()
-        presenter.likeButtonClicked()
+        if presenter.isFavorite() {
+            UIAlertController.alertActionMessage(title: "test", message: "deneme", vc: self) { [weak self] bool in
+                guard let self else { return }
+                if bool {
+                    self.favoriteButtonSetup()
+                    self.presenter.likeButtonClicked()
+                }
+            }
+        } else {
+            self.favoriteButtonSetup()
+            self.presenter.likeButtonClicked()
+        }
     }
     
     private func favoriteButtonSetup() {
@@ -63,11 +78,11 @@ final class DetailViewController: UIViewController {
     }
     
     private func updateButton() {
-        AudioTimerHelper.startProgressAnimation(in: detailAudioButton, duration: 31, delegate: self)
         if presenter.isAudioPlaying {
             detailAudioButton.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
             AudioTimerHelper.removeExistingProgressLayers(from: detailAudioButton)
         } else {
+            AudioTimerHelper.startProgressAnimation(in: detailAudioButton, duration: 31, delegate: self)
             detailAudioButton.setImage(UIImage(systemName: Icons.pauseIcon.rawValue), for: .normal)
         }
     }
