@@ -34,6 +34,4 @@ extension PopularCellPresenter: PopularCellPresenterProtocol {
         view?.setSongName(songDetail.trackName ?? "")
         view?.setArtistName(songDetail.artistName ?? "")
     }
-    
-    
 }

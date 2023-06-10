@@ -35,6 +35,4 @@ extension FavoritesCellPresenter: FavoritesCellPresenterProtocol {
         view?.setArtist(songs.artistName ?? "")
         view?.setAlbum(songs.albumName ?? "")
     }
-    
-            
 }

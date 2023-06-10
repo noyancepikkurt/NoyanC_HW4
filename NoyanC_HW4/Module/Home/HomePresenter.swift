@@ -60,13 +60,11 @@ extension HomePresenter: HomePresenterProtocol {
 extension HomePresenter: HomeInteractorOutputProtocol {
     func fetchSongsOutput(_ result: SongsSourceResult) {
         view?.hideLoadingView()
-        
         switch result {
         case .success(let response):
             guard let songDetail = response.results else { return }
             self.songDetail = songDetail
             view?.reloadData()
-            
         case .failure(let error):
             //show alert?
             print(error.localizedDescription)

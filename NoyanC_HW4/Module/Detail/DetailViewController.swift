@@ -50,7 +50,9 @@ final class DetailViewController: UIViewController {
     
     @IBAction func likeButtonAction(_ sender: Any) {
         if presenter.isFavorite() {
-            UIAlertController.alertActionMessage(title: "test", message: "deneme", vc: self) { [weak self] bool in
+            UIAlertController.alertActionMessage(title: AlertMessages.deleteFavoriteTitle.rawValue,
+                                                 message: AlertMessages.deleteFavoriteMessage.rawValue,
+                                                 vc: self) { [weak self] bool in
                 guard let self else { return }
                 if bool {
                     self.favoriteButtonSetup()
@@ -64,15 +66,15 @@ final class DetailViewController: UIViewController {
     }
     
     private func favoriteButtonSetup() {
-        let fillImg = UIImage(systemName: "star.fill")
-        let img = UIImage(systemName: "star")
+        let fillImg = UIImage(systemName: Icons.fillStar.rawValue)
+        let img = UIImage(systemName: Icons.emptyStar.rawValue)
         let buttonImage = presenter.isFavorite() ? img : fillImg
         likeImage.setImage(buttonImage, for: .normal)
     }
     
     private func favoriteButtonForLoad() {
-        let fillImg = UIImage(systemName: "star.fill")
-        let img = UIImage(systemName: "star")
+        let fillImg = UIImage(systemName: Icons.fillStar.rawValue)
+        let img = UIImage(systemName: Icons.emptyStar.rawValue)
         let buttonImage = presenter.isFavorite() ? fillImg : img
         likeImage.setImage(buttonImage, for: .normal)
     }

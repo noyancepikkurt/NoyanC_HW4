@@ -19,17 +19,23 @@ final class HomeViewController: UIViewController, LoadingShowable {
     @IBOutlet var featuredCollectionView: UICollectionView!
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var recenlySearchLabel: UILabel!
     private var imageArrayFeaturedCV: [UIImage]?
+    private var currentPage = 0
     
     var presenter: HomePresenterProtocol!
-    var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = .white
         imageArrayConfig()
         setupCollectionViews()
         setGradientBackground()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.viewDidLoad()
+        popularCollectionView.reloadData()
     }
     
     private func setupCollectionViews() {
@@ -53,7 +59,10 @@ final class HomeViewController: UIViewController, LoadingShowable {
     }
     
     private func imageArrayConfig() {
-        imageArrayFeaturedCV = [UIImage(named: "daft_punk")!, UIImage(named: "pinhani")!, UIImage(named: "eminem")!,UIImage(named: "beatles")!]
+        imageArrayFeaturedCV = [UIImage(named: Icons.daftPunk.rawValue)!,
+                                UIImage(named: Icons.pinhani.rawValue)!,
+                                UIImage(named: Icons.eminem.rawValue)!,
+                                UIImage(named: Icons.beatles.rawValue)!]
     }
 }
 
@@ -78,6 +87,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let imageArrayCount = imageArrayFeaturedCV?.count else { return 0}
             return imageArrayCount
         } else {
+            if presenter.numberOfItems() == 0 {
+                recenlySearchLabel.isHidden = true
+            } else {
+                recenlySearchLabel.isHidden = false
+            }
             return presenter.numberOfItems()
         }
     }
@@ -91,12 +105,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width
+        let width = scrollView.frame.width - 10
         currentPage = Int(scrollView.contentOffset.x / width)
         pageControl.currentPage = currentPage
     }
-    
-    
 }
 
 extension HomeViewController: HomeViewControllerProtocol {

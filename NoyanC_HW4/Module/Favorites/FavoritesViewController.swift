@@ -38,7 +38,8 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if presenter.numberOfItem() == 0 {
-            tableView.setEmptyView(title: "Your favorite list is empty", message: " Press star button in the song details to add a song to favorites.")
+            tableView.setEmptyView(title: AlertMessages.favoriteListTitle.rawValue,
+                                   message: AlertMessages.favoriteListMessage.rawValue)
         } else {
             tableView.restore()
         }

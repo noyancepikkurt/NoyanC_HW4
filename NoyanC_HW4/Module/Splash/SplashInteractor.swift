@@ -23,12 +23,10 @@ final class SplashInteractor {
 }
 
 extension SplashInteractor: SplashInteractorProtocol {
-    
     func checkInternetConnection() {
         let internetStatus = NetworkMonitor.shared.isConnected
         self.output?.internetConnection(status: internetStatus)
     }
-   
 }
 
 

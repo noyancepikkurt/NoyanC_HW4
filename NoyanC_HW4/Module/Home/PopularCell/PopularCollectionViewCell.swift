@@ -23,7 +23,6 @@ final class PopularCollectionViewCell: UICollectionViewCell {
             cellPresenter.load()
         }
     }
-
 }
 
 extension PopularCollectionViewCell: PopularCellProtocol {

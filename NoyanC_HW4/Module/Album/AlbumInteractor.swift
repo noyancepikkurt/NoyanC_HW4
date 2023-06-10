@@ -16,5 +16,13 @@ protocol AlbumInteractorOutputProtocol {
 }
 
 final class AlbumInteractor {
+    var output: AlbumInteractorOutputProtocol?
+}
+
+extension AlbumInteractor: AlbumInteractorProtocol {
+    
+}
+
+extension AlbumInteractor: AlbumInteractorOutputProtocol {
     
 }

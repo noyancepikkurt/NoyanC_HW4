@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: UITabBarController {
+final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,13 +16,9 @@ final class MainViewController: UITabBarController {
     }
     
     private func addTabbarItem() {
-        
         let homeVC = HomeRouter.createModule()
-        
         let searchVC = SearchRouter.createModule()
-        
         let favoritesVC = FavoritesRouter.createModule()
-        
         self.viewControllers = [homeVC, searchVC, favoritesVC]
     }
     

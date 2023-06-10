@@ -14,7 +14,6 @@ protocol SplashViewControllerProtocol: AnyObject {
 }
 
 final class SplashViewController: UIViewController {
-    
     var presenter: SplashPresenterProtocol!
     
     override func viewDidLoad() {
@@ -27,7 +26,6 @@ final class SplashViewController: UIViewController {
 }
 
 extension SplashViewController: SplashViewControllerProtocol {
-    
     func noInternetConnection() {
         UIAlertController.alertMessage(title: AlertMessages.sorryTitle.rawValue,
                                        message: AlertMessages.noInternetMessage.rawValue,

@@ -13,4 +13,5 @@ enum StoryboardIdentifiers: String {
     case detailVC = "DetailViewController"
     case splashVC = "SplashViewController"
     case favoritesVC = "FavoritesViewController"
+    case albumVC = "AlbumViewController"
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AlbumViewControllerProtocol {
+protocol AlbumViewControllerProtocol: AnyObject {
     
 }
 
@@ -15,6 +15,7 @@ final class AlbumViewController: UIViewController {
     
     @IBOutlet var albumTableView: UITableView!
     
+    var presenter: AlbumPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,6 @@ final class AlbumViewController: UIViewController {
         tableView.delegate = self
         tableView.register(cellType: AlbumTableViewCell.self)
     }
-
 }
 
 extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
@@ -39,4 +39,8 @@ extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(cellType: AlbumTableViewCell.self, indexPath: indexPath)
         return cell
     }
+}
+
+extension AlbumViewController: AlbumViewControllerProtocol {
+    
 }

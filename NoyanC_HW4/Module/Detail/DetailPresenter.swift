@@ -7,7 +7,6 @@
 
 import UIKit
 import SongAPI
-import CoreData
 import AVFoundation
 
 protocol DetailPresenterProtocol {
@@ -26,7 +25,7 @@ final class DetailPresenter {
     var songDetail: SongDetail?
     private var audioPlayer: AVAudioPlayer?
     var isAudioPlaying: Bool = false
-
+    
     init(view: DetailViewControllerProtocol,
          router: DetailRouterProtocol,
          interactor: DetailInteractorProtocol!) {

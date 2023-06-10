@@ -50,6 +50,4 @@ extension FavoritesTableViewCell: FavoritesCellProtocol {
     func setAlbum(_ text: String) {
         self.favoritesAlbumName.text = text
     }
-    
-    
 }

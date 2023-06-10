@@ -17,7 +17,6 @@ protocol SplashRouterProtocol: AnyObject {
 }
 
 final class SplashRouter {
-    
     weak var viewController: SplashViewController?
     
     static func createModule() -> SplashViewController {
@@ -34,13 +33,12 @@ final class SplashRouter {
 }
 
 extension SplashRouter: SplashRouterProtocol {
-    
     func navigate(_ route: SplashRoutes) {
         switch route {
         case .tabBar:
             guard let window = UIApplication.shared.windows.first else { return }
             window.makeKeyAndVisible()
-            window.rootViewController = MainViewController()
+            window.rootViewController = MainTabBarController()
         }
     }
 }

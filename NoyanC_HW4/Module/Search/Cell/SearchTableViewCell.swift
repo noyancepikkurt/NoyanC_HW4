@@ -59,7 +59,6 @@ final class SearchTableViewCell: UITableViewCell {
 }
 
 extension SearchTableViewCell: SearchCellProtocol {
-    
     func setImage(_ image: UIImage) {
         DispatchQueue.main.async {
             self.detailImageView.image = image
