@@ -24,7 +24,7 @@ final class HomeInteractor {
 
 extension HomeInteractor: HomeInteractorProtocol {
     func fetchSongs() {
-        NetworkService.shared.fetchSong(pathUrl: NetworkURL.songSearchURL.createSearchURL(for: UserDefaultsManager.shared.getLastSearchText() ?? "")) { [weak self] result in
+        NetworkService.shared.fetchSong(pathUrl: NetworkURL.songSearchURL.createURL(for: UserDefaultsManager.shared.getLastSearchText() ?? "")) { [weak self] result in
             guard let self else { return }
             self.output?.fetchSongsOutput(result)
         }

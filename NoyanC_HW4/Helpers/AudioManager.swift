@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import AVKit
 
 final class AudioManager {
     static let shared = AudioManager()
@@ -24,6 +25,16 @@ final class AudioManager {
         audioPlayer?.stop()
         audioPlayer = nil
         completion?(false)
+    }
+    
+    func showVideo(from url: URL, presentingViewController: UIViewController) {
+        let player = AVPlayer(url: url)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+
+        presentingViewController.present(playerViewController, animated: true) {
+            player.play()
+        }
     }
 }
 

@@ -13,10 +13,11 @@ final class UserDefaultsManager {
     private let lastSearchKey = "LastSearchKey"
     
     func saveLastSearchText(_ searchText: String) {
-            UserDefaults.standard.set(searchText, forKey: lastSearchKey)
-        }
-        
-        func getLastSearchText() -> String? {
-            return UserDefaults.standard.string(forKey: lastSearchKey)
-        }
+        let englishSearchText = searchText.turkishToEnglishTransformed()
+        UserDefaults.standard.set(englishSearchText, forKey: lastSearchKey)
+    }
+    
+    func getLastSearchText() -> String? {
+        return UserDefaults.standard.string(forKey: lastSearchKey)
+    }
 }

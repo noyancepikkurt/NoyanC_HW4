@@ -35,8 +35,8 @@ final class HomePresenter {
     }
     
     private func featuredModelConfig() {
-        featuredModel = [FeaturedEntity(albumName: AlbumNames.ezhel.rawValue, image: UIImage(named: Icons.ezhel.rawValue)!),
-                         FeaturedEntity(albumName: AlbumNames.pinhani.rawValue, image: UIImage(named: Icons.pinhani.rawValue)!),
+        featuredModel = [FeaturedEntity(albumName: AlbumNames.pinhani.rawValue, image: UIImage(named: Icons.pinhani.rawValue)!),
+                         FeaturedEntity(albumName: AlbumNames.ezhel.rawValue, image: UIImage(named: Icons.ezhel.rawValue)!),
                          FeaturedEntity(albumName: AlbumNames.sezenAksu.rawValue, image: UIImage(named: Icons.sezenAksu.rawValue)!),
                          FeaturedEntity(albumName: AlbumNames.mfo.rawValue, image: UIImage(named: Icons.mfo.rawValue)!)]
     }

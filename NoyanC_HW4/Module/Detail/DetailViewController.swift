@@ -14,6 +14,8 @@ protocol DetailViewControllerProtocol: AnyObject {
     func setSongImage(_ image: UIImage)
     func setSongTrackPrice(_ text: String)
     func setSongCollectionPrice(_ text: String)
+    func updateButton()
+    func setupVideoImage(_ isThereVideoURL: Bool)
 }
 
 final class DetailViewController: UIViewController {
@@ -25,6 +27,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private var detailCollectionPrice: UILabel!
     @IBOutlet private var detailAudioButton: UIButton!
     @IBOutlet private var likeImage: UIButton!
+    @IBOutlet private weak var videoButtonImage: UIImageView!
     
     var presenter: DetailPresenterProtocol!
     
@@ -42,7 +45,6 @@ final class DetailViewController: UIViewController {
     
     @IBAction private func detailAudioButtonAction(_ sender: Any) {
         presenter.requestForAudio()
-        updateButton()
     }
     
     @IBAction private func likeButtonAction(_ sender: Any) {
@@ -62,6 +64,18 @@ final class DetailViewController: UIViewController {
         }
     }
     
+    func setupVideoImage(_ isThereVideoURL: Bool) {
+        videoButtonImage.isHidden = isThereVideoURL ? false : true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        videoButtonImage.addGestureRecognizer(tapGesture)
+        videoButtonImage.isUserInteractionEnabled = true
+    }
+    
+    @objc func imageTapped() {
+        guard let videoURL = presenter.videoURL else { return }
+        AudioManager.shared.showVideo(from: videoURL, presentingViewController: self)
+    }
+    
     private func favoriteButtonSetup() {
         let fillImg = UIImage(systemName: Icons.fillStar.rawValue)
         let img = UIImage(systemName: Icons.emptyStar.rawValue)
@@ -76,16 +90,6 @@ final class DetailViewController: UIViewController {
         likeImage.setImage(buttonImage, for: .normal)
     }
     
-    private func updateButton() {
-        if presenter.isAudioPlaying {
-            detailAudioButton.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
-            AudioTimerHelper.removeExistingProgressLayers(from: detailAudioButton)
-        } else {
-            AudioTimerHelper.startProgressAnimation(in: detailAudioButton, duration: 31, delegate: self)
-            detailAudioButton.setImage(UIImage(systemName: Icons.pauseIcon.rawValue), for: .normal)
-        }
-    }
-    
     private func stopAudio() {
         presenter.isAudioPlaying = false
         detailAudioButton.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
@@ -94,6 +98,16 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewControllerProtocol {
+    func updateButton() {
+        if presenter.isAudioPlaying {
+            AudioTimerHelper.startProgressAnimation(in: detailAudioButton, duration: 31, delegate: self)
+            detailAudioButton.setImage(UIImage(systemName: Icons.pauseIcon.rawValue), for: .normal)
+        } else {
+            detailAudioButton.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
+            AudioTimerHelper.removeExistingProgressLayers(from: detailAudioButton)
+        }
+    }
+    
     func setSongTitle(_ text: String) {
         self.detailSongNameLabel.text = text
     }

@@ -58,6 +58,7 @@ extension SearchCellPresenter: SearchCellPresenterProtocol {
                     self.isAudioPlaying = bool
                 }
             }
+            self.view?.updateButton()
         }
     }
 }

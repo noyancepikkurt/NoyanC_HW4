@@ -13,7 +13,6 @@ protocol LoadingShowable {
 }
 
 extension LoadingShowable {
-   
     func hideLoading() {
         LoadingView.shared.hideLoading()
     }
@@ -21,6 +20,5 @@ extension LoadingShowable {
     func showLoading() {
         LoadingView.shared.startLoading()
     }
-    
 }
 

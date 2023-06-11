@@ -12,6 +12,7 @@ protocol SearchCellProtocol: AnyObject {
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
     func setAlbumName(_ text: String)
+    func updateButton()
 }
 
 final class SearchTableViewCell: UITableViewCell {
@@ -35,7 +36,6 @@ final class SearchTableViewCell: UITableViewCell {
     
     func audioButtonAction() {
         cellPresenter.requestForAudio()
-        updateButton()
     }
     
     func stopAudio() {
@@ -44,16 +44,6 @@ final class SearchTableViewCell: UITableViewCell {
             self.cellPresenter.isAudioPlaying = bool
             self.audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
             AudioTimerHelper.removeExistingProgressLayers(from: self.audioButtonImage)
-        }
-    }
-    
-    private func updateButton() {
-        if cellPresenter.isAudioPlaying {
-            audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
-            AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
-        } else {
-            AudioTimerHelper.startProgressAnimation(in: audioButtonImage, duration: 31, delegate: self)
-            audioButtonImage.setImage(UIImage(systemName: Icons.pauseIcon.rawValue), for: .normal)
         }
     }
 }
@@ -75,6 +65,16 @@ extension SearchTableViewCell: SearchCellProtocol {
     
     func setAlbumName(_ text: String) {
         self.albumNameLabel.text = text
+    }
+    
+    func updateButton() {
+        if cellPresenter.isAudioPlaying {
+            AudioTimerHelper.startProgressAnimation(in: audioButtonImage, duration: 31, delegate: self)
+            audioButtonImage.setImage(UIImage(systemName: Icons.pauseIcon.rawValue), for: .normal)
+        } else {
+            audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
+            AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
+        }
     }
 }
 

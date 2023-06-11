@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController, LoadingShowable {
         presenter.viewDidLoad()
         recentlyCollectionView.reloadData()
     }
-    
+ 
     private func setupCollectionViews() {
         let design: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         design.scrollDirection = .horizontal
@@ -102,7 +102,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width - 10
+        let width = scrollView.frame.width - 20
         currentPage = Int(scrollView.contentOffset.x / width)
         pageControl.currentPage = currentPage
     }

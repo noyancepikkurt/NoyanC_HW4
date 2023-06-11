@@ -17,6 +17,7 @@ protocol DetailPresenterProtocol: AnyObject {
     var isAudioPlaying: Bool { get set }
     func stopAudio()
     var source: SongDetail? { get set }
+    var videoURL: URL? { get set }
 }
 
 final class DetailPresenter {
@@ -27,6 +28,7 @@ final class DetailPresenter {
     private var audioPlayer: AVAudioPlayer?
     var isAudioPlaying: Bool = false
     var source: SongDetail?
+    var videoURL: URL?
     
     init(view: DetailViewControllerProtocol,
          router: DetailRouterProtocol,
@@ -63,6 +65,16 @@ extension DetailPresenter: DetailPresenterProtocol {
         view.setSongTrackPrice("Track Price: \(String(describing: trackPrice)) TRY")
         view.setSongCollectionPrice("Collection Price: \(String(describing: collectionPrice)) TRY")
         
+        if let previewURL = songDetail.previewURL {
+            let url = URL(string: previewURL)
+            if url?.pathExtension == "m4v" {
+                self.videoURL = url
+                view.setupVideoImage(true)
+            } else {
+                view.setupVideoImage(false)
+            }
+        }
+        
         ImageDownload.shared.image(songs: songDetail) { data, error in
             guard let data  = data, error == nil else { return }
             guard let image = UIImage(data: data) else { return }
@@ -86,6 +98,7 @@ extension DetailPresenter: DetailPresenterProtocol {
                     self.isAudioPlaying = true
                 }
             }
+            self.view.updateButton()
         }
     }
 }

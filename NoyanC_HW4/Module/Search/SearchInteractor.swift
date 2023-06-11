@@ -26,7 +26,7 @@ final class SearchInteractor {
 extension SearchInteractor: SearchInteractorProtocol {
     func fetchSongs(_ word: String) {
         let englishWord = word.turkishToEnglishTransformed()
-        NetworkService.shared.fetchSong(pathUrl: NetworkURL.songSearchURL.createSearchURL(for: englishWord)) { result in
+        NetworkService.shared.fetchSong(pathUrl: NetworkURL.songSearchURL.createURL(for: englishWord)) { result in
             self.output?.fetchSongsOutput(result)
         }
     }
