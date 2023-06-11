@@ -18,7 +18,6 @@ enum FavoriteRoutes {
 }
 
 final class FavoritesRouter {
-    
     weak var viewController: FavoritesViewController?
     
     static func createModule() -> UINavigationController {
@@ -36,13 +35,12 @@ final class FavoritesRouter {
 }
 
 extension FavoritesRouter: FavoritesRouterProtocol {
- 
     func navigate(_ route: FavoriteRoutes) {
-        switch route {
-        case .detail(let source):
-            let detailVC = DetailRouter.createModule()
-            detailVC.presenter.source = source
-            viewController?.navigationController?.pushViewController(detailVC, animated: true)
-        }
+//        switch route {
+//        case .detail(let source):
+//            let detailVC = DetailRouter.createModule()
+//            detailVC.presenter.source = source
+//            viewController?.navigationController?.pushViewController(detailVC, animated: true)
+//        }
     }
 }

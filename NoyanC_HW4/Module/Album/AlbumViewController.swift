@@ -10,22 +10,22 @@ import UIKit
 protocol AlbumViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
-    func showLoading()
-    func hideLoading()
+    func showLoadingView()
+    func hideLoadingView()
 }
 
 final class AlbumViewController: UIViewController, LoadingShowable {
-    @IBOutlet weak var albumTitleLabel: UILabel!
+    @IBOutlet private weak var albumTitleLabel: UILabel!
     @IBOutlet private var albumTableView: UITableView!
     
     var presenter: AlbumPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradientBackground()
         setupNavigationBar()
         presenter?.viewDidLoad()
         setupAlbumLabel()
-        setGradientBackground()
     }
     
     private func setupAlbumLabel() {
@@ -59,7 +59,6 @@ extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension AlbumViewController: AlbumViewControllerProtocol {
-    
     func setupTableView() {
         albumTableView.delegate = self
         albumTableView.dataSource = self
@@ -73,13 +72,11 @@ extension AlbumViewController: AlbumViewControllerProtocol {
         }
     }
     
-    func showLoading() {
-//        showLoading()
+    func showLoadingView() {
+        self.showLoading()
     }
     
-    func hideLoading() {
-//        hideLoading()
+    func hideLoadingView() {
+        self.hideLoading()
     }
-    
-    
 }

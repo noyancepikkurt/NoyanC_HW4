@@ -33,12 +33,12 @@ final class SearchTableViewCell: UITableViewCell {
         stopAudio()
     }
     
-     func audioButtonAction() {
+    func audioButtonAction() {
         cellPresenter.requestForAudio()
         updateButton()
     }
     
-     func stopAudio() {
+    func stopAudio() {
         AudioManager.shared.stopMusic { [weak self] bool in
             guard let self else { return }
             self.cellPresenter.isAudioPlaying = bool

@@ -17,16 +17,15 @@ protocol DetailViewControllerProtocol: AnyObject {
 }
 
 final class DetailViewController: UIViewController {
-    @IBOutlet var detailImageView: UIImageView!
-    @IBOutlet var detailArtistNameLabel: UILabel!
-    @IBOutlet var detailSongNameLabel: UILabel!
-    @IBOutlet var detailKindLabel: UILabel!
-    @IBOutlet var detailTrackPrice: UILabel!
-    @IBOutlet var detailCollectionPrice: UILabel!
-    @IBOutlet var detailAudioButton: UIButton!
-    @IBOutlet var likeImage: UIButton!
+    @IBOutlet private var detailImageView: UIImageView!
+    @IBOutlet private var detailArtistNameLabel: UILabel!
+    @IBOutlet private var detailSongNameLabel: UILabel!
+    @IBOutlet private var detailKindLabel: UILabel!
+    @IBOutlet private var detailTrackPrice: UILabel!
+    @IBOutlet private var detailCollectionPrice: UILabel!
+    @IBOutlet private var detailAudioButton: UIButton!
+    @IBOutlet private var likeImage: UIButton!
     
-   
     var presenter: DetailPresenterProtocol!
     
     override func viewDidLoad() {
@@ -41,12 +40,12 @@ final class DetailViewController: UIViewController {
         stopAudio()
     }
     
-    @IBAction func detailAudioButtonAction(_ sender: Any) {
+    @IBAction private func detailAudioButtonAction(_ sender: Any) {
         presenter.requestForAudio()
         updateButton()
     }
     
-    @IBAction func likeButtonAction(_ sender: Any) {
+    @IBAction private func likeButtonAction(_ sender: Any) {
         if presenter.isFavorite() {
             UIAlertController.alertActionMessage(title: AlertMessages.deleteFavoriteTitle.rawValue,
                                                  message: AlertMessages.deleteFavoriteMessage.rawValue,
@@ -95,7 +94,6 @@ final class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewControllerProtocol {
-    
     func setSongTitle(_ text: String) {
         self.detailSongNameLabel.text = text
     }

@@ -8,7 +8,7 @@
 import SongAPI
 import CoreData
 
-protocol DetailInteractorProtocol {
+protocol DetailInteractorProtocol: AnyObject {
     func saveOrDelete(_ model: SongDetail)
 }
 
@@ -17,7 +17,6 @@ final class DetailInteractor {
 }
 
 extension DetailInteractor: DetailInteractorProtocol {
-    
     func saveOrDelete(_ model: SongDetail) {
         CoreDataManager.shared.saveOrDelete(model)
     }

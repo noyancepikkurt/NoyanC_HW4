@@ -7,16 +7,16 @@
 
 import UIKit
 
-protocol AlbumTableViewCellProtocol {
+protocol AlbumTableViewCellProtocol: AnyObject {
     func setImage(_ image: UIImage)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
 }
 
 final class AlbumTableViewCell: UITableViewCell {
-    @IBOutlet weak var songImageView: UIImageView!
-    @IBOutlet weak var songNameLabel: UILabel!
-    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet private weak var songImageView: UIImageView!
+    @IBOutlet private weak var songNameLabel: UILabel!
+    @IBOutlet private weak var artistNameLabel: UILabel!
     
     var cellPresenter: AlbumCellPresenterProtocol! {
         didSet {
@@ -31,7 +31,6 @@ extension AlbumTableViewCell: AlbumTableViewCellProtocol {
             guard let self else { return }
             self.songImageView.image = image
         }
-       
     }
     
     func setSongName(_ text: String) {
@@ -41,6 +40,4 @@ extension AlbumTableViewCell: AlbumTableViewCellProtocol {
     func setArtistName(_ text: String) {
         self.artistNameLabel.text = text
     }
-    
-    
 }

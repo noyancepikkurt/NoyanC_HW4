@@ -12,13 +12,11 @@ protocol SearchViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
     func showError(_ message: String)
-    func showLoadingView()
-    func hideLoadingView()
 }
 
 final class SearchViewController: UIViewController, LoadingShowable {
-    @IBOutlet var searchTextField: CustomTextField!
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var searchTextField: CustomTextField!
+    @IBOutlet private var tableView: UITableView!
     private var searchDelayInterval: TimeInterval = 0.85
     private var searchTimer: Timer?
     
@@ -41,10 +39,9 @@ final class SearchViewController: UIViewController, LoadingShowable {
         presenter.stopAudio()
     }
     
-    
     @objc func buttonTapped(_ sender: UIButton) {
         guard let cell = sender.superview?.superview as? SearchTableViewCell,
-                let indexPath = tableView.indexPath(for: cell) else { return }
+              let indexPath = tableView.indexPath(for: cell) else { return }
         cell.audioButtonAction()
         for visibleCell in tableView.visibleCells {
             if let visibleIndexPath = tableView.indexPath(for: visibleCell),
@@ -93,7 +90,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SearchViewController: SearchViewControllerProtocol {
-    
     func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -116,14 +112,6 @@ extension SearchViewController: SearchViewControllerProtocol {
     
     func showError(_ message: String) {
         UIAlertController.alertMessage(title: AlertMessages.error.rawValue, message: message, vc: self)
-    }
-    
-    func showLoadingView() {
-        //        showLoading(in: self.tableView)
-    }
-    
-    func hideLoadingView() {
-        //        hideLoading()
     }
 }
 

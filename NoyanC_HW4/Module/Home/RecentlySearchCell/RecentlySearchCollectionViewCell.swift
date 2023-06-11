@@ -7,25 +7,25 @@
 
 import UIKit
 
-protocol PopularCellProtocol: AnyObject {
+protocol RecentlySearchCellProtocol: AnyObject {
     func setImage(_ image: UIImage)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
 }
 
-final class PopularCollectionViewCell: UICollectionViewCell {
+final class RecentlySearchCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var songLabel: UILabel!
     @IBOutlet private var artistLabel: UILabel!
     
-    var cellPresenter: PopularCellPresenterProtocol! {
+    var cellPresenter: RecentlySearchCellPresenterProtocol! {
         didSet {
             cellPresenter.load()
         }
     }
 }
 
-extension PopularCollectionViewCell: PopularCellProtocol {
+extension RecentlySearchCollectionViewCell: RecentlySearchCellProtocol {
     func setImage(_ image: UIImage) {
         DispatchQueue.main.async {
             self.imageView.image = image

@@ -12,7 +12,7 @@ protocol FavoritesInteractorProtocol: AnyObject {
     func fetchDatas()
 }
 
-protocol FavoritesInteractorOutputProtocol {
+protocol FavoritesInteractorOutputProtocol: AnyObject {
     func fetchDatasOutput(_ result: [SongEntity])
 }
 

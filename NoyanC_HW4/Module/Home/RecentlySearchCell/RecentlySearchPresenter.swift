@@ -8,22 +8,22 @@
 import UIKit // UIImage
 import SongAPI
 
-protocol PopularCellPresenterProtocol: AnyObject {
+protocol RecentlySearchCellPresenterProtocol: AnyObject {
     func load()
 }
 
-final class PopularCellPresenter {
-    weak var view: PopularCellProtocol?
+final class RecentlySearchPresenter {
+    weak var view: RecentlySearchCellProtocol?
     private let songDetail: SongDetail
     
-    init(view: PopularCellProtocol,
+    init(view: RecentlySearchCellProtocol,
          songDetail: SongDetail) {
         self.view = view
         self.songDetail = songDetail
     }
 }
 
-extension PopularCellPresenter: PopularCellPresenterProtocol {
+extension RecentlySearchPresenter: RecentlySearchCellPresenterProtocol {
     func load() {
         ImageDownload.shared.image(songs: songDetail) { data, error in
             if let data {

@@ -36,10 +36,11 @@ extension SplashRouter: SplashRouterProtocol {
     func navigate(_ route: SplashRoutes) {
         switch route {
         case .tabBar:
-            guard let window = UIApplication.shared.windows.first else { return }
-            window.makeKeyAndVisible()
-            window.rootViewController = MainTabBarController()
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                window.rootViewController = MainTabBarController()
+                window.makeKeyAndVisible()
+            }
         }
     }
 }
-

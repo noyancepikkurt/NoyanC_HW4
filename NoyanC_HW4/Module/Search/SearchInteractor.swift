@@ -15,7 +15,7 @@ protocol SearchInteractorProtocol: AnyObject {
     func fetchSongs(_ word: String)
 }
 
-protocol SearchInteractorOutputProtocol {
+protocol SearchInteractorOutputProtocol: AnyObject {
     func fetchSongsOutput(_ result: SongsSourcesResult)
 }
 

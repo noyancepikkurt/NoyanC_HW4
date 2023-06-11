@@ -9,7 +9,6 @@ import Foundation
 import Reachability
 import Extensions
 
-
 protocol SplashInteractorProtocol {
     func checkInternetConnection()
 }

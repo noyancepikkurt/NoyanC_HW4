@@ -13,15 +13,15 @@ protocol SplashPresenterProtocol: AnyObject {
 }
 
 final class SplashPresenter: SplashPresenterProtocol {
- 
+    
     unowned var view: SplashViewControllerProtocol!
     let router: SplashRouterProtocol!
     let interactor: SplashInteractorProtocol!
     
     init(
-         view: SplashViewControllerProtocol,
-         router: SplashRouterProtocol,
-         interactor: SplashInteractorProtocol
+        view: SplashViewControllerProtocol,
+        router: SplashRouterProtocol,
+        interactor: SplashInteractorProtocol
     ) {
         self.view = view
         self.router = router

@@ -5,7 +5,7 @@
 //  Created by Noyan Çepikkurt on 11.06.2023.
 //
 
-import UIKit // -> UIImage
+import UIKit // UIImage
 import SongAPI
 
 protocol AlbumCellPresenterProtocol: AnyObject {
@@ -13,7 +13,7 @@ protocol AlbumCellPresenterProtocol: AnyObject {
 }
 
 final class AlbumCellPresenter {
-    var view: AlbumTableViewCellProtocol
+    unowned var view: AlbumTableViewCellProtocol
     private let songDetail: SongDetail
     
     init(view: AlbumTableViewCellProtocol,
@@ -33,7 +33,6 @@ extension AlbumCellPresenter: AlbumCellPresenterProtocol {
                 self.view.setImage(img)
             }
         }
-        
         view.setSongName(songDetail.trackName ?? "")
         view.setArtistName(songDetail.artistName ?? "")
     }

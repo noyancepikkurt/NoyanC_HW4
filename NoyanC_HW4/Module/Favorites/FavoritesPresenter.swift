@@ -17,8 +17,7 @@ protocol FavoritesPresenterProtocol: AnyObject {
 }
 
 final class FavoritesPresenter {
-    
-    var view: FavoritesViewControllerProtocol?
+    unowned var view: FavoritesViewControllerProtocol?
     let router: FavoritesRouterProtocol!
     let interactor: FavoritesInteractorProtocol!
     

@@ -12,7 +12,6 @@ import SongAPI
 final class CoreDataManager {
     static let shared = CoreDataManager()
     
-    
     func isSongDetailFavorite(_ model: SongDetail) -> Bool {
         let favorites = fetchFavorites()
         let favorite = favorites.first { $0.trackID == String(describing: model.trackID) }

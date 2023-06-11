@@ -8,23 +8,18 @@
 import Foundation
 import SongAPI
 
-protocol AlbumPresenterProtocol {
+protocol AlbumPresenterProtocol: AnyObject {
     func viewDidLoad()
     func numberOfItem() -> Int
     func albumSongs(_ index: Int) -> SongDetail
     func didSelectRowAt(index: Int)
-    func getSource() -> SongDetail?
-    var source: SongDetail? { get set }
 }
 
 final class AlbumPresenter {
-    
     weak var view: AlbumViewControllerProtocol?
     let router: AlbumRouterProtocol!
     let interactor: AlbumInteractorProtocol!
-    
-    var albumSongs = [SongDetail]()
-    var source: SongDetail?
+    private var albumSongs = [SongDetail]()
     
     init(view: AlbumViewControllerProtocol,
          router: AlbumRouterProtocol,
@@ -36,11 +31,6 @@ final class AlbumPresenter {
 }
 
 extension AlbumPresenter: AlbumPresenterProtocol {
-    
-    func getSource() -> SongDetail? {
-        return source
-    }
-    
     func viewDidLoad() {
         view?.setupTableView()
         fetchAlbumSongs()
@@ -60,13 +50,14 @@ extension AlbumPresenter: AlbumPresenterProtocol {
     }
     
     private func fetchAlbumSongs() {
-        //        view?.showLoading()
+        view?.showLoadingView()
         interactor.fetchAlbumSongs()
     }
 }
 
 extension AlbumPresenter: AlbumInteractorOutputProtocol {
     func fetchAlbumSongsOutput(_ result: AlbumSongsResult) {
+        view?.hideLoadingView()
         switch result {
         case .success(let success):
             guard let result = success.results else { return }

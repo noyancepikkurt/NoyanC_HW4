@@ -9,14 +9,13 @@ import UIKit // UIImage
 import SongAPI
 import AVFoundation
 
-protocol DetailPresenterProtocol {
+protocol DetailPresenterProtocol: AnyObject {
     func viewDidLoad()
     func likeButtonClicked()
     func isFavorite() -> Bool
     func requestForAudio()
     var isAudioPlaying: Bool { get set }
     func stopAudio()
-    func getSource() -> SongDetail?
     var source: SongDetail? { get set }
 }
 
@@ -24,7 +23,7 @@ final class DetailPresenter {
     unowned var view: DetailViewControllerProtocol!
     let router: DetailRouterProtocol!
     var interactor: DetailInteractorProtocol!
-    var songDetail: SongDetail?
+    private var songDetail: SongDetail?
     private var audioPlayer: AVAudioPlayer?
     var isAudioPlaying: Bool = false
     var source: SongDetail?
@@ -39,10 +38,6 @@ final class DetailPresenter {
 }
 
 extension DetailPresenter: DetailPresenterProtocol {
-    func getSource() -> SongDetail? {
-        return source
-    }
-    
     func stopAudio() {
         AudioManager.shared.stopMusic()
     }
@@ -58,7 +53,7 @@ extension DetailPresenter: DetailPresenterProtocol {
     }
     
     func viewDidLoad() {
-        songDetail = self.getSource()
+        songDetail = source
         guard let songDetail else { return }
         guard let trackPrice = songDetail.trackPrice else { return }
         guard let collectionPrice = songDetail.collectionPrice else { return }

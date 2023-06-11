@@ -15,7 +15,6 @@ protocol FavoritesCellProtocol: AnyObject {
 }
 
 final class FavoritesTableViewCell: UITableViewCell {
-
     @IBOutlet private var favoritesImageView: UIImageView!
     @IBOutlet private var favoritesSongName: UILabel!
     @IBOutlet private var favoritesArtistName: UILabel!

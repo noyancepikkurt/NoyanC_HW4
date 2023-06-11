@@ -26,17 +26,9 @@ extension AlbumInteractor: AlbumInteractorProtocol {
     func fetchAlbumSongs() {
         guard let albumName = FeaturedEntity.albumName else { return }
         let englishAlbumName = albumName.turkishToEnglishTransformed()
-        NetworkService.shared.fetchSong(pathUrl: "https://itunes.apple.com/search?term=\(englishAlbumName)&country=tr&entity=song&attribute=albumTerm") { [weak self] result in
+        NetworkService.shared.fetchSong(pathUrl: NetworkURL.songSearchURL.albumURL(for: englishAlbumName)) { [weak self] result in
             guard let self else { return }
             self.output?.fetchAlbumSongsOutput(result)
         }
-    }                                        
-}
-
-extension AlbumInteractor: AlbumInteractorOutputProtocol {
-    func fetchAlbumSongsOutput(_ result: AlbumSongsResult) {
-        //
     }
-    
-    
 }

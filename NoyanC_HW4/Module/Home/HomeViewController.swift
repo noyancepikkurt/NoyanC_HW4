@@ -16,10 +16,10 @@ protocol HomeViewControllerProtocol: AnyObject {
 }
 
 final class HomeViewController: UIViewController, LoadingShowable {
-    @IBOutlet var featuredCollectionView: UICollectionView!
-    @IBOutlet var popularCollectionView: UICollectionView!
-    @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var recenlySearchLabel: UILabel!
+    @IBOutlet private var featuredCollectionView: UICollectionView!
+    @IBOutlet private var recentlyCollectionView: UICollectionView!
+    @IBOutlet private var pageControl: UIPageControl!
+    @IBOutlet private var recenlySearchLabel: UILabel!
     private var currentPage = 0
     
     var presenter: HomePresenterProtocol!
@@ -33,7 +33,7 @@ final class HomeViewController: UIViewController, LoadingShowable {
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.viewDidLoad()
-        popularCollectionView.reloadData()
+        recentlyCollectionView.reloadData()
     }
     
     private func setupCollectionViews() {
@@ -48,15 +48,13 @@ final class HomeViewController: UIViewController, LoadingShowable {
         designPopular.scrollDirection = .vertical
         designPopular.minimumLineSpacing = 16
         designPopular.minimumInteritemSpacing = 4
-        let collectionViewWidth = popularCollectionView.frame.size.width
+        let collectionViewWidth = recentlyCollectionView.frame.size.width
         let popularCellWidth = (collectionViewWidth) / 2 - 20
-        let cellHeight = popularCollectionView.frame.size.height / 2.1
+        let cellHeight = recentlyCollectionView.frame.size.height / 2.1
         designPopular.itemSize = CGSize(width: popularCellWidth, height: cellHeight)
-        popularCollectionView.collectionViewLayout = designPopular
-        popularCollectionView.contentInsetAdjustmentBehavior = .never
+        recentlyCollectionView.collectionViewLayout = designPopular
+        recentlyCollectionView.contentInsetAdjustmentBehavior = .never
     }
-    
-    
     
     private func setupNavigationBar() {
         self.navigationController?.navigationBar.tintColor = .white
@@ -72,9 +70,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.setup(featuredModel[indexPath.item].image!)
             return cell
         } else {
-            let cell = collectionView.dequeCell(cellType: PopularCollectionViewCell.self, indexPath: indexPath)
+            let cell = collectionView.dequeCell(cellType: RecentlySearchCollectionViewCell.self, indexPath: indexPath)
             if let songs = presenter.songs(indexPath.item) {
-                cell.cellPresenter = PopularCellPresenter(view: cell, songDetail: songs)
+                cell.cellPresenter = RecentlySearchPresenter(view: cell, songDetail: songs)
             }
             return cell
         }
@@ -113,13 +111,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension HomeViewController: HomeViewControllerProtocol {
     func registerCollectionViews() {
         featuredCollectionView.register(cellType: FeaturedCollectionViewCell.self)
-        popularCollectionView.register(cellType: PopularCollectionViewCell.self )
+        recentlyCollectionView.register(cellType: RecentlySearchCollectionViewCell.self )
     }
     
     func reloadData() {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            self.popularCollectionView.reloadData()
+            self.recentlyCollectionView.reloadData()
             self.featuredCollectionView.reloadData()
         }
     }

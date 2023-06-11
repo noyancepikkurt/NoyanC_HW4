@@ -18,7 +18,7 @@ protocol SearchPresenterProtocol: AnyObject {
 }
 
 final class SearchPresenter {
-    weak var view: SearchViewControllerProtocol?
+    unowned var view: SearchViewControllerProtocol?
     let router: SearchRouterProtocol!
     let interactor: SearchInteractorProtocol!
     
@@ -56,14 +56,12 @@ extension SearchPresenter: SearchPresenterProtocol {
     }
     
     func fetchSongsFilter(with word: String) {
-        view?.showLoadingView()
         interactor.fetchSongs(word)
     }
 }
 
 extension SearchPresenter: SearchInteractorOutputProtocol {
     func fetchSongsOutput(_ result: SongsSourcesResult) {
-        view?.hideLoadingView()
         switch result {
         case .success(let response):
             guard let result = response.results else { return }

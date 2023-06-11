@@ -8,7 +8,7 @@
 import UIKit
 import Extensions
 
-protocol FavoritesViewControllerProtocol {
+protocol FavoritesViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
 }

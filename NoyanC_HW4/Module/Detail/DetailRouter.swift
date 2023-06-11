@@ -7,11 +7,9 @@
 
 import UIKit
 
-protocol DetailRouterProtocol {
-}
+protocol DetailRouterProtocol {}
 
 final class DetailRouter {
-    
     weak var viewController: DetailViewController?
 
     static func createModule() -> DetailViewController {
@@ -26,5 +24,4 @@ final class DetailRouter {
     }
 }
 
-extension DetailRouter: DetailRouterProtocol {
-}
+extension DetailRouter: DetailRouterProtocol {}

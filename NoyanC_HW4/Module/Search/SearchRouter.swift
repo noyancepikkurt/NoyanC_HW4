@@ -17,7 +17,6 @@ enum SearchRoutes {
 }
 
 final class SearchRouter {
-    
     private weak var viewController: SearchViewController?
     
     static func createModule() -> UINavigationController {
@@ -35,7 +34,6 @@ final class SearchRouter {
 }
 
 extension SearchRouter: SearchRouterProtocol {
-    
     func navigate(_ route: SearchRoutes) {
         switch route {
         case .detail(let source):

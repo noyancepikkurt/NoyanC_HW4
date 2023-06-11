@@ -14,7 +14,7 @@ protocol HomeRouterProtocol {
 
 enum HomeRoutes {
     case detail(source: SongDetail?)
-    case album(source: SongDetail?)
+    case album
 }
 
 final class HomeRouter {
@@ -41,9 +41,8 @@ extension HomeRouter: HomeRouterProtocol {
             let detailVC = DetailRouter.createModule()
             detailVC.presenter.source = source
             viewController?.navigationController?.pushViewController(detailVC, animated: true)
-        case .album(let source):
+        case .album:
             let albumVC = AlbumRouter.createModule()
-            albumVC.presenter?.source = source
             viewController?.navigationController?.pushViewController(albumVC, animated: true)
         }
     }
