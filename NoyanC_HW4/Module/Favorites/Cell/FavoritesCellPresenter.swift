@@ -5,7 +5,7 @@
 //  Created by Noyan Çepikkurt on 8.06.2023.
 //
 
-import UIKit
+import UIKit // UIImage
 import CoreData
 
 protocol FavoritesCellPresenterProtocol: AnyObject {

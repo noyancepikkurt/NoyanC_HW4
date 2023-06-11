@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import SongAPI
 
 protocol AlbumRouterProtocol {
-    
+    func navigate(_ route: AlbumRoutes)
+}
+
+enum AlbumRoutes {
+    case detail(source: SongDetail?)
 }
 
 final class AlbumRouter {
-    private weak var viewController: AlbumViewController?
+    private weak var viewController: UIViewController?
     
-    static func createModule() -> UIViewController {
+    static func createModule() -> AlbumViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.albumVC.rawValue) as! AlbumViewController
         let interactor = AlbumInteractor()
@@ -28,5 +33,12 @@ final class AlbumRouter {
 }
 
 extension AlbumRouter: AlbumRouterProtocol {
-    
+    func navigate(_ route: AlbumRoutes) {
+        switch route {
+        case .detail(let source):
+            let detailVC = DetailRouter.createModule()
+            detailVC.presenter.source = source
+            viewController?.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
 }

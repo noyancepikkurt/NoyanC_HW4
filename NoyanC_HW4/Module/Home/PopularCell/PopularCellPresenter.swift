@@ -5,7 +5,7 @@
 //  Created by Noyan Çepikkurt on 9.06.2023.
 //
 
-import UIKit
+import UIKit // UIImage
 import SongAPI
 
 protocol PopularCellPresenterProtocol: AnyObject {

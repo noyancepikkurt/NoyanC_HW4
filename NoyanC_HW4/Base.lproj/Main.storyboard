@@ -258,17 +258,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-1V-Pur">
-                                <rect key="frame" x="76" y="280" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-1V-Pur">
+                                <rect key="frame" x="16" y="113" width="361" height="669"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Işık Doğudan Yükselir Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Yb-lh-lJd">
+                                <rect key="frame" x="16" y="67" width="369" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vz0-Pd-hNW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="Va8-1V-Pur" firstAttribute="leading" secondItem="Vz0-Pd-hNW" secondAttribute="leading" constant="16" id="2sC-mn-FOd"/>
+                            <constraint firstItem="Vz0-Pd-hNW" firstAttribute="trailing" secondItem="Va8-1V-Pur" secondAttribute="trailing" constant="16" id="4FS-fu-gxH"/>
+                            <constraint firstItem="Va8-1V-Pur" firstAttribute="top" secondItem="0Yb-lh-lJd" secondAttribute="bottom" constant="16" id="7S6-FP-9tV"/>
+                            <constraint firstItem="Vz0-Pd-hNW" firstAttribute="trailing" secondItem="0Yb-lh-lJd" secondAttribute="trailing" constant="8" id="FZM-sH-zHa"/>
+                            <constraint firstItem="0Yb-lh-lJd" firstAttribute="top" secondItem="Vz0-Pd-hNW" secondAttribute="top" constant="8" id="KGJ-KA-6dd"/>
+                            <constraint firstItem="0Yb-lh-lJd" firstAttribute="leading" secondItem="Vz0-Pd-hNW" secondAttribute="leading" constant="16" id="LcS-rm-Ef3"/>
+                            <constraint firstItem="Vz0-Pd-hNW" firstAttribute="bottom" secondItem="Va8-1V-Pur" secondAttribute="bottom" constant="36" id="pol-HG-eWD"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="albumTableView" destination="Va8-1V-Pur" id="09G-Cb-NS5"/>
+                        <outlet property="albumTitleLabel" destination="0Yb-lh-lJd" id="GnZ-Ub-tOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8R-Ey-PJd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -283,7 +303,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0G-5K-3O9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0G-5K-3O9">
                                 <rect key="frame" x="16" y="59" width="361" height="32.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32.329999999999998" id="JiJ-j4-LXJ"/>
@@ -421,8 +441,8 @@
         <image name="music_splash" width="170.66667175292969" height="170.66667175292969"/>
         <image name="play.circle" catalog="system" width="128" height="123"/>
         <image name="star" catalog="system" width="128" height="116"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

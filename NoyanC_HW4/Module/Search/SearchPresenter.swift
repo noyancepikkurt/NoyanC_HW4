@@ -66,10 +66,10 @@ extension SearchPresenter: SearchInteractorOutputProtocol {
         view?.hideLoadingView()
         switch result {
         case .success(let response):
-            self.songDetail = response.results!
+            guard let result = response.results else { return }
+            self.songDetail = result
             view?.reloadData()
         case .failure(let error):
-//            view?.showError("There is no")
             print(error.localizedDescription)
         }
     }

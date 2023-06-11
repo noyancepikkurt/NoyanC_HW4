@@ -11,10 +11,10 @@ enum Icons: String {
     case searchIcon = "magnifyingglass"
     case playIcon = "play.circle"
     case pauseIcon = "pause.circle"
-    case daftPunk = "daft_punk"
+    case ezhel = "ezhel"
     case pinhani = "pinhani"
-    case eminem = "eminem"
-    case beatles = "beatles"
+    case mfo = "mfo"
+    case sezenAksu = "sezen_aksu"
     case emptyStar = "star"
     case fillStar = "star.fill"
 }

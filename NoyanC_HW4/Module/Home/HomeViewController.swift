@@ -20,15 +20,13 @@ final class HomeViewController: UIViewController, LoadingShowable {
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var recenlySearchLabel: UILabel!
-    private var imageArrayFeaturedCV: [UIImage]?
     private var currentPage = 0
     
     var presenter: HomePresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = .white
-        imageArrayConfig()
+        setupNavigationBar()
         setupCollectionViews()
         setGradientBackground()
     }
@@ -58,11 +56,11 @@ final class HomeViewController: UIViewController, LoadingShowable {
         popularCollectionView.contentInsetAdjustmentBehavior = .never
     }
     
-    private func imageArrayConfig() {
-        imageArrayFeaturedCV = [UIImage(named: Icons.daftPunk.rawValue)!,
-                                UIImage(named: Icons.pinhani.rawValue)!,
-                                UIImage(named: Icons.eminem.rawValue)!,
-                                UIImage(named: Icons.beatles.rawValue)!]
+    
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .white
+        navigationItem.backButtonTitle = ""
     }
 }
 
@@ -70,8 +68,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == featuredCollectionView {
             let cell = collectionView.dequeCell(cellType: FeaturedCollectionViewCell.self, indexPath: indexPath)
-            guard let imageArrayFeaturedCV else { return UICollectionViewCell()}
-            cell.setup(imageArrayFeaturedCV[indexPath.item])
+            guard let featuredModel = presenter.featuredModel else { return UICollectionViewCell()}
+            cell.setup(featuredModel[indexPath.item].image!)
             return cell
         } else {
             let cell = collectionView.dequeCell(cellType: PopularCollectionViewCell.self, indexPath: indexPath)
@@ -84,7 +82,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == featuredCollectionView {
-            guard let imageArrayCount = imageArrayFeaturedCV?.count else { return 0}
+            guard let imageArrayCount = presenter.featuredModel?.count else { return 0}
             return imageArrayCount
         } else {
             if presenter.numberOfItems() == 0 {
@@ -98,7 +96,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == featuredCollectionView {
-            self.navigationController?.pushViewController(AlbumViewController(), animated: true)
+            FeaturedEntity.albumName = presenter.featuredModel?[indexPath.item].albumName
+            presenter.didSelectRowAtAlbums(index: indexPath.row)
         } else {
             presenter.didSelectRowAt(index: indexPath.row)
         }
@@ -112,7 +111,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 
 extension HomeViewController: HomeViewControllerProtocol {
-    
     func registerCollectionViews() {
         featuredCollectionView.register(cellType: FeaturedCollectionViewCell.self)
         popularCollectionView.register(cellType: PopularCollectionViewCell.self )

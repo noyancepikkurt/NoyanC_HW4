@@ -8,7 +8,6 @@
 import UIKit
 
 protocol DetailRouterProtocol {
-    
 }
 
 final class DetailRouter {
@@ -28,5 +27,4 @@ final class DetailRouter {
 }
 
 extension DetailRouter: DetailRouterProtocol {
-    
 }

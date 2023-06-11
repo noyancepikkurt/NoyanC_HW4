@@ -7,7 +7,6 @@
 
 import UIKit
 import Extensions
-import CoreData
 
 protocol FavoritesViewControllerProtocol {
     func setupTableView()
@@ -30,6 +29,7 @@ final class FavoritesViewController: UIViewController {
 extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellType: FavoritesTableViewCell.self, indexPath: indexPath)
+        cell.selectionStyle = .none
         if let song = presenter.songs(indexPath.row) {
             cell.cellPresenter = FavoritesCellPresenter(view: cell, songs: song)
         }

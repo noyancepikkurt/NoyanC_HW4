@@ -7,13 +7,40 @@
 
 import UIKit
 
-class AlbumTableViewCell: UITableViewCell {
+protocol AlbumTableViewCellProtocol {
+    func setImage(_ image: UIImage)
+    func setSongName(_ text: String)
+    func setArtistName(_ text: String)
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+final class AlbumTableViewCell: UITableViewCell {
+    @IBOutlet weak var songImageView: UIImageView!
+    @IBOutlet weak var songNameLabel: UILabel!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    
+    var cellPresenter: AlbumCellPresenterProtocol! {
+        didSet {
+            cellPresenter.load()
+        }
+    }
+}
+
+extension AlbumTableViewCell: AlbumTableViewCellProtocol {
+    func setImage(_ image: UIImage) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.songImageView.image = image
+        }
        
     }
-
- 
+    
+    func setSongName(_ text: String) {
+        self.songNameLabel.text = text
+    }
+    
+    func setArtistName(_ text: String) {
+        self.artistNameLabel.text = text
+    }
+    
     
 }

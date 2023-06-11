@@ -12,15 +12,6 @@ import SongAPI
 final class CoreDataManager {
     static let shared = CoreDataManager()
     
-    private let lastSearchKey = "LastSearchKey"
-    
-    func saveLastSearchText(_ searchText: String) {
-            UserDefaults.standard.set(searchText, forKey: lastSearchKey)
-        }
-        
-        func getLastSearchText() -> String? {
-            return UserDefaults.standard.string(forKey: lastSearchKey)
-        }
     
     func isSongDetailFavorite(_ model: SongDetail) -> Bool {
         let favorites = fetchFavorites()

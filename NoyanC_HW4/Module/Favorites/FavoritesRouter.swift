@@ -41,7 +41,7 @@ extension FavoritesRouter: FavoritesRouterProtocol {
         switch route {
         case .detail(let source):
             let detailVC = DetailRouter.createModule()
-            detailVC.source = source
+            detailVC.presenter.source = source
             viewController?.navigationController?.pushViewController(detailVC, animated: true)
         }
     }

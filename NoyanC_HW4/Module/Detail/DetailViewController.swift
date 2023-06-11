@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SongAPI
 
 protocol DetailViewControllerProtocol: AnyObject {
     func setSongTitle(_ text: String)
@@ -15,7 +14,6 @@ protocol DetailViewControllerProtocol: AnyObject {
     func setSongImage(_ image: UIImage)
     func setSongTrackPrice(_ text: String)
     func setSongCollectionPrice(_ text: String)
-    func getSource() -> SongDetail?
 }
 
 final class DetailViewController: UIViewController {
@@ -28,7 +26,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet var detailAudioButton: UIButton!
     @IBOutlet var likeImage: UIButton!
     
-    var source: SongDetail?
+   
     var presenter: DetailPresenterProtocol!
     
     override func viewDidLoad() {
@@ -122,10 +120,6 @@ extension DetailViewController: DetailViewControllerProtocol {
     
     func setSongCollectionPrice(_ text: String) {
         self.detailCollectionPrice.text = text
-    }
-    
-    func getSource() -> SongDetail? {
-        return source
     }
 }
 

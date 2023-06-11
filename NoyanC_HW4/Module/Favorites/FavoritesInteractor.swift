@@ -8,7 +8,6 @@
 import Foundation
 import CoreData
 
-
 protocol FavoritesInteractorProtocol: AnyObject {
     func fetchDatas()
 }

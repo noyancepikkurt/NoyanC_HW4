@@ -26,9 +26,10 @@ final class SearchViewController: UIViewController, LoadingShowable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         presenter?.viewDidLoad()
+        setupNavigationBar()
         setGradientBackground()
-        self.navigationController?.navigationBar.tintColor = .white
         searchTextField.delegate = self
     }
     
@@ -39,6 +40,7 @@ final class SearchViewController: UIViewController, LoadingShowable {
     override func viewWillDisappear(_ animated: Bool) {
         presenter.stopAudio()
     }
+    
     
     @objc func buttonTapped(_ sender: UIButton) {
         guard let cell = sender.superview?.superview as? SearchTableViewCell,
@@ -52,6 +54,11 @@ final class SearchViewController: UIViewController, LoadingShowable {
                 unselectedCell.stopAudio()
             }
         }
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .white
+        navigationItem.backButtonTitle = ""
     }
 }
 
@@ -69,7 +76,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfItems()
+        presenter.numberOfItems()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -127,7 +134,9 @@ extension SearchViewController: UITextFieldDelegate {
         searchTimer = Timer.scheduledTimer(withTimeInterval: searchDelayInterval, repeats: false) { [weak self] _ in
             guard let searchText = textField.text else { return }
             self?.presenter.fetchSongsFilter(with: searchText)
-            CoreDataManager.shared.saveLastSearchText(searchText)
+            if searchText != "" {
+                UserDefaultsManager.shared.saveLastSearchText(searchText)
+            }
             self?.presenter.stopAudio()
         }
     }
