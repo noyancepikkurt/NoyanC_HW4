@@ -87,6 +87,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    
+    func hideLoadingView() {
+        self.hideLoading()
+    }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        for cell in tableView.visibleCells {
+//            guard let cell = cell as? SearchTableViewCell else { return }
+//            if cell.cellPresenter.isAudioPlaying {
+//                cell.audioButtonAction()
+//            }
+//        }
+//    }
 }
 
 extension SearchViewController: SearchViewControllerProtocol {

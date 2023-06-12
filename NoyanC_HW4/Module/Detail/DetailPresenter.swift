@@ -98,6 +98,7 @@ extension DetailPresenter: DetailPresenterProtocol {
                     self.isAudioPlaying = true
                 }
             }
+            self.view.hideLoadingView()
             self.view.updateButton()
         }
     }

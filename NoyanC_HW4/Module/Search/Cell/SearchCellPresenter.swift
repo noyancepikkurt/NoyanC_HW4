@@ -59,6 +59,7 @@ extension SearchCellPresenter: SearchCellPresenterProtocol {
                 }
             }
             self.view?.updateButton()
+            self.view?.hideLoadingView()
         }
     }
 }

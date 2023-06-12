@@ -16,6 +16,7 @@ protocol DetailViewControllerProtocol: AnyObject {
     func setSongCollectionPrice(_ text: String)
     func updateButton()
     func setupVideoImage(_ isThereVideoURL: Bool)
+    func hideLoadingView()
 }
 
 final class DetailViewController: UIViewController {
@@ -28,6 +29,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private var detailAudioButton: UIButton!
     @IBOutlet private var likeImage: UIButton!
     @IBOutlet private weak var videoButtonImage: UIImageView!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
     
     var presenter: DetailPresenterProtocol!
     
@@ -47,6 +49,8 @@ final class DetailViewController: UIViewController {
     }
     
     @IBAction private func detailAudioButtonAction(_ sender: Any) {
+        detailAudioButton.isHidden = true
+        indicator.isHidden = false
         presenter.requestForAudio()
     }
     
@@ -135,6 +139,11 @@ extension DetailViewController: DetailViewControllerProtocol {
     
     func setSongCollectionPrice(_ text: String) {
         self.detailCollectionPrice.text = text
+    }
+    
+    func hideLoadingView() {
+        self.indicator.isHidden = true
+        self.detailAudioButton.isHidden = false
     }
 }
 

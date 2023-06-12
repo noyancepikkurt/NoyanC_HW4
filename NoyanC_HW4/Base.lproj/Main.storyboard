@@ -148,37 +148,37 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tür" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEi-NQ-K8h">
-                                <rect key="frame" x="20" y="451.33333333333331" width="353" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="450.66666666666669" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxl-0t-5ZI">
-                                <rect key="frame" x="20" y="475.66666666666669" width="353" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="475" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="collection price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaZ-5m-BPG">
-                                <rect key="frame" x="20" y="500" width="353" height="20.333333333333371"/>
+                                <rect key="frame" x="20" y="499.33333333333331" width="353" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="ŞARKI İSMİ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsX-ko-1bk">
-                                <rect key="frame" x="0.0" y="385" width="393" height="26.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="ŞARKI İSMİ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsX-ko-1bk">
+                                <rect key="frame" x="0.0" y="385" width="393" height="25.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ŞARKISI İSMİ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqj-WQ-9vj">
-                                <rect key="frame" x="0.0" y="415.33333333333331" width="393" height="24"/>
+                                <rect key="frame" x="0.0" y="414.66666666666669" width="393" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_button" translatesAutoresizingMaskIntoConstraints="NO" id="h0F-6v-eAg">
-                                <rect key="frame" x="180.66666666666666" y="528" width="32" height="23"/>
+                                <rect key="frame" x="180.66666666666666" y="527.33333333333337" width="32" height="23"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -186,7 +186,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q60-0N-9mX">
-                                <rect key="frame" x="182" y="544.33333333333337" width="29" height="60"/>
+                                <rect key="frame" x="182" y="543.66666666666663" width="29" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CC0-nB-L92"/>
                                 </constraints>
@@ -197,6 +197,11 @@
                                     <action selector="detailAudioButtonAction:" destination="1Ux-Wa-FO6" eventType="touchUpInside" id="Q7m-0T-z7x"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="F7x-Tx-bCq">
+                                <rect key="frame" x="186" y="564" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" systemColor="systemPurpleColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="let-6P-UqN"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -214,8 +219,12 @@
                             <constraint firstItem="BaZ-5m-BPG" firstAttribute="leading" secondItem="let-6P-UqN" secondAttribute="leading" constant="20" id="CGP-et-cm0"/>
                             <constraint firstItem="MsX-ko-1bk" firstAttribute="leading" secondItem="let-6P-UqN" secondAttribute="leading" id="DEz-NN-bE6"/>
                             <constraint firstItem="h0F-6v-eAg" firstAttribute="centerX" secondItem="dLq-hG-LDu" secondAttribute="centerX" id="E2V-wh-xxU"/>
+                            <constraint firstItem="F7x-Tx-bCq" firstAttribute="centerX" secondItem="h0F-6v-eAg" secondAttribute="centerX" id="IT4-1Q-L8H"/>
+                            <constraint firstItem="F7x-Tx-bCq" firstAttribute="centerY" secondItem="q60-0N-9mX" secondAttribute="centerY" id="Nci-cX-HFZ"/>
+                            <constraint firstItem="F7x-Tx-bCq" firstAttribute="top" secondItem="h0F-6v-eAg" secondAttribute="bottom" constant="13" id="UWF-ye-a2z"/>
                             <constraint firstItem="q60-0N-9mX" firstAttribute="top" secondItem="BaZ-5m-BPG" secondAttribute="bottom" constant="24" id="ZGh-Z3-dPv"/>
                             <constraint firstItem="let-6P-UqN" firstAttribute="trailing" secondItem="lxl-0t-5ZI" secondAttribute="trailing" constant="20" id="adm-ST-i12"/>
+                            <constraint firstItem="let-6P-UqN" firstAttribute="bottom" secondItem="F7x-Tx-bCq" secondAttribute="bottom" constant="185" id="aft-2r-pwx"/>
                             <constraint firstItem="h0F-6v-eAg" firstAttribute="top" secondItem="BaZ-5m-BPG" secondAttribute="bottom" constant="7.6666666666666288" id="cWn-WJ-oFE"/>
                             <constraint firstItem="let-6P-UqN" firstAttribute="trailing" secondItem="Zqj-WQ-9vj" secondAttribute="trailing" id="dx6-o2-by6"/>
                             <constraint firstItem="let-6P-UqN" firstAttribute="trailing" secondItem="AEi-NQ-K8h" secondAttribute="trailing" constant="20" id="g37-Ir-Q6A"/>
@@ -224,6 +233,7 @@
                             <constraint firstItem="V1h-Ov-66Y" firstAttribute="top" secondItem="let-6P-UqN" secondAttribute="top" constant="16" id="jQF-tW-5uj"/>
                             <constraint firstItem="AEi-NQ-K8h" firstAttribute="leading" secondItem="let-6P-UqN" secondAttribute="leading" constant="20" id="jRe-ap-RjJ"/>
                             <constraint firstItem="MsX-ko-1bk" firstAttribute="top" secondItem="V1h-Ov-66Y" secondAttribute="bottom" constant="16" id="lsA-kR-EX6"/>
+                            <constraint firstItem="F7x-Tx-bCq" firstAttribute="leading" secondItem="let-6P-UqN" secondAttribute="leading" constant="186" id="vky-DZ-O8B"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0bO-cN-DSf">
@@ -249,6 +259,7 @@
                         <outlet property="detailKindLabel" destination="AEi-NQ-K8h" id="uVY-cz-8Yy"/>
                         <outlet property="detailSongNameLabel" destination="MsX-ko-1bk" id="e0t-fu-vIs"/>
                         <outlet property="detailTrackPrice" destination="lxl-0t-5ZI" id="eBd-0J-RRE"/>
+                        <outlet property="indicator" destination="F7x-Tx-bCq" id="1Qu-R8-wo3"/>
                         <outlet property="likeImage" destination="Re0-e4-pSW" id="sZG-AN-cmT"/>
                         <outlet property="videoButtonImage" destination="h0F-6v-eAg" id="uAs-hk-cUw"/>
                     </connections>

@@ -13,6 +13,7 @@ protocol SearchCellProtocol: AnyObject {
     func setArtistName(_ text: String)
     func setAlbumName(_ text: String)
     func updateButton()
+    func hideLoadingView()
 }
 
 final class SearchTableViewCell: UITableViewCell {
@@ -20,7 +21,9 @@ final class SearchTableViewCell: UITableViewCell {
     @IBOutlet private var songNameLabel: UILabel!
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private var albumNameLabel: UILabel!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet var audioButtonImage: UIButton!
+    
     
     var cellPresenter: SearchCellPresenterProtocol! {
         didSet {
@@ -35,6 +38,8 @@ final class SearchTableViewCell: UITableViewCell {
     }
     
     func audioButtonAction() {
+        audioButtonImage.isHidden = true
+        indicator.isHidden = false
         cellPresenter.requestForAudio()
     }
     
@@ -75,6 +80,11 @@ extension SearchTableViewCell: SearchCellProtocol {
             audioButtonImage.setImage(UIImage(systemName: Icons.playIcon.rawValue), for: .normal)
             AudioTimerHelper.removeExistingProgressLayers(from: audioButtonImage)
         }
+    }
+    
+    func hideLoadingView() {
+        audioButtonImage.isHidden = false
+        indicator.isHidden = true
     }
 }
 
