@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol AlbumTableViewCellProtocol: AnyObject {
-    func setImage(_ image: UIImage)
+    func setImage(_ imageURL: String)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
 }
@@ -26,13 +27,14 @@ final class AlbumTableViewCell: UITableViewCell {
 }
 
 extension AlbumTableViewCell: AlbumTableViewCellProtocol {
-    func setImage(_ image: UIImage) {
+    func setImage(_ imageURL: String) {
         DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            self.songImageView.image = image
+            guard let self = self else { return }
+            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
+            self.songImageView.sd_setImage(with: URL(string: updatedURL))
         }
     }
-    
+
     func setSongName(_ text: String) {
         self.songNameLabel.text = text
     }
@@ -41,3 +43,4 @@ extension AlbumTableViewCell: AlbumTableViewCellProtocol {
         self.artistNameLabel.text = text
     }
 }
+

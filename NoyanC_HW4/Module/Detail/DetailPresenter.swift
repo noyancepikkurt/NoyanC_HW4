@@ -5,7 +5,6 @@
 //  Created by Noyan Çepikkurt on 7.06.2023.
 //
 
-import UIKit // UIImage
 import SongAPI
 import AVFoundation
 
@@ -64,6 +63,7 @@ extension DetailPresenter: DetailPresenterProtocol {
         view.setSongKindName(songDetail.primaryGenreName ?? "")
         view.setSongTrackPrice("Track Price: \(String(describing: trackPrice)) TRY")
         view.setSongCollectionPrice("Collection Price: \(String(describing: collectionPrice)) TRY")
+        view.setSongImage(songDetail.artworkUrl100 ?? "")
         
         if let previewURL = songDetail.previewURL {
             let url = URL(string: previewURL)
@@ -73,13 +73,6 @@ extension DetailPresenter: DetailPresenterProtocol {
             } else {
                 view.setupVideoImage(false)
             }
-        }
-        
-        
-        ImageDownload.shared.image(songs: songDetail) { data, error in
-            guard let data  = data, error == nil else { return }
-            guard let image = UIImage(data: data) else { return }
-            self.view.setSongImage(image)
         }
     }
     

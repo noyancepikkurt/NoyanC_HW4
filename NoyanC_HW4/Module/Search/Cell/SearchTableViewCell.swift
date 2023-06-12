@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol VideoButtonDelegate: AnyObject {
     func videoButtonTapped(withURL url: URL)
 }
 
 protocol SearchCellProtocol: AnyObject {
-    func setImage(_ image: UIImage)
+    func setImage(_ imageURL: String)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
     func setAlbumName(_ text: String)
@@ -72,9 +73,11 @@ final class SearchTableViewCell: UITableViewCell {
 }
 
 extension SearchTableViewCell: SearchCellProtocol {
-    func setImage(_ image: UIImage) {
-        DispatchQueue.main.async {
-            self.detailImageView.image = image
+    func setImage(_ imageURL: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
+            self.detailImageView.sd_setImage(with: URL(string: updatedURL))
         }
     }
     

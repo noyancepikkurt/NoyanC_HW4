@@ -5,7 +5,7 @@
 //  Created by Noyan Çepikkurt on 9.06.2023.
 //
 
-import UIKit // UIImage
+import UIKit // -> UIImage(for entity model)
 import SongAPI
 
 protocol HomePresenterProtocol: AnyObject {

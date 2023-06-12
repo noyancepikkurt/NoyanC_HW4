@@ -5,7 +5,6 @@
 //  Created by Noyan Çepikkurt on 9.06.2023.
 //
 
-import UIKit // UIImage
 import SongAPI
 
 protocol RecentlySearchCellPresenterProtocol: AnyObject {
@@ -25,12 +24,7 @@ final class RecentlySearchPresenter {
 
 extension RecentlySearchPresenter: RecentlySearchCellPresenterProtocol {
     func load() {
-        ImageDownload.shared.image(songs: songDetail) { data, error in
-            if let data {
-                guard let img = UIImage(data: data) else { return }
-                self.view?.setImage(img)
-            }
-        }
+        view?.setImage(songDetail.artworkUrl100 ?? "")
         view?.setSongName(songDetail.trackName ?? "")
         view?.setArtistName(songDetail.artistName ?? "")
     }

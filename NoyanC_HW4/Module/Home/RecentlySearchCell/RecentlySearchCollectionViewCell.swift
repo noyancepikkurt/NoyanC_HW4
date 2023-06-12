@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RecentlySearchCellProtocol: AnyObject {
-    func setImage(_ image: UIImage)
+    func setImage(_ imageURL: String)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
 }
@@ -26,9 +26,11 @@ final class RecentlySearchCollectionViewCell: UICollectionViewCell {
 }
 
 extension RecentlySearchCollectionViewCell: RecentlySearchCellProtocol {
-    func setImage(_ image: UIImage) {
-        DispatchQueue.main.async {
-            self.imageView.image = image
+    func setImage(_ imageURL: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
+            self.imageView.sd_setImage(with: URL(string: updatedURL))
         }
     }
     

@@ -5,7 +5,6 @@
 //  Created by Noyan Çepikkurt on 7.06.2023.
 //
 
-import UIKit
 import SongAPI
 import AVFoundation
 import SDWebImage
@@ -34,13 +33,7 @@ final class SearchCellPresenter {
 
 extension SearchCellPresenter: SearchCellPresenterProtocol {
     func load() {
-        ImageDownload.shared.image(songs: song) { data, error in
-            if let data {
-                guard let image = UIImage(data: data) else { return }
-                self.view?.setImage(image)
-                
-            }
-        }
+        view?.setImage(song.artworkUrl100 ?? "")
         view?.setSongName(song.trackName ?? "")
         view?.setAlbumName(song.collectionName ?? "")
         view?.setArtistName(song.artistName ?? "")
