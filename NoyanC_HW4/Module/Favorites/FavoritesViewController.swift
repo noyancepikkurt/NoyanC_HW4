@@ -72,8 +72,4 @@ extension FavoritesViewController: FavoritesViewControllerProtocol {
             self.tableView.reloadData()
         }
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // -> detail vc?
-    }
 }

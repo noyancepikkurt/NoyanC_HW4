@@ -13,7 +13,6 @@ protocol FavoritesPresenterProtocol: AnyObject {
     func viewDidLoad()
     func numberOfItem() -> Int
     func songs(_ index: Int) -> SongEntity?
-    func didSelectRowAt(index: Int)
     func deleteFavorites(_ index: Int)
 }
 
@@ -50,10 +49,6 @@ extension FavoritesPresenter: FavoritesPresenterProtocol {
     
     func songs(_ index: Int) -> SongEntity? {
         return songsModel[index]
-    }
-    
-    func didSelectRowAt(index: Int) {
-       // -> detail vc
     }
     
     private func fetchFromCoreData() {

@@ -11,7 +11,7 @@ protocol DetailRouterProtocol {}
 
 final class DetailRouter {
     weak var viewController: DetailViewController?
-
+    
     static func createModule() -> DetailViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.detailVC.rawValue) as! DetailViewController

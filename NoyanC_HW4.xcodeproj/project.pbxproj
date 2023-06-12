@@ -213,9 +213,9 @@
 		5D142EAB2A3223C0008EBBA8 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5D142EB62A324A1C008EBBA8 /* FavoritesCellPresenter.swift */,
 				5D142EAC2A3223D0008EBBA8 /* FavoritesTableViewCell.swift */,
 				5D142EAD2A3223D0008EBBA8 /* FavoritesTableViewCell.xib */,
-				5D142EB62A324A1C008EBBA8 /* FavoritesCellPresenter.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -320,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				5D1797712A2F5382008A9205 /* SplashViewController.swift */,
-				5D3ACED72A2F5AA9006779B8 /* SplashPresenter.swift */,
 				5D3ACED52A2F5AA0006779B8 /* SplashInteractor.swift */,
+				5D3ACED72A2F5AA9006779B8 /* SplashPresenter.swift */,
 				5D3ACED92A2F5AC4006779B8 /* SplashRouter.swift */,
 			);
 			path = Splash;
@@ -335,8 +335,8 @@
 				5D0455682A2FA57200500135 /* HomeViewController.swift */,
 				5D12C2482A3351E90015AF1B /* HomeInteractor.swift */,
 				5D12C23A2A332C460015AF1B /* HomePresenter.swift */,
-				5D0455662A2FA4A500500135 /* HomeRouter.swift */,
 				5DD3E8702A35C5BE003A1853 /* FeaturedEntity.swift */,
+				5D0455662A2FA4A500500135 /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -388,8 +388,8 @@
 			children = (
 				5D5A7D592A33CE8600558C65 /* Cell */,
 				5D5A7D512A33CDF700558C65 /* AlbumViewController.swift */,
-				5D5A7D532A33CE0400558C65 /* AlbumPresenter.swift */,
 				5D5A7D552A33CE0C00558C65 /* AlbumInteractor.swift */,
+				5D5A7D532A33CE0400558C65 /* AlbumPresenter.swift */,
 				5D5A7D572A33CE1200558C65 /* AlbumRouter.swift */,
 			);
 			path = Album;

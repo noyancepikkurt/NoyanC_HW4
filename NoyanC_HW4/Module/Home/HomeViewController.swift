@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController, LoadingShowable {
         presenter.viewDidLoad()
         recentlyCollectionView.reloadData()
     }
-
+    
     private func setupRecentlyCollectionView() {
         let designPopular: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         designPopular.scrollDirection = .vertical

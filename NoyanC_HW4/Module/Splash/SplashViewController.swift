@@ -8,7 +8,6 @@
 import UIKit
 import Extensions
 
-
 protocol SplashViewControllerProtocol: AnyObject {
     func noInternetConnection()
 }

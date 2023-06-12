@@ -34,7 +34,7 @@ extension AlbumTableViewCell: AlbumTableViewCellProtocol {
             self.songImageView.sd_setImage(with: URL(string: updatedURL))
         }
     }
-
+    
     func setSongName(_ text: String) {
         self.songNameLabel.text = text
     }

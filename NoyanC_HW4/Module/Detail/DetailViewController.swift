@@ -54,7 +54,6 @@ final class DetailViewController: UIViewController {
         AudioManager.shared.showVideo(from: videoURL, presentingViewController: self)
     }
     
-    
     @IBAction private func detailAudioButtonAction(_ sender: Any) {
         detailAudioButton.isHidden = true
         indicator.isHidden = false
