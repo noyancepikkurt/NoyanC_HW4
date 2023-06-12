@@ -27,7 +27,7 @@ final class HomeViewController: UIViewController, LoadingShowable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        setupCollectionViews()
+        setupRecentlyCollectionView()
         setGradientBackground()
     }
     
@@ -35,15 +35,8 @@ final class HomeViewController: UIViewController, LoadingShowable {
         presenter.viewDidLoad()
         recentlyCollectionView.reloadData()
     }
- 
-    private func setupCollectionViews() {
-        let design: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        design.scrollDirection = .horizontal
-        let cellWidth = self.featuredCollectionView.frame.size.width - 10
-        design.itemSize = CGSize(width: cellWidth, height: self.featuredCollectionView.frame.size.height)
-        featuredCollectionView.isPagingEnabled = true
-        featuredCollectionView.collectionViewLayout = design
-        
+
+    private func setupRecentlyCollectionView() {
         let designPopular: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         designPopular.scrollDirection = .vertical
         designPopular.minimumLineSpacing = 16
@@ -102,9 +95,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width - 20
+        let width = scrollView.frame.width - 30
         currentPage = Int(scrollView.contentOffset.x / width)
         pageControl.currentPage = currentPage
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == featuredCollectionView {
+            let cellWidth = collectionView.frame.size.width - 10
+            let cellHeight = collectionView.frame.size.height
+            let itemSize = CGSize(width: cellWidth, height: cellHeight)
+            return itemSize
+        } else {
+            return CGSize(width: 152, height: 184)
+        }
     }
 }
 

@@ -128,4 +128,9 @@ extension SearchViewController: UITextFieldDelegate {
             self?.presenter.stopAudio()
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

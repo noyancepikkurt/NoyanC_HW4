@@ -34,8 +34,11 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        favoriteButtonForLoad()
         setGradientBackground()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        favoriteButtonForLoad()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

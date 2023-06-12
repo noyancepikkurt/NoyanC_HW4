@@ -18,9 +18,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kmq-it-tyn">
                         <rect key="frame" x="0.0" y="0.0" width="361" height="159"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="361" id="TS1-z3-ZSA"/>
-                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="8"/>
@@ -31,10 +28,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Kmq-it-tyn" secondAttribute="bottom" id="SYf-Au-aPL"/>
-                <constraint firstAttribute="trailing" secondItem="Kmq-it-tyn" secondAttribute="trailing" id="sAb-p5-Ypz"/>
-                <constraint firstItem="Kmq-it-tyn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="t1C-0y-sHS"/>
-                <constraint firstItem="Kmq-it-tyn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vv7-Xz-D8T"/>
+                <constraint firstAttribute="trailing" secondItem="Kmq-it-tyn" secondAttribute="trailing" id="8zO-nk-Bjj"/>
+                <constraint firstItem="Kmq-it-tyn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZXU-EF-l5q"/>
+                <constraint firstItem="Kmq-it-tyn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fxk-Kf-WPa"/>
+                <constraint firstAttribute="bottom" secondItem="Kmq-it-tyn" secondAttribute="bottom" id="ipq-gz-5wr"/>
             </constraints>
             <size key="customSize" width="316" height="217"/>
             <connections>

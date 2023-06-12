@@ -91,6 +91,25 @@ final class CoreDataManager {
         }
     }
     
+    
+    func deleteSongEntity(withTrackID trackID: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<SongEntity> = SongEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "trackID == %@", trackID)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            if let songEntity = results.first {
+                context.delete(songEntity)
+                try context.save()
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     private func convertToSongEntity(model: SongDetail) -> SongEntity? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         guard let trackPrice = model.trackPrice else { return nil }

@@ -45,6 +45,19 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return presenter.numberOfItem()
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            presenter.deleteFavorites(indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
 }
 
 extension FavoritesViewController: FavoritesViewControllerProtocol {
@@ -61,6 +74,6 @@ extension FavoritesViewController: FavoritesViewControllerProtocol {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // -> detail vc
+        // -> detail vc?
     }
 }

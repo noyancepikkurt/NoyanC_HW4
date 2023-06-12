@@ -14,6 +14,7 @@ protocol FavoritesPresenterProtocol: AnyObject {
     func numberOfItem() -> Int
     func songs(_ index: Int) -> SongEntity?
     func didSelectRowAt(index: Int)
+    func deleteFavorites(_ index: Int)
 }
 
 final class FavoritesPresenter {
@@ -21,7 +22,7 @@ final class FavoritesPresenter {
     let router: FavoritesRouterProtocol!
     let interactor: FavoritesInteractorProtocol!
     
-    private var songs: [SongEntity] = []
+    private var songsModel: [SongEntity] = []
     
     init(view: FavoritesViewControllerProtocol,
          router: FavoritesRouterProtocol,
@@ -33,17 +34,22 @@ final class FavoritesPresenter {
 }
 
 extension FavoritesPresenter: FavoritesPresenterProtocol {
+    func deleteFavorites(_ index: Int) {
+        CoreDataManager.shared.deleteSongEntity(withTrackID: songsModel[index].trackID!)
+        songsModel.remove(at: index)
+    }
+    
     func viewDidLoad() {
         view?.setupTableView()
         fetchFromCoreData()
     }
     
     func numberOfItem() -> Int {
-        songs.count
+        songsModel.count
     }
     
     func songs(_ index: Int) -> SongEntity? {
-        return songs[index]
+        return songsModel[index]
     }
     
     func didSelectRowAt(index: Int) {
@@ -57,7 +63,7 @@ extension FavoritesPresenter: FavoritesPresenterProtocol {
 
 extension FavoritesPresenter: FavoritesInteractorOutputProtocol {
     func fetchDatasOutput(_ result: [SongEntity]) {
-        self.songs = result
+        self.songsModel = result
         view?.reloadData()
     }
 }
