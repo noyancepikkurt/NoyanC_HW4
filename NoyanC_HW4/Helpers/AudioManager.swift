@@ -11,6 +11,7 @@ import AVKit
 final class AudioManager {
     static let shared = AudioManager()
     private var audioPlayer: AVAudioPlayer?
+    var videoURL: URL?
     
     private init() {}
     
@@ -23,7 +24,6 @@ final class AudioManager {
     
     func stopMusic(completion: ((Bool) -> Void)? = nil) {
         audioPlayer?.stop()
-        audioPlayer = nil
         completion?(false)
     }
     

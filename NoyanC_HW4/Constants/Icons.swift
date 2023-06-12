@@ -10,7 +10,7 @@ import Foundation
 enum Icons: String {
     case searchIcon = "magnifyingglass"
     case playIcon = "play.circle"
-    case pauseIcon = "pause.circle"
+    case pauseIcon = "stop.circle"
     case ezhel = "ezhel"
     case pinhani = "pinhani"
     case mfo = "mfo"

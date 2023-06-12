@@ -8,19 +8,22 @@
 import UIKit
 import SongAPI
 import AVFoundation
+import SDWebImage
 
 protocol SearchCellPresenterProtocol: AnyObject {
     func load()
     func requestForAudio()
     var isAudioPlaying: Bool { get set }
+    var videoURL: URL? { get set }
 }
 
 final class SearchCellPresenter {
     weak var view: SearchCellProtocol?
-    private let song: SongDetail
+    let song: SongDetail
     private var selectedIndex: IndexPath?
     private var audioPlayer: AVAudioPlayer?
     var isAudioPlaying: Bool = false
+    var videoURL: URL?
     
     init(view: SearchCellProtocol,
          song: SongDetail){
@@ -35,11 +38,23 @@ extension SearchCellPresenter: SearchCellPresenterProtocol {
             if let data {
                 guard let image = UIImage(data: data) else { return }
                 self.view?.setImage(image)
+                
             }
         }
         view?.setSongName(song.trackName ?? "")
         view?.setAlbumName(song.collectionName ?? "")
         view?.setArtistName(song.artistName ?? "")
+        
+        if let previewURL = song.previewURL {
+            let url = URL(string: previewURL)
+            if url?.pathExtension == "m4v" {
+                self.videoURL = url
+                AudioManager.shared.videoURL = url
+                view?.setupVideoImage(true)
+            } else {
+                view?.setupVideoImage(false)
+            }
+        }
     }
     
     func requestForAudio()  {

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol VideoButtonDelegate: AnyObject {
+    func videoButtonTapped(withURL url: URL)
+}
+
 protocol SearchCellProtocol: AnyObject {
     func setImage(_ image: UIImage)
     func setSongName(_ text: String)
@@ -14,6 +18,7 @@ protocol SearchCellProtocol: AnyObject {
     func setAlbumName(_ text: String)
     func updateButton()
     func hideLoadingView()
+    func setupVideoImage(_ isThereVideoURL: Bool)
 }
 
 final class SearchTableViewCell: UITableViewCell {
@@ -23,7 +28,9 @@ final class SearchTableViewCell: UITableViewCell {
     @IBOutlet private var albumNameLabel: UILabel!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     @IBOutlet var audioButtonImage: UIButton!
+    @IBOutlet weak var videoButton: UIButton!
     
+    weak var delegate: VideoButtonDelegate?
     
     var cellPresenter: SearchCellPresenterProtocol! {
         didSet {
@@ -34,7 +41,18 @@ final class SearchTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         detailImageView.image = nil
-        stopAudio()
+        if cellPresenter.isAudioPlaying {
+            stopAudio()
+        }
+    }
+    
+    @IBAction func videoButtonAction(_ sender: Any) {
+        guard let url = cellPresenter.videoURL else { return }
+        delegate?.videoButtonTapped(withURL: url)
+    }
+    
+    func setupVideoImage(_ isThereVideoURL: Bool) {
+        videoButton.isHidden = isThereVideoURL ? false : true
     }
     
     func audioButtonAction() {

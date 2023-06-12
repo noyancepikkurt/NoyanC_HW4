@@ -28,7 +28,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet private var detailCollectionPrice: UILabel!
     @IBOutlet private var detailAudioButton: UIButton!
     @IBOutlet private var likeImage: UIButton!
-    @IBOutlet private weak var videoButtonImage: UIImageView!
+    @IBOutlet weak var videoButtonImage: UIButton!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
     
     var presenter: DetailPresenterProtocol!
@@ -47,6 +47,12 @@ final class DetailViewController: UIViewController {
         presenter.stopAudio()
         stopAudio()
     }
+    
+    @IBAction func videoButtonAction(_ sender: Any) {
+        guard let videoURL = presenter.videoURL else { return }
+        AudioManager.shared.showVideo(from: videoURL, presentingViewController: self)
+    }
+    
     
     @IBAction private func detailAudioButtonAction(_ sender: Any) {
         detailAudioButton.isHidden = true
@@ -73,14 +79,6 @@ final class DetailViewController: UIViewController {
     
     func setupVideoImage(_ isThereVideoURL: Bool) {
         videoButtonImage.isHidden = isThereVideoURL ? false : true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        videoButtonImage.addGestureRecognizer(tapGesture)
-        videoButtonImage.isUserInteractionEnabled = true
-    }
-    
-    @objc func imageTapped() {
-        guard let videoURL = presenter.videoURL else { return }
-        AudioManager.shared.showVideo(from: videoURL, presentingViewController: self)
     }
     
     private func favoriteButtonSetup() {

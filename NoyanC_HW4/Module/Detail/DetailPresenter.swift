@@ -75,6 +75,7 @@ extension DetailPresenter: DetailPresenterProtocol {
             }
         }
         
+        
         ImageDownload.shared.image(songs: songDetail) { data, error in
             guard let data  = data, error == nil else { return }
             guard let image = UIImage(data: data) else { return }

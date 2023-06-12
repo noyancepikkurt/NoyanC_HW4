@@ -28,7 +28,7 @@ final class SearchViewController: UIViewController, LoadingShowable {
         presenter?.viewDidLoad()
         setupNavigationBar()
         setGradientBackground()
-        searchTextField.delegate = self
+        searchTextField?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,9 +59,16 @@ final class SearchViewController: UIViewController, LoadingShowable {
     }
 }
 
+extension SearchViewController: VideoButtonDelegate {
+    func videoButtonTapped(withURL url: URL) {
+        AudioManager.shared.showVideo(from: url, presentingViewController: self)
+    }
+}
+
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellType: SearchTableViewCell.self, indexPath: indexPath)
+        cell.delegate = self
         cell.selectionStyle = .none
         
         if let songs = presenter.songs(indexPath.row) {
@@ -91,15 +98,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func hideLoadingView() {
         self.hideLoading()
     }
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        for cell in tableView.visibleCells {
-//            guard let cell = cell as? SearchTableViewCell else { return }
-//            if cell.cellPresenter.isAudioPlaying {
-//                cell.audioButtonAction()
-//            }
-//        }
-//    }
 }
 
 extension SearchViewController: SearchViewControllerProtocol {

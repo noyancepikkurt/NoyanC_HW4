@@ -61,14 +61,21 @@ public class ImageDownload {
     }
     
     public func image(songs: SongDetail, completion: @escaping (Data?, Error?) -> (Void)) {
-        if let image = songs.artworkUrl100 {
+        if var image = songs.artworkUrl100 {
+            if let range = image.range(of: "100x100bb.jpg") {
+                image.replaceSubrange(range, with: "500x500bb.jpg")
+            }
             guard let url = URL(string: image) else { return }
             download(imageURL: url, completion: completion)
         }
     }
+
     
     public func imageCoreData(songs: SongEntity, completion: @escaping (Data?, Error?) -> (Void)) {
-        if let image = songs.artworkUrl {
+        if var image = songs.artworkUrl {
+            if let range = image.range(of: "/100x100bb.jpg") {
+                image.replaceSubrange(range, with: "/500x500bb.jpg")
+            }
             guard let url = URL(string: image) else { return }
             download(imageURL: url, completion: completion)
         }
