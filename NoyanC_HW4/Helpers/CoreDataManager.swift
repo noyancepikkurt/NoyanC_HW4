@@ -91,7 +91,6 @@ final class CoreDataManager {
         }
     }
     
-    
     func deleteSongEntity(withTrackID trackID: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
