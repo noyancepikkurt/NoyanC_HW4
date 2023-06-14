@@ -57,8 +57,15 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            presenter.deleteFavorites(indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            UIAlertController.alertActionMessage(title: AlertMessages.deleteFavoriteTitle.rawValue,
+                                                 message: AlertMessages.deleteFavoriteMessage.rawValue,
+                                                 vc: self) { [weak self] bool in
+                guard let self else { return }
+                if bool {
+                    self.presenter.deleteFavorites(indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+            }
             tableView.endUpdates()
         }
     }
