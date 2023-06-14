@@ -18,6 +18,7 @@ final class AlbumTableViewCell: UITableViewCell {
     @IBOutlet private weak var songImageView: UIImageView!
     @IBOutlet private weak var songNameLabel: UILabel!
     @IBOutlet private weak var artistNameLabel: UILabel!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
     
     var cellPresenter: AlbumCellPresenterProtocol! {
         didSet {
@@ -28,10 +29,14 @@ final class AlbumTableViewCell: UITableViewCell {
 
 extension AlbumTableViewCell: AlbumTableViewCellProtocol {
     func setImage(_ imageURL: String) {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.songImageView.sd_setImage(with: URL(string: updatedURL))
+            self.songImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in 
+                self.indicator.stopAnimating()
+            }
         }
     }
     

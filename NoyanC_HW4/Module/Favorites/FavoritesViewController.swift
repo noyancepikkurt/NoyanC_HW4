@@ -46,6 +46,10 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         return presenter.numberOfItem()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }

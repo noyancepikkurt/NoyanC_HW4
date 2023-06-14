@@ -79,15 +79,23 @@
                             <action selector="videoButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5tj-ig-YNo"/>
                         </connections>
                     </button>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="M8R-w0-dry">
+                        <rect key="frame" x="40" y="49" width="20" height="20"/>
+                        <color key="color" systemColor="systemPurpleColor"/>
+                    </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="E8a-oX-nuX" firstAttribute="leading" secondItem="Qe4-rM-0gJ" secondAttribute="trailing" constant="14" id="3jn-ZP-MC4"/>
+                    <constraint firstItem="M8R-w0-dry" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="3qb-3o-ISk"/>
                     <constraint firstItem="Qe4-rM-0gJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="91r-lK-GfX"/>
                     <constraint firstItem="kcX-Tl-ZBc" firstAttribute="top" secondItem="Ae2-xh-lS5" secondAttribute="top" id="9hl-nc-tER"/>
                     <constraint firstAttribute="bottom" secondItem="LuM-7L-SQC" secondAttribute="bottom" constant="40" id="JmI-7L-m7q"/>
+                    <constraint firstAttribute="bottom" secondItem="M8R-w0-dry" secondAttribute="bottom" constant="47" id="OVT-Ez-1pd"/>
                     <constraint firstItem="LuM-7L-SQC" firstAttribute="leading" secondItem="Qe4-rM-0gJ" secondAttribute="trailing" constant="8" id="PCo-2n-Yfj"/>
+                    <constraint firstItem="M8R-w0-dry" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="49" id="QWk-HU-Kp2"/>
                     <constraint firstItem="LuM-7L-SQC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="XK6-Nd-WSA"/>
+                    <constraint firstItem="Qe4-rM-0gJ" firstAttribute="leading" secondItem="M8R-w0-dry" secondAttribute="trailing" constant="48" id="XXZ-OR-CLr"/>
                     <constraint firstItem="E8a-oX-nuX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="Xz1-JM-WHD"/>
                     <constraint firstItem="Qe4-rM-0gJ" firstAttribute="leading" secondItem="Ae2-xh-lS5" secondAttribute="trailing" constant="8" id="fvh-PU-462"/>
                     <constraint firstAttribute="bottom" secondItem="Qe4-rM-0gJ" secondAttribute="bottom" constant="16" id="h27-bS-1gp"/>
@@ -105,6 +113,7 @@
                 <outlet property="artistNameLabel" destination="iUi-gH-DAb" id="tpW-Qi-TTk"/>
                 <outlet property="audioButtonImage" destination="LuM-7L-SQC" id="FQg-nW-MzI"/>
                 <outlet property="detailImageView" destination="Ae2-xh-lS5" id="x7m-qi-oZj"/>
+                <outlet property="imageIndicator" destination="M8R-w0-dry" id="R0k-k4-vrY"/>
                 <outlet property="indicator" destination="E8a-oX-nuX" id="Ex3-R5-51Z"/>
                 <outlet property="songNameLabel" destination="QsW-az-RRm" id="QzC-9f-x92"/>
                 <outlet property="videoButton" destination="kcX-Tl-ZBc" id="2Y6-ym-XoT"/>

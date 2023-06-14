@@ -131,12 +131,13 @@ extension SearchViewController: UITextFieldDelegate {
         searchTimer?.invalidate()
         
         searchTimer = Timer.scheduledTimer(withTimeInterval: searchDelayInterval, repeats: false) { [weak self] _ in
+            guard let self else { return }
             guard let searchText = textField.text else { return }
-            self?.presenter.fetchSongsFilter(with: searchText)
+            self.presenter.fetchSongsFilter(with: searchText)
             if searchText != "" {
                 UserDefaultsManager.shared.saveLastSearchText(searchText)
             }
-            self?.presenter.stopAudio()
+            self.presenter.stopAudio()
         }
     }
     

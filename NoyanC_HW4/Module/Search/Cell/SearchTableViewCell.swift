@@ -28,8 +28,9 @@ final class SearchTableViewCell: UITableViewCell {
     @IBOutlet private var artistNameLabel: UILabel!
     @IBOutlet private var albumNameLabel: UILabel!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
+    @IBOutlet private weak var imageIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var videoButton: UIButton!
     @IBOutlet var audioButtonImage: UIButton!
-    @IBOutlet weak var videoButton: UIButton!
     
     weak var delegate: VideoButtonDelegate?
     
@@ -59,6 +60,7 @@ final class SearchTableViewCell: UITableViewCell {
     func audioButtonAction() {
         audioButtonImage.isHidden = true
         indicator.isHidden = false
+        indicator.startAnimating()
         cellPresenter.requestForAudio()
     }
     
@@ -74,10 +76,14 @@ final class SearchTableViewCell: UITableViewCell {
 
 extension SearchTableViewCell: SearchCellProtocol {
     func setImage(_ imageURL: String) {
+        self.imageIndicator.isHidden = false
+        self.imageIndicator.startAnimating()
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.detailImageView.sd_setImage(with: URL(string: updatedURL))
+            self.detailImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in 
+                self.imageIndicator.stopAnimating()
+            }
         }
     }
     

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,25 +40,39 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Q48-Gb-pnf">
+                        <rect key="frame" x="40" y="40" width="20" height="20"/>
+                        <color key="color" systemColor="systemPurpleColor"/>
+                    </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="Uv0-wk-jO9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1gK-wH-zhz"/>
+                    <constraint firstAttribute="bottom" secondItem="Q48-Gb-pnf" secondAttribute="bottom" constant="40" id="3h7-Kc-ZFE"/>
                     <constraint firstItem="C5t-Pg-uC7" firstAttribute="leading" secondItem="Uv0-wk-jO9" secondAttribute="trailing" constant="8" symbolic="YES" id="3qK-kO-Fnm"/>
+                    <constraint firstItem="Q48-Gb-pnf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="9RI-9o-LDt"/>
                     <constraint firstAttribute="bottom" secondItem="C5t-Pg-uC7" secondAttribute="bottom" constant="20" id="CmL-cY-mf6"/>
+                    <constraint firstItem="C5t-Pg-uC7" firstAttribute="leading" secondItem="Q48-Gb-pnf" secondAttribute="trailing" constant="48" id="K4I-mr-XH5"/>
                     <constraint firstItem="Uv0-wk-jO9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KWX-ed-CHO"/>
                     <constraint firstAttribute="bottom" secondItem="Uv0-wk-jO9" secondAttribute="bottom" id="RdX-lB-nmN"/>
                     <constraint firstAttribute="trailing" secondItem="C5t-Pg-uC7" secondAttribute="trailing" id="YdQ-Ik-VsO"/>
+                    <constraint firstItem="Q48-Gb-pnf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="hE5-dK-3M2"/>
                     <constraint firstItem="C5t-Pg-uC7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="uyZ-fj-cyJ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="artistNameLabel" destination="5mX-Xt-UyN" id="QAJ-Ie-q3r"/>
+                <outlet property="indicator" destination="Q48-Gb-pnf" id="3YR-Qy-4b8"/>
                 <outlet property="songImageView" destination="Uv0-wk-jO9" id="ZA5-Kj-You"/>
                 <outlet property="songNameLabel" destination="ieU-xi-ic5" id="jaH-y4-D9v"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="38.380281690140848"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

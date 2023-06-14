@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,17 +40,25 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="RUv-cz-3UH">
+                        <rect key="frame" x="66" y="60" width="20" height="20"/>
+                        <color key="color" systemColor="systemPurpleColor"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="RUv-cz-3UH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="60" id="Brt-1C-dgO"/>
                 <constraint firstItem="1a6-zV-Pvw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="H1S-wn-enx"/>
                 <constraint firstAttribute="trailing" secondItem="1tb-hP-jrx" secondAttribute="trailing" id="Hkr-8I-K8c"/>
                 <constraint firstItem="1tb-hP-jrx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Kvu-Am-Xed"/>
                 <constraint firstAttribute="trailing" secondItem="1a6-zV-Pvw" secondAttribute="trailing" id="MjJ-rt-SnY"/>
                 <constraint firstItem="1a6-zV-Pvw" firstAttribute="top" secondItem="1tb-hP-jrx" secondAttribute="bottom" constant="2" id="QaW-cg-kXH"/>
                 <constraint firstItem="1tb-hP-jrx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TOP-Oz-26v"/>
+                <constraint firstItem="RUv-cz-3UH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="66" id="kA5-cJ-Y9k"/>
+                <constraint firstAttribute="trailing" secondItem="RUv-cz-3UH" secondAttribute="trailing" constant="66" id="p6c-bp-sLK"/>
+                <constraint firstItem="1a6-zV-Pvw" firstAttribute="top" secondItem="RUv-cz-3UH" secondAttribute="bottom" constant="62" id="qT7-ZG-sOf"/>
                 <constraint firstAttribute="trailing" secondItem="1a6-zV-Pvw" secondAttribute="trailing" id="ziJ-9D-K4t"/>
             </constraints>
             <size key="customSize" width="152" height="184"/>
@@ -61,9 +70,15 @@
             <connections>
                 <outlet property="artistLabel" destination="1A3-FD-dO9" id="Gaq-Fw-m3V"/>
                 <outlet property="imageView" destination="1tb-hP-jrx" id="H9b-xk-HFt"/>
+                <outlet property="indicator" destination="RUv-cz-3UH" id="0mw-Xv-Rel"/>
                 <outlet property="songLabel" destination="epV-vx-bpu" id="4j9-PB-r9m"/>
             </connections>
             <point key="canvasLocation" x="178.62595419847327" y="93.661971830985919"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
