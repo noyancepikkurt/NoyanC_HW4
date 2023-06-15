@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol VideoButtonDelegate: AnyObject {
     func videoButtonTapped(withURL url: URL)

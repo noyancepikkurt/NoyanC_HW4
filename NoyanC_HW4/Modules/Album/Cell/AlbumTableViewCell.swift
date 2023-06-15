@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol AlbumTableViewCellProtocol: AnyObject {
     func setImage(_ imageURL: String)

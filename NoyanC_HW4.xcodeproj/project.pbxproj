@@ -87,7 +87,7 @@
 		5DD3E8712A35C5BE003A1853 /* FeaturedEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD3E8702A35C5BE003A1853 /* FeaturedEntity.swift */; };
 		5DD3E8732A35F633003A1853 /* AlbumNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD3E8722A35F633003A1853 /* AlbumNames.swift */; };
 		5DD916D82A325A450047B6A7 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD916D72A325A450047B6A7 /* FavoritesInteractor.swift */; };
-		5DEEDE972A39C61400937255 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5DEEDE962A39C61400937255 /* SDWebImage */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5DEEDE972A39C61400937255 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5DEEDE962A39C61400937255 /* SDWebImage */; settings = {ATTRIBUTES = (Required, ); }; };
 		5DEEDE9D2A3A00FB00937255 /* MockAlbumInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEEDE9C2A3A00FB00937255 /* MockAlbumInteractor.swift */; };
 		5DEEDE9F2A3A01AF00937255 /* MockAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEEDE9E2A3A01AF00937255 /* MockAlbumViewController.swift */; };
 		5DEEDEA12A3A02FC00937255 /* MockAlbumRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEEDEA02A3A02FC00937255 /* MockAlbumRouter.swift */; };

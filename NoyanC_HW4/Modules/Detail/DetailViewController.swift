@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol DetailViewControllerProtocol: AnyObject {
     func setSongTitle(_ text: String)
