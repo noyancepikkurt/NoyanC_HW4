@@ -33,7 +33,6 @@ final class HomeViewController: UIViewController, LoadingShowable {
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.viewDidLoad()
-        recentlyCollectionView.reloadData()
     }
     
     private func setupRecentlyCollectionView() {

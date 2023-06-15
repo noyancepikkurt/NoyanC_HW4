@@ -11,10 +11,10 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeTabBarAppearance()
-        addTabbarItem()
+        addTabbarItems()
     }
     
-    private func addTabbarItem() {
+    private func addTabbarItems() {
         let homeVC = HomeRouter.createModule()
         let searchVC = SearchRouter.createModule()
         let favoritesVC = FavoritesRouter.createModule()

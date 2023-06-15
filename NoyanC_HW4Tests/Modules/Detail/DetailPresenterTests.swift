@@ -13,20 +13,17 @@ final class DetailPresenterTests: XCTestCase {
     var presenter: DetailPresenter!
     var view: MockDetailViewController!
     var interactor: MockDetailInteractor!
-    var router: DetailRouter!
     
     override func setUp() {
         super.setUp()
         view = .init()
         interactor = .init()
-        router = .init()
-        presenter = .init(view: view, router: router, interactor: interactor)
+        presenter = .init(view: view, interactor: interactor)
     }
     
     override func tearDown() {
         view = nil
         interactor = nil
-        router = nil
         presenter = nil
     }
     

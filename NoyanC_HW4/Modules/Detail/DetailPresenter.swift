@@ -21,7 +21,6 @@ protocol DetailPresenterProtocol: AnyObject {
 
 final class DetailPresenter {
     unowned var view: DetailViewControllerProtocol!
-    let router: DetailRouterProtocol!
     var interactor: DetailInteractorProtocol!
     private var songDetail: SongDetail?
     private var audioPlayer: AVAudioPlayer?
@@ -30,10 +29,8 @@ final class DetailPresenter {
     var videoURL: URL?
     
     init(view: DetailViewControllerProtocol,
-         router: DetailRouterProtocol,
          interactor: DetailInteractorProtocol!) {
         self.view = view
-        self.router = router
         self.interactor = interactor
     }
 }

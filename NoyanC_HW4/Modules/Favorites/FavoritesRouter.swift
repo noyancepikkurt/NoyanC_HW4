@@ -9,8 +9,6 @@ import UIKit
 import CoreData
 import SongAPI
 
-protocol FavoritesRouterProtocol { }
-
 final class FavoritesRouter {
     weak var viewController: FavoritesViewController?
     
@@ -19,13 +17,10 @@ final class FavoritesRouter {
         let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.favoritesVC.rawValue) as! FavoritesViewController
         let router = FavoritesRouter()
         let interactor = FavoritesInteractor()
-        let presenter = FavoritesPresenter(view: view, router: router, interactor: interactor)
+        let presenter = FavoritesPresenter(view: view, interactor: interactor)
         view.presenter = presenter
         interactor.output = presenter
-        router.viewController = view
         let favoritesNavigationController = UINavigationController(rootViewController: view)
         return favoritesNavigationController
     }
 }
-
-extension FavoritesRouter: FavoritesRouterProtocol { }

@@ -22,9 +22,9 @@ final class AlbumViewController: UIViewController, LoadingShowable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewDidLoad()
         setGradientBackground()
         setupNavigationBar()
-        presenter?.viewDidLoad()
         setupAlbumLabel()
     }
     

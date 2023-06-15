@@ -18,16 +18,13 @@ protocol FavoritesPresenterProtocol: AnyObject {
 
 final class FavoritesPresenter {
     unowned var view: FavoritesViewControllerProtocol?
-    let router: FavoritesRouterProtocol!
     let interactor: FavoritesInteractorProtocol!
     
     private var songsModel: [SongEntity] = []
     
     init(view: FavoritesViewControllerProtocol,
-         router: FavoritesRouterProtocol,
          interactor: FavoritesInteractorProtocol) {
         self.view = view
-        self.router = router
         self.interactor = interactor
     }
 }
