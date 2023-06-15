@@ -32,6 +32,7 @@ I have developed a music application that retrieves data from the iTunes API. Th
 <img width="170" src="https://github.com/noyanfmsstech/NoyanC_HW4/assets/127404543/1609ad73-e1d7-4698-98ce-b0d11eab56ac"> <img width="170" src="https://github.com/noyanfmsstech/NoyanC_HW4/assets/127404543/9b130010-5103-481c-82e5-94f34caedbd3">
 
 ## Demo Video
+https://github.com/noyanfmsstech/NoyanC_HW4/assets/127404543/7c145584-f0e7-4b48-82e9-c9305fae5e15
 
 
 
