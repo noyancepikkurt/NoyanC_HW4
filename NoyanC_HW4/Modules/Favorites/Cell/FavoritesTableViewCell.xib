@@ -17,10 +17,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-hh-q5z">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="116"/>
+                        <rect key="frame" x="0.0" y="6" width="100" height="104"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="uYq-9c-Ebm"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="6Uc-To-ayK">
                         <rect key="frame" x="108" y="16" width="202" height="84"/>
@@ -53,8 +58,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="6Uc-To-ayK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="07h-Aw-0dY"/>
-                    <constraint firstAttribute="bottom" secondItem="6c7-hh-q5z" secondAttribute="bottom" id="0fj-4l-Kh3"/>
-                    <constraint firstItem="6c7-hh-q5z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6Hv-A7-cEi"/>
+                    <constraint firstAttribute="bottom" secondItem="6c7-hh-q5z" secondAttribute="bottom" constant="6" id="0fj-4l-Kh3"/>
+                    <constraint firstItem="6c7-hh-q5z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="6Hv-A7-cEi"/>
                     <constraint firstItem="6c7-hh-q5z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Bs7-iw-ab6"/>
                     <constraint firstAttribute="bottom" secondItem="6Uc-To-ayK" secondAttribute="bottom" constant="16" id="MyT-Kw-tUD"/>
                     <constraint firstAttribute="trailing" secondItem="6Uc-To-ayK" secondAttribute="trailing" constant="10" id="hol-mv-tdu"/>
@@ -63,11 +68,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="8"/>
-                </userDefinedRuntimeAttribute>
-            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="favoritesAlbumName" destination="rTu-Cr-ZQB" id="e8Y-va-7Ry"/>
                 <outlet property="favoritesArtistName" destination="ote-Rs-Dv5" id="Rig-aZ-6or"/>

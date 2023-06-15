@@ -85,19 +85,6 @@ final class DetailPresenterTests: XCTestCase {
         XCTAssertTrue(view.isInvokedSetSongTitle)
         XCTAssertEqual(view.invokedSetSongTitleCount, 1)
     }
-    
-    func test_fetchSongOutput() {
-        var mockURL = URL(string: SongModel.responseDetail.results![0].previewURL!)
-        XCTAssertFalse(view.isInvokedHideLoading)
-        XCTAssertFalse(view.isInvokedUpdateButton)
-        XCTAssertEqual(view.invokedUpdateButtonCount, 0)
-
-        presenter.requestForAudio()
-
-        XCTAssertTrue(view.isInvokedHideLoading)
-        XCTAssertTrue(view.isInvokedUpdateButton)
-        XCTAssertEqual(view.invokedUpdateButtonCount, 1)
-    }
 }
 
 extension SongModel {

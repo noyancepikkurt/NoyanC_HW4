@@ -18,7 +18,7 @@ final class NoyanC_HW4UITests: XCTestCase {
         app.launchArguments.append("********** UITest Launching **********")
     }
     
-    private func searchTarkanSongOnKeyboard(_ songName: String) {
+    private func searchSongOnKeyboard(_ songName: String) {
         app.textFields.firstMatch.typeText(songName)
         app.keyboards.buttons["Geç"].tap()
     }
@@ -41,14 +41,14 @@ final class NoyanC_HW4UITests: XCTestCase {
     
     func test_home_view_controller_to_search_songs() throws {
         toSearchTextField()
-        searchTarkanSongOnKeyboard("Tarkan")
+        searchSongOnKeyboard("Tarkan")
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single"]/*[[".cells.staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]",".staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.navigationBars["NoyanC_HW4.DetailView"].buttons["Back"].tap()
     }
     
     func test_add_favorite_song_from_detail_view_controller() throws {
         toSearchTextField()
-        searchTarkanSongOnKeyboard("Tarkan")
+        searchSongOnKeyboard("Tarkan")
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single"]/*[[".cells.staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]",".staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.navigationBars["NoyanC_HW4.DetailView"].buttons["favorite"].tap()
         let favoriteButton = app.tabBars["Tab Bar"].buttons["Favorites"]
@@ -57,7 +57,7 @@ final class NoyanC_HW4UITests: XCTestCase {
     
     func test_play_song_detail_view_controller() {
         toSearchTextField()
-        searchTarkanSongOnKeyboard("Tarkan")
+        searchSongOnKeyboard("Tarkan")
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single"]/*[[".cells.staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]",".staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.buttons["play"].tap()
         sleep(7)
@@ -66,7 +66,7 @@ final class NoyanC_HW4UITests: XCTestCase {
     
     func test_play_video_detail_view_controller() {
         toSearchTextField()
-        searchTarkanSongOnKeyboard("Ezhel Aya")
+        searchSongOnKeyboard("Ezhel Aya")
         app.tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Ezhel")/*[[".cells.containing(.button, identifier:\"play.square.fill\")",".cells.containing(.staticText, identifier:\"Ezhel\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["AYA"].tap()
         app.buttons["play.square.fill"].tap()
         sleep(10)
