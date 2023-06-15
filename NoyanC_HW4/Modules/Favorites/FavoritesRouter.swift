@@ -15,7 +15,6 @@ final class FavoritesRouter {
     static func createModule() -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifiers.favoritesVC.rawValue) as! FavoritesViewController
-        let router = FavoritesRouter()
         let interactor = FavoritesInteractor()
         let presenter = FavoritesPresenter(view: view, interactor: interactor)
         view.presenter = presenter
