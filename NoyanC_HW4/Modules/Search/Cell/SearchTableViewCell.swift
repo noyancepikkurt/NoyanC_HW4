@@ -80,7 +80,7 @@ extension SearchTableViewCell: SearchCellProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.detailImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in 
+            self.detailImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in
                 self.imageIndicator.stopAnimating()
             }
         }

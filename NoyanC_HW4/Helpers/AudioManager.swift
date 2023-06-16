@@ -31,7 +31,7 @@ final class AudioManager {
         let player = AVPlayer(url: url)
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
-
+        
         presentingViewController.present(playerViewController, animated: true) {
             player.play()
         }

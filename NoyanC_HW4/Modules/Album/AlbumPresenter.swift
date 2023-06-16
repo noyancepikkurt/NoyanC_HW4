@@ -49,14 +49,12 @@ extension AlbumPresenter: AlbumPresenterProtocol {
     }
     
     private func fetchAlbumSongs() {
-        view?.showLoadingView()
         interactor.fetchAlbumSongs()
     }
 }
 
 extension AlbumPresenter: AlbumInteractorOutputProtocol {
     func fetchAlbumSongsOutput(_ result: AlbumSongsResult) {
-        view?.hideLoadingView()
         switch result {
         case .success(let success):
             guard let result = success.results else { return }

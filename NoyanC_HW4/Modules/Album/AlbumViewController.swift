@@ -10,8 +10,6 @@ import UIKit
 protocol AlbumViewControllerProtocol: AnyObject {
     func setupTableView()
     func reloadData()
-    func showLoadingView()
-    func hideLoadingView()
 }
 
 final class AlbumViewController: UIViewController, LoadingShowable {
@@ -70,13 +68,5 @@ extension AlbumViewController: AlbumViewControllerProtocol {
             guard let self else { return }
             self.albumTableView.reloadData()
         }
-    }
-    
-    func showLoadingView() {
-        self.showLoading()
-    }
-    
-    func hideLoadingView() {
-        self.hideLoading()
     }
 }

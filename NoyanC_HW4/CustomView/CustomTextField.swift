@@ -8,7 +8,6 @@
 import UIKit
 
 final class CustomTextField: UITextField {
-    
     let placeholderInsets = UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 10)
     
     lazy var leftImageView: UIImageView = {
@@ -18,7 +17,6 @@ final class CustomTextField: UITextField {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,8 +43,8 @@ final class CustomTextField: UITextField {
     }
     
     func setLightBlackBackgroundColor() {
-           self.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
-       }
+        self.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0)
+    }
     
     private func addSubview() {
         self.addSubview(leftImageView)

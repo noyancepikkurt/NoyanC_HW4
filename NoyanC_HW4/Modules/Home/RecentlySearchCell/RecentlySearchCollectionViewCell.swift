@@ -33,7 +33,7 @@ extension RecentlySearchCollectionViewCell: RecentlySearchCellProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.imageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in 
+            self.imageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in
                 self.indicator.stopAnimating()
             }
         }

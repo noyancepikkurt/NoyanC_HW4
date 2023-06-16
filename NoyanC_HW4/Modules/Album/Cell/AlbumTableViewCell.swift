@@ -33,7 +33,7 @@ extension AlbumTableViewCell: AlbumTableViewCellProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.songImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in 
+            self.songImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in
                 self.indicator.stopAnimating()
             }
         }
