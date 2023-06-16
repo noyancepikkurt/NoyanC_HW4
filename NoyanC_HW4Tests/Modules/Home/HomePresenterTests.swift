@@ -17,7 +17,6 @@ final class HomePresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
         view = .init()
         interactor = .init()
         router = .init()

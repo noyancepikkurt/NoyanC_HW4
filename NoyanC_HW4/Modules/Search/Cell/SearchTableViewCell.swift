@@ -49,7 +49,7 @@ final class SearchTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func videoButtonAction(_ sender: Any) {
+    @IBAction private func videoButtonAction(_ sender: Any) {
         guard let url = cellPresenter.videoURL else { return }
         delegate?.videoButtonTapped(withURL: url)
     }

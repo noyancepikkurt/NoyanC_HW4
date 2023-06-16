@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import CoreData
-import SongAPI
 
 final class FavoritesRouter {
     weak var viewController: FavoritesViewController?

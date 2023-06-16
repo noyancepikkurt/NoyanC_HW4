@@ -5,7 +5,7 @@
 //  Created by Noyan Çepikkurt on 15.06.2023.
 //
 
-import Foundation
+import UIKit
 @testable import NoyanC_HW4
 
 final class MockDetailViewController: DetailViewControllerProtocol {
@@ -36,7 +36,7 @@ final class MockDetailViewController: DetailViewControllerProtocol {
     var isInvokedSetSongImage = false
     var invokedSetSongImageCount = 0
     
-    func setSongImage(_ imageURL: String) {
+    func setSongImage(_ image: UIImage) {
         isInvokedSetSongImage = true
         invokedSetSongImageCount += 1
     }

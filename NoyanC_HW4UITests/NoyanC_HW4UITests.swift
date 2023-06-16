@@ -60,7 +60,7 @@ final class NoyanC_HW4UITests: XCTestCase {
         searchSongOnKeyboard("Tarkan")
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single"]/*[[".cells.staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]",".staticTexts[\"Hop De - Zamansız Şarkılar, Vol. 2 (feat. Tarkan) - Single\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.buttons["play"].tap()
-        sleep(7)
+        sleep(10)
         app.buttons["stop.circle"].tap()
     }
     
@@ -69,6 +69,6 @@ final class NoyanC_HW4UITests: XCTestCase {
         searchSongOnKeyboard("Ezhel Aya")
         app.tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Ezhel")/*[[".cells.containing(.button, identifier:\"play.square.fill\")",".cells.containing(.staticText, identifier:\"Ezhel\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["AYA"].tap()
         app.buttons["play.square.fill"].tap()
-        sleep(10)
+        sleep(13)
     }
 }

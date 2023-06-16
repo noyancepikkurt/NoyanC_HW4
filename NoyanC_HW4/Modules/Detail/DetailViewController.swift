@@ -48,7 +48,7 @@ final class DetailViewController: UIViewController {
         stopAudio()
     }
     
-    @IBAction func videoButtonAction(_ sender: Any) {
+    @IBAction private func videoButtonAction(_ sender: Any) {
         guard let videoURL = presenter.videoURL else { return }
         AudioManager.shared.showVideo(from: videoURL, presentingViewController: self)
     }

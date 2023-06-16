@@ -13,7 +13,7 @@ final class SplashPresenterTests: XCTestCase {
     var view: MockSplashViewController!
     var interactor: MockSplashInteractor!
     var router: MockSplashRouter!
-
+    
     override func setUp() {
         super.setUp()
         view = .init()
@@ -28,14 +28,13 @@ final class SplashPresenterTests: XCTestCase {
         router = nil
         presenter = nil
     }
-
     
     func test_checkThereIsInternetConnection() {
         XCTAssertFalse(view.isInvokedNoInternetConnection)
         XCTAssertEqual(view.invokedNoInternetConnectionCount, 0)
         XCTAssertFalse(interactor.isInvokedCheckInternetConnection)
         XCTAssertEqual(interactor.invokedCheckInternetConnectionCount, 0)
-
+        
         presenter.viewDidAppear()
         presenter.internetConnection(status: true)
         
@@ -50,7 +49,7 @@ final class SplashPresenterTests: XCTestCase {
         XCTAssertEqual(view.invokedNoInternetConnectionCount, 0)
         XCTAssertFalse(interactor.isInvokedCheckInternetConnection)
         XCTAssertEqual(interactor.invokedCheckInternetConnectionCount, 0)
-
+        
         presenter.internetConnection(status: false)
         
         XCTAssertTrue(view.isInvokedNoInternetConnection)

@@ -9,22 +9,6 @@ import Foundation
 @testable import NoyanC_HW4
 
 final class MockAlbumViewController: AlbumViewControllerProtocol {
-    var isInvokedShowLoading = false
-    var invokedShowLoadingCount = 0
-    
-    func showLoadingView() {
-        isInvokedShowLoading = true
-        invokedShowLoadingCount += 1
-    }
-    
-    var isInvokedHideLoading = false
-    var invokedHideLoadingCount = 0
-    
-    func hideLoadingView() {
-        isInvokedHideLoading = true
-        invokedHideLoadingCount += 1
-    }
-    
     var isInvokedSetupTableView = false
     var invokedSetupTableViewCount = 0
     

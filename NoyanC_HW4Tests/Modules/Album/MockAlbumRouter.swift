@@ -13,7 +13,7 @@ final class MockAlbumRouter: AlbumRouterProtocol {
     var invokedNavigateCount = 0
     var invokedNavigateParameters: (route: AlbumRoutes, Void)?
     
-    func navigate(_ route: NoyanC_HW4.AlbumRoutes) {
+    func navigate(_ route: AlbumRoutes) {
         isInvokedNavigate = true
         invokedNavigateCount += 1
         invokedNavigateParameters = (route, ())

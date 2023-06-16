@@ -45,13 +45,11 @@ final class AlbumPresenterTests: XCTestCase {
     }
     
     func test_fetchSongOutput() {
-        XCTAssertFalse(view.isInvokedHideLoading)
         XCTAssertEqual(presenter.numberOfItem(), 0)
         XCTAssertFalse(view.isInvokedReloadData)
         
         presenter.fetchAlbumSongsOutput(.success(.response))
         
-        XCTAssertTrue(view.isInvokedHideLoading)
         XCTAssertEqual(presenter.numberOfItem(), 50)
         XCTAssertTrue(view.isInvokedReloadData)
     }

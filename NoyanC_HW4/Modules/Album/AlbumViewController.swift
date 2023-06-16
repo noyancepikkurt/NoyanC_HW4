@@ -12,7 +12,7 @@ protocol AlbumViewControllerProtocol: AnyObject {
     func reloadData()
 }
 
-final class AlbumViewController: UIViewController, LoadingShowable {
+final class AlbumViewController: UIViewController {
     @IBOutlet private weak var albumTitleLabel: UILabel!
     @IBOutlet private var albumTableView: UITableView!
     

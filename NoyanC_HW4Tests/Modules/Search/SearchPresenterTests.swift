@@ -29,7 +29,7 @@ final class SearchPresenterTests: XCTestCase {
         router = nil
         presenter = nil
     }
-
+    
     func test_viewDidLoad_InvokesRequiredViewMethods() {
         XCTAssertFalse(view.isInvokedSetupTableView)
         XCTAssertEqual(view.invokedSetupTableViewCount, 0)

@@ -31,11 +31,10 @@ final class DetailPresenterTests: XCTestCase {
         view.setSongTitle(SongModel.responseDetail.results![0].trackName!)
         view.setSongArtistName(SongModel.responseDetail.results![0].artistName!)
         view.setSongKindName(SongModel.responseDetail.results![0].kind!)
-        view.setSongImage(SongModel.responseDetail.results![0].previewURL!)
         view.setSongTrackPrice("\(SongModel.responseDetail.results![0].trackPrice!)")
         view.setSongCollectionPrice("\(SongModel.responseDetail.results![0].collectionPrice!)")
     }
-
+    
     func test_viewDidLoad_InvokesRequiredViewMethods() {
         XCTAssertFalse(view.isInvokedSetSongTitle)
         XCTAssertEqual(view.invokedSetSongTitleCount, 0)
@@ -68,8 +67,6 @@ final class DetailPresenterTests: XCTestCase {
         XCTAssertEqual(view.invokedSetSongArtistNameCount, 1)
         XCTAssertTrue(view.isInvokedSetSongKindName)
         XCTAssertEqual(view.invokedSetSongKindNameCount, 1)
-        XCTAssertTrue(view.isInvokedSetSongImage)
-        XCTAssertEqual(view.invokedSetSongImageCount, 1)
         XCTAssertTrue(view.isInvokedSetSongTrackPrice)
         XCTAssertEqual(view.invokedSetSongTrackPriceCount, 1)
         XCTAssertTrue(view.isInvokedSetSongCollectionPrice)
