@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import SDWebImage
 
 protocol FavoritesCellProtocol: AnyObject {
-    func setImage(_ imageURL: String)
+    func setImage(_ image: UIImage)
     func setSongName(_ text: String)
     func setArtist(_ text: String)
     func setAlbum(_ text: String)
@@ -33,11 +32,10 @@ final class FavoritesTableViewCell: UITableViewCell {
 }
 
 extension FavoritesTableViewCell: FavoritesCellProtocol {
-    func setImage(_ imageURL: String) {
+    func setImage(_ image: UIImage) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.favoritesImageView.sd_setImage(with: URL(string: updatedURL))
+            self.favoritesImageView.image = image
         }
     }
     

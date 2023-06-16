@@ -15,4 +15,6 @@ enum AlertMessages: String {
     case deleteFavoriteMessage = "If you click OK, this song will be removed from your favorites"
     case favoriteListTitle = "Your favorite list is empty"
     case favoriteListMessage = "Press star button in the song details to add a song to favorites"
+    case noRecentTitle = "You have no recent searches"
+    case noRecentMessage = "Your recent searches will be displayed here"
 }

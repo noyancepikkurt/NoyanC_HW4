@@ -7,6 +7,7 @@
 
 import SongAPI
 import AVFoundation
+import SDWebImage
 
 protocol SearchCellPresenterProtocol: AnyObject {
     func load()
@@ -32,12 +33,20 @@ final class SearchCellPresenter {
 
 extension SearchCellPresenter: SearchCellPresenterProtocol {
     func load() {
-        
-        
-        view?.setImage(song.artworkUrl100 ?? "")
         view?.setSongName(song.trackName ?? "")
         view?.setAlbumName(song.collectionName ?? "")
         view?.setArtistName(song.artistName ?? "")
+        
+        view?.showIndicator()
+        guard let imageUrl = song.artworkUrl100 else { return }
+        let qualityImageUrl = ImageUrlTransform.shared.improveQuality(imageUrl)
+        SDWebImageManager.shared.loadImage(with: URL(string: qualityImageUrl), context: nil, progress: nil) { [weak self] image, _, error, _, _, _ in
+            guard let self else { return }
+            if let image {
+                self.view?.setImage(image)
+                self.view?.hideIndicator()
+            }
+        }
         
         if let previewURL = song.previewURL {
             let url = URL(string: previewURL)

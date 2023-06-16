@@ -7,6 +7,7 @@
 
 import SongAPI
 import AVFoundation
+import SDWebImage
 
 protocol DetailPresenterProtocol: AnyObject {
     func viewDidLoad()
@@ -60,7 +61,14 @@ extension DetailPresenter: DetailPresenterProtocol {
         view.setSongKindName(songDetail.primaryGenreName ?? "")
         view.setSongTrackPrice("Track Price: \(String(describing: trackPrice)) TRY")
         view.setSongCollectionPrice("Collection Price: \(String(describing: collectionPrice)) TRY")
-        view.setSongImage(songDetail.artworkUrl100 ?? "")
+        
+        guard let imageUrl = songDetail.artworkUrl100 else { return }
+        let qualityImageUrl = ImageUrlTransform.shared.improveQuality(imageUrl)
+        SDWebImageManager.shared.loadImage(with: URL(string: qualityImageUrl), context: nil, progress: nil) { image, _, error, _, _, _ in
+            if let image {
+                self.view.setSongImage(image)
+            }
+        }
         
         if let previewURL = songDetail.previewURL {
             let url = URL(string: previewURL)

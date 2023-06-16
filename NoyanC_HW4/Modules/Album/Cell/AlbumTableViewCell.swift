@@ -8,9 +8,11 @@
 import UIKit
 
 protocol AlbumTableViewCellProtocol: AnyObject {
-    func setImage(_ imageURL: String)
+    func setImage(_ image: UIImage)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
+    func showIndicator()
+    func hideIndicator()
 }
 
 final class AlbumTableViewCell: UITableViewCell {
@@ -27,15 +29,10 @@ final class AlbumTableViewCell: UITableViewCell {
 }
 
 extension AlbumTableViewCell: AlbumTableViewCellProtocol {
-    func setImage(_ imageURL: String) {
-        self.indicator.isHidden = false
-        self.indicator.startAnimating()
+    func setImage(_ image: UIImage) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.songImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in
-                self.indicator.stopAnimating()
-            }
+            songImageView.image = image
         }
     }
     
@@ -45,6 +42,15 @@ extension AlbumTableViewCell: AlbumTableViewCellProtocol {
     
     func setArtistName(_ text: String) {
         self.artistNameLabel.text = text
+    }
+    
+    func showIndicator() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+    }
+    
+    func hideIndicator() {
+        self.indicator.stopAnimating()
     }
 }
 

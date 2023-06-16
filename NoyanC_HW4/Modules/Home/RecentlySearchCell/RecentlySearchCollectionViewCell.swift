@@ -8,9 +8,11 @@
 import UIKit
 
 protocol RecentlySearchCellProtocol: AnyObject {
-    func setImage(_ imageURL: String)
+    func setImage(_ image: UIImage)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
+    func showIndicator()
+    func hideIndicator()
 }
 
 final class RecentlySearchCollectionViewCell: UICollectionViewCell {
@@ -27,15 +29,10 @@ final class RecentlySearchCollectionViewCell: UICollectionViewCell {
 }
 
 extension RecentlySearchCollectionViewCell: RecentlySearchCellProtocol {
-    func setImage(_ imageURL: String) {
-        self.indicator.isHidden = false
-        self.indicator.startAnimating()
+    func setImage(_ image: UIImage) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.imageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in
-                self.indicator.stopAnimating()
-            }
+            self.imageView.image = image
         }
     }
     
@@ -45,5 +42,14 @@ extension RecentlySearchCollectionViewCell: RecentlySearchCellProtocol {
     
     func setArtistName(_ text: String) {
         self.artistLabel.text = text
+    }
+    
+    func showIndicator() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+    }
+    
+    func hideIndicator() {
+        self.indicator.stopAnimating()
     }
 }

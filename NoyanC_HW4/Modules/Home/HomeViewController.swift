@@ -76,7 +76,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return imageArrayCount
         } else {
             if presenter.numberOfItems() == 0 {
-                recentlyCollectionView.setEmptyView(title: "You have no recent searches", message: "Your recent searches will be displayed here")
+                recentlyCollectionView.setEmptyView(title: AlertMessages.noRecentTitle.rawValue,
+                                                    message: AlertMessages.noRecentMessage.rawValue)
                 recenlySearchLabel.isHidden = true
             } else {
                 recentlyCollectionView.restore()

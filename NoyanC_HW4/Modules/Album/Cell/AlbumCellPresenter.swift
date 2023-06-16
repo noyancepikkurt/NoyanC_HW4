@@ -6,6 +6,7 @@
 //
 
 import SongAPI
+import SDWebImage
 
 protocol AlbumCellPresenterProtocol: AnyObject {
     func load()
@@ -25,8 +26,17 @@ final class AlbumCellPresenter {
 
 extension AlbumCellPresenter: AlbumCellPresenterProtocol {
     func load() {
-        view.setImage(songDetail.artworkUrl100 ?? "")
         view.setSongName(songDetail.trackName ?? "")
         view.setArtistName(songDetail.artistName ?? "")
+        
+        view.showIndicator()
+        guard let imageUrl = songDetail.artworkUrl100 else { return }
+        let qualityImageUrl = ImageUrlTransform.shared.improveQuality(imageUrl)
+        SDWebImageManager.shared.loadImage(with: URL(string: qualityImageUrl), context: nil, progress: nil) { image, _, error, _, _, _ in
+            if let image {
+                self.view.setImage(image)
+                self.view.hideIndicator()
+            }
+        }
     }
 }

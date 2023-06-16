@@ -11,7 +11,7 @@ protocol DetailViewControllerProtocol: AnyObject {
     func setSongTitle(_ text: String)
     func setSongArtistName(_ text: String)
     func setSongKindName(_ text: String)
-    func setSongImage(_ imageURL: String)
+    func setSongImage(_ image: UIImage)
     func setSongTrackPrice(_ text: String)
     func setSongCollectionPrice(_ text: String)
     func updateButton()
@@ -124,11 +124,10 @@ extension DetailViewController: DetailViewControllerProtocol {
         self.detailKindLabel.text = text
     }
     
-    func setSongImage(_ imageURL: String) {
+    func setSongImage(_ image: UIImage) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.detailImageView.sd_setImage(with: URL(string: updatedURL))
+            self.detailImageView.image = image
         }
     }
     

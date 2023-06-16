@@ -12,13 +12,15 @@ protocol VideoButtonDelegate: AnyObject {
 }
 
 protocol SearchCellProtocol: AnyObject {
-    func setImage(_ imageURL: String)
+    func setImage(_ image: UIImage)
     func setSongName(_ text: String)
     func setArtistName(_ text: String)
     func setAlbumName(_ text: String)
     func updateButton()
     func hideLoadingView()
     func setupVideoImage(_ isThereVideoURL: Bool)
+    func showIndicator()
+    func hideIndicator()
 }
 
 final class SearchTableViewCell: UITableViewCell {
@@ -74,15 +76,10 @@ final class SearchTableViewCell: UITableViewCell {
 }
 
 extension SearchTableViewCell: SearchCellProtocol {
-    func setImage(_ imageURL: String) {
-        self.imageIndicator.isHidden = false
-        self.imageIndicator.startAnimating()
+    func setImage(_ image: UIImage) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            let updatedURL = ImageUrlTransform.shared.improveQuality(imageURL)
-            self.detailImageView.sd_setImage(with: URL(string: updatedURL)) {_,_,_,_ in
-                self.imageIndicator.stopAnimating()
-            }
+            self.detailImageView.image = image
         }
     }
     
@@ -111,6 +108,15 @@ extension SearchTableViewCell: SearchCellProtocol {
     func hideLoadingView() {
         audioButtonImage.isHidden = false
         indicator.isHidden = true
+    }
+    
+    func showIndicator() {
+        self.imageIndicator.isHidden = false
+        self.imageIndicator.startAnimating()
+    }
+    
+    func hideIndicator() {
+        self.imageIndicator.stopAnimating()
     }
 }
 
